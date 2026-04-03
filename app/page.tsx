@@ -1,3 +1,4 @@
+import { LanguageProvider } from '@/lib/LanguageContext'
 import Header from '@/components/Header'
 import Hero from '@/components/Hero'
 import CTASpots from '@/components/CTASpots'
@@ -10,16 +11,18 @@ import Footer from '@/components/Footer'
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[#080603]">
-      <Header />
-      <Hero />
-      <CTASpots />
-      <EconomicSurge />
-      <Pricing />
-      <HowItWorks />
-      <OurWork />
-      <ClaimSpot />
-      <Footer />
-    </main>
+    <LanguageProvider>
+      <main className="min-h-screen bg-[#080603]">
+        <Header />
+        <Hero />
+        <CTASpots />
+        <EconomicSurge />
+        <Pricing />
+        <HowItWorks />
+        <OurWork />
+        <ClaimSpot />
+        <Footer />
+      </main>
+    </LanguageProvider>
   )
 }
