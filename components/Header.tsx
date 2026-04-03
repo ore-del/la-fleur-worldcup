@@ -6,52 +6,38 @@ export default function Header() {
   const [lang, setLang] = useState<'EN' | 'FR'>('EN')
 
   return (
-    <div className="w-full bg-[#D2A822] py-2 px-4">
-      <div className="max-w-6xl mx-auto flex items-center justify-between">
-        {/* Logo + Nav pill */}
-        <div className="flex items-center gap-8 bg-[#080603] rounded-full px-5 py-2">
-          {/* Logo */}
-          <div className="flex items-center gap-2">
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M10 2L12.5 7.5H18L13.5 11L15.5 17L10 13.5L4.5 17L6.5 11L2 7.5H7.5L10 2Z" fill="#CB983A"/>
-            </svg>
-            <span className="text-white font-bold text-sm tracking-wide" style={{ fontFamily: 'sans-serif' }}>
-              La Fleur
-            </span>
-          </div>
-
-          {/* Nav links */}
-          <nav className="hidden md:flex items-center gap-6">
-            <a href="#pricing" className="text-white/70 hover:text-white text-sm transition-colors">
-              Pricing
-            </a>
-            <a href="#work" className="text-white/70 hover:text-white text-sm transition-colors">
-              Work
-            </a>
-            <a href="#ai-workflow" className="text-white/70 hover:text-white text-sm transition-colors">
-              AI Workflow
-            </a>
-          </nav>
+    <div className="w-full bg-[#d2a822] py-[10px] px-[128px]">
+      <div className="bg-black flex items-center justify-between px-6 py-3 rounded-full w-full">
+        {/* Logo */}
+        <div className="flex items-center gap-2">
+          <span className="text-[#cb983a] text-2xl leading-none">✦</span>
+          <span className="text-white font-bold text-[22px] leading-none" style={{ fontFamily: 'Inter, sans-serif' }}>
+            La Fleur
+          </span>
+          <span className="text-[#cb983a] text-sm leading-none opacity-70 ml-0.5">®</span>
         </div>
 
+        {/* Nav links */}
+        <nav className="flex items-center gap-[42px]">
+          <a href="#pricing" className="text-white/75 hover:text-white text-[14px] transition-colors">Pricing</a>
+          <a href="#work" className="text-white/75 hover:text-white text-[14px] transition-colors">Work</a>
+          <a href="#ai-workflow" className="text-white/75 hover:text-white text-[14px] transition-colors">AI Workflow</a>
+        </nav>
+
         {/* Language switcher */}
-        <div className="flex items-center gap-1 bg-[#080603] rounded-full p-1">
+        <div className="bg-[#2a2a2a] flex items-center gap-1 h-9 pl-1 pr-1 rounded-full">
           <button
             onClick={() => setLang('EN')}
-            className={`px-3 py-1 rounded-full text-xs font-medium transition-all ${
-              lang === 'EN'
-                ? 'bg-[#CB983A] text-[#080603]'
-                : 'text-white/60 hover:text-white'
+            className={`h-7 w-[42px] rounded-full text-[14px] font-medium transition-all ${
+              lang === 'EN' ? 'bg-[#cb983a] text-white' : 'text-white hover:text-white/80'
             }`}
           >
             EN
           </button>
           <button
             onClick={() => setLang('FR')}
-            className={`px-3 py-1 rounded-full text-xs font-medium transition-all ${
-              lang === 'FR'
-                ? 'bg-[#CB983A] text-[#080603]'
-                : 'text-white/60 hover:text-white'
+            className={`h-7 w-[40px] rounded-full text-[14px] font-medium transition-all ${
+              lang === 'FR' ? 'bg-[#cb983a] text-white' : 'text-white hover:text-white/80'
             }`}
           >
             FR

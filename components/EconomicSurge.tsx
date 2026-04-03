@@ -1,71 +1,73 @@
+'use client'
+
+import { useReveal } from './useReveal'
+
 const stats = [
   {
     value: '$2.4B+',
-    label: 'Projected GDP Impact',
-    description: 'Economists forecast a historic economic surge across the Greater Toronto Area during the tournament.',
-    accent: '#CB983A',
+    label: 'PROJECTED GDP IMPACT',
+    description: "New capital circulating through Toronto's business ecosystem during the 2026 campaign cycle.",
+    accent: '#f0c060',
+    borderColor: 'rgba(240,192,96,0.25)',
   },
   {
     value: '1.5M+',
-    label: 'Global Visitors',
-    description: "Tourists from across the planet will flood Toronto's restaurants, hotels, shops, and services.",
-    accent: '#C41E1E',
+    label: 'GLOBAL VISITORS',
+    description: 'High-intent consumers flooding the downtown core looking for premium services and local brands.',
+    accent: '#c41e1e',
+    borderColor: 'rgba(196,30,30,0.25)',
   },
   {
     value: '48',
-    label: 'Nations Converging',
-    description: 'Fans from every corner of the world, all spending — and all searching online for local businesses like yours.',
-    accent: '#F0C060',
+    label: 'NATIONS CONVERGING',
+    description: 'Toronto becomes the center of the world. Every local business is now a global business.',
+    accent: '#cb983a',
+    borderColor: 'rgba(203,152,58,0.25)',
   },
 ]
 
 export default function EconomicSurge() {
+  const ref = useReveal()
+
   return (
-    <section className="py-24 px-6 bg-[#080603]">
-      <div className="max-w-6xl mx-auto">
-        {/* Section label */}
-        <p className="text-[#CB983A] text-xs tracking-[3px] uppercase font-medium mb-4 text-center">
-          The Opportunity
-        </p>
-
-        <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-4 tracking-tight">
-          A once-in-a-lifetime economic surge
+    <section ref={ref as React.RefObject<HTMLElement>} className="relative overflow-hidden bg-[#0e0a04] py-20 px-16 min-h-[480px]">
+      {/* Left vertical gold bar + title */}
+      <div className="reveal flex items-start gap-4 mb-10">
+        <div className="w-1 rounded-[2px] bg-[rgba(203,152,58,0.8)] shrink-0 mt-2" style={{ height: '120px' }} />
+        <h2 className="text-white font-bold text-[52px] leading-[1.1] tracking-[-1px]">
+          A ONCE-IN-A-LIFETIME<br />ECONOMIC SURGE
         </h2>
-        <p className="text-white/50 text-center max-w-xl mx-auto mb-16 leading-relaxed">
-          The FIFA World Cup is the most-watched sporting event on Earth. In 2026, Toronto is a host city — and your window to capture that energy online is closing fast.
-        </p>
+      </div>
 
-        {/* Stats grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {stats.map((stat) => (
+      {/* Stat cards */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-0">
+        {stats.map((stat, i) => (
+          <div
+            key={stat.label}
+            className={`reveal reveal-delay-${i + 1} card-spring relative bg-white/[0.03] rounded-[12px] overflow-hidden p-5 h-[200px]`}
+            style={{ border: `1px solid ${stat.borderColor}` }}
+          >
+            {/* Left accent bar */}
             <div
-              key={stat.label}
-              className="relative rounded-xl p-8 bg-white/5 border border-white/10 overflow-hidden group hover:bg-white/[0.07] transition-colors"
-              style={{ borderLeft: `3px solid ${stat.accent}` }}
-            >
-              {/* Glow */}
-              <div
-                className="absolute top-0 left-0 w-32 h-32 rounded-full opacity-10 blur-2xl"
-                style={{ background: stat.accent }}
-              />
+              className="absolute left-0 top-0 bottom-0 w-[3px] rounded-[2px]"
+              style={{ background: stat.accent }}
+            />
 
-              <div className="relative z-10">
-                <p
-                  className="text-5xl font-bold mb-2 leading-none"
-                  style={{ color: stat.accent }}
-                >
-                  {stat.value}
-                </p>
-                <p className="text-white font-semibold mb-3 text-sm tracking-wide uppercase">
-                  {stat.label}
-                </p>
-                <p className="text-white/50 text-sm leading-relaxed">
-                  {stat.description}
-                </p>
-              </div>
-            </div>
-          ))}
-        </div>
+            <p
+              className="stat-number text-[48px] font-bold leading-none tracking-[-1.5px] whitespace-nowrap"
+              style={{ color: stat.accent, animationDelay: `${i * 120}ms` }}
+            >
+              {stat.value}
+            </p>
+            <p className="text-white/45 text-[10px] font-bold tracking-[1.5px] mt-1">
+              {stat.label}
+            </p>
+            <div className="h-px bg-white/[0.08] my-3" />
+            <p className="text-white/65 text-[13px] leading-[1.55]">
+              {stat.description}
+            </p>
+          </div>
+        ))}
       </div>
     </section>
   )
