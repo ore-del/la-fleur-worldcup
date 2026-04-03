@@ -10,40 +10,40 @@ const clients = [
 
 export default function CTASpots() {
   return (
-    <section className="relative h-[180px] overflow-hidden bg-[#080603] px-16">
+    <section className="relative bg-[#080603] px-16 py-0 pt-0 overflow-hidden">
       {/* CTAs */}
-      <div className="flex items-start gap-6 pt-0">
+      <div className="flex items-start gap-6 pt-0 pb-5">
         <a
           href="#claim"
-          className="inline-block bg-[#cb983a] text-[#080603] font-semibold text-[15px] h-[52px] leading-[52px] px-10 rounded-[8px] hover:bg-[#f0c060] transition-colors whitespace-nowrap"
+          className="btn-spring btn-primary-glow inline-block bg-[#cb983a] text-[#080603] font-semibold text-[15px] h-[52px] leading-[52px] px-10 rounded-[8px] whitespace-nowrap focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#f0c060]"
         >
           Get my World Cup site
         </a>
         <a
           href="#pricing"
-          className="inline-block border-[1.5px] border-[rgba(203,152,58,0.6)] text-[#cb983a] font-normal text-[15px] h-[52px] leading-[52px] px-10 rounded-[8px] hover:bg-[#cb983a]/10 transition-colors whitespace-nowrap"
+          className="btn-spring inline-block border-[1.5px] border-[rgba(203,152,58,0.6)] text-[#cb983a] font-normal text-[15px] h-[52px] leading-[52px] px-10 rounded-[8px] hover:bg-[#cb983a]/10 whitespace-nowrap focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#cb983a]"
         >
           {`See what's included`}
         </a>
       </div>
 
       {/* Progress bar */}
-      <div className="mt-5">
+      <div className="mb-4">
         <div className="flex items-center justify-between mb-2">
           <span className="text-white/85 text-[14px] font-semibold">Spots claimed so far</span>
           <span className="text-[#cb983a] text-[14px] font-semibold">7 of 20 spots</span>
         </div>
-        <div className="relative h-[6px] bg-white/10 rounded-[3px] w-full">
-          <div className="absolute left-0 top-0 h-full bg-[#cb983a] rounded-[3px]" style={{ width: '35%' }} />
+        <div className="relative h-[6px] bg-white/10 rounded-[3px] w-full overflow-hidden">
+          <div className="progress-bar absolute left-0 top-0 h-full bg-[#cb983a] rounded-[3px]" style={{ width: '35%' }} />
         </div>
       </div>
 
-      {/* Client name badges */}
-      <div className="flex flex-wrap items-center gap-2 mt-3">
+      {/* Client badges with stagger */}
+      <div className="badge-stagger flex flex-wrap items-center gap-2 pb-6">
         {clients.map((name) => (
           <span
             key={name}
-            className="bg-white/6 border border-white/15 rounded-full px-[7px] h-[28px] leading-[28px] text-white/75 text-[12px] whitespace-nowrap"
+            className="bg-white/[0.06] border border-white/15 rounded-full px-[7px] h-[28px] leading-[28px] text-white/75 text-[12px] whitespace-nowrap"
           >
             {name}
           </span>
