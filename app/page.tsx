@@ -1,5 +1,6 @@
 import Header from '@/components/Header'
 import Hero from '@/components/Hero'
+import CTASpots from '@/components/CTASpots'
 import EconomicSurge from '@/components/EconomicSurge'
 import Pricing from '@/components/Pricing'
 import HowItWorks from '@/components/HowItWorks'
@@ -12,6 +13,7 @@ export default function Home() {
     <main className="min-h-screen bg-[#080603]">
       <Header />
       <Hero />
+      <CTASpots />
       <EconomicSurge />
       <Pricing />
       <HowItWorks />

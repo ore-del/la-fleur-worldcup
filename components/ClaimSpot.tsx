@@ -3,16 +3,9 @@
 import { useState } from 'react'
 
 export default function ClaimSpot() {
-  const [selectedPlan, setSelectedPlan] = useState<'world-cup-ready' | 'full-refresh'>('full-refresh')
+  const [selectedPlan, setSelectedPlan] = useState<0 | 1>(0)
   const [submitted, setSubmitted] = useState(false)
-  const [form, setForm] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    business: '',
-    category: '',
-    message: '',
-  })
+  const [form, setForm] = useState({ business: '', email: '' })
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
@@ -21,185 +14,114 @@ export default function ClaimSpot() {
 
   if (submitted) {
     return (
-      <section id="claim" className="py-24 px-6 bg-[#080603]">
-        <div className="max-w-lg mx-auto text-center">
-          <div className="w-16 h-16 rounded-full bg-[#CB983A]/20 flex items-center justify-center mx-auto mb-6">
-            <svg className="w-8 h-8 text-[#CB983A]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-            </svg>
-          </div>
-          <h2 className="text-3xl font-bold text-white mb-4">Spot Claimed!</h2>
-          <p className="text-white/60 leading-relaxed">
-            We received your request and will reach out within 24 hours to get started.
-            Get ready — your business is about to be World Cup ready.
-          </p>
+      <section id="claim" className="relative bg-[#0a0804] py-24 px-16 flex flex-col items-center justify-center min-h-[400px]">
+        <div className="w-16 h-16 rounded-full bg-[#cb983a]/20 flex items-center justify-center mx-auto mb-6">
+          <svg className="w-8 h-8 text-[#cb983a]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+          </svg>
         </div>
+        <h2 className="text-white font-bold text-[40px] tracking-[-1px] text-center mb-3">Spot Claimed!</h2>
+        <p className="text-white/60 text-[16px] text-center max-w-md leading-relaxed">
+          {"We'll reach out within 24 hours to get started. Get ready — your business is about to be World Cup ready."}
+        </p>
       </section>
     )
   }
 
   return (
-    <section id="claim" className="py-24 px-6 bg-[#080603]">
-      <div className="max-w-2xl mx-auto">
-        {/* Section label */}
-        <p className="text-[#CB983A] text-xs tracking-[3px] uppercase font-medium mb-4 text-center">
-          Get Started
-        </p>
+    <section id="claim" className="relative bg-[#0a0804] py-20 px-16 min-h-[670px]">
+      <div className="absolute inset-0 bg-[#0a0804]" />
 
-        <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-4 tracking-tight">
+      <div className="relative z-10">
+        <h2 className="text-white font-bold text-[56px] leading-none tracking-[-1.5px] text-center mb-3">
           Claim your spot
         </h2>
-        <p className="text-white/50 text-center mb-12 leading-relaxed">
-          Fill out this short form and we'll reach out within 24 hours to get you started.
-          Only <span className="text-[#F0C060] font-semibold">13 spots</span> remaining.
+        <p className="text-white/55 text-[16px] text-center mb-10">
+          {`Only 13 spots remaining. We'll follow up within 24 hours.`}
         </p>
 
+        {/* Form card */}
         <form
           onSubmit={handleSubmit}
-          className="bg-white/[0.03] border border-white/10 rounded-2xl p-8 space-y-5"
+          className="bg-white/[0.04] border-[1.5px] border-[rgba(203,152,58,0.25)] rounded-[16px] overflow-hidden max-w-[640px] mx-auto p-[38.5px]"
         >
-          {/* Plan selection */}
-          <div className="space-y-3">
-            <label className="block text-white/60 text-xs tracking-[2px] uppercase font-medium">
-              Select your plan
-            </label>
-            <div className="grid grid-cols-2 gap-3">
-              {[
-                { id: 'world-cup-ready', label: 'World Cup Ready', price: '$149/mo' },
-                { id: 'full-refresh', label: 'Full Digital Refresh', price: '$249/mo' },
-              ].map((plan) => (
-                <button
-                  key={plan.id}
-                  type="button"
-                  onClick={() => setSelectedPlan(plan.id as typeof selectedPlan)}
-                  className={`relative p-4 rounded-xl border text-left transition-all ${
-                    selectedPlan === plan.id
-                      ? 'border-[#CB983A] bg-[#CB983A]/10'
-                      : 'border-white/10 hover:border-white/20'
-                  }`}
-                >
-                  <div
-                    className={`w-4 h-4 rounded-full border-2 mb-2 flex items-center justify-center ${
-                      selectedPlan === plan.id ? 'border-[#CB983A]' : 'border-white/20'
-                    }`}
-                  >
-                    {selectedPlan === plan.id && (
-                      <div className="w-2 h-2 rounded-full bg-[#CB983A]" />
-                    )}
-                  </div>
-                  <p className="text-white font-medium text-sm">{plan.label}</p>
-                  <p className="text-[#F0C060] text-xs font-semibold mt-0.5">{plan.price}</p>
-                </button>
-              ))}
-            </div>
-          </div>
-
-          {/* Name + Email */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div>
-              <label className="block text-white/60 text-xs tracking-[2px] uppercase font-medium mb-2">
-                Full Name
-              </label>
-              <input
-                type="text"
-                required
-                placeholder="Jane Smith"
-                value={form.name}
-                onChange={(e) => setForm({ ...form, name: e.target.value })}
-                className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-white/20 text-sm focus:outline-none focus:border-[#CB983A] transition-colors"
-              />
-            </div>
-            <div>
-              <label className="block text-white/60 text-xs tracking-[2px] uppercase font-medium mb-2">
-                Email
-              </label>
-              <input
-                type="email"
-                required
-                placeholder="jane@business.com"
-                value={form.email}
-                onChange={(e) => setForm({ ...form, email: e.target.value })}
-                className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-white/20 text-sm focus:outline-none focus:border-[#CB983A] transition-colors"
-              />
-            </div>
-          </div>
-
-          {/* Phone + Business */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div>
-              <label className="block text-white/60 text-xs tracking-[2px] uppercase font-medium mb-2">
-                Phone (optional)
-              </label>
-              <input
-                type="tel"
-                placeholder="+1 (416) 000-0000"
-                value={form.phone}
-                onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-white/20 text-sm focus:outline-none focus:border-[#CB983A] transition-colors"
-              />
-            </div>
-            <div>
-              <label className="block text-white/60 text-xs tracking-[2px] uppercase font-medium mb-2">
-                Business Name
-              </label>
-              <input
-                type="text"
-                required
-                placeholder="My Business"
-                value={form.business}
-                onChange={(e) => setForm({ ...form, business: e.target.value })}
-                className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-white/20 text-sm focus:outline-none focus:border-[#CB983A] transition-colors"
-              />
-            </div>
-          </div>
-
-          {/* Category */}
-          <div>
-            <label className="block text-white/60 text-xs tracking-[2px] uppercase font-medium mb-2">
-              Business Category
-            </label>
-            <select
+          {/* Business name */}
+          <label className="block text-white/45 text-[10px] font-bold tracking-[1.5px] mb-2">
+            BUSINESS NAME
+          </label>
+          <div className="bg-white/[0.06] border border-[rgba(203,152,58,0.3)] rounded-[8px] h-[48px] mb-5 overflow-hidden">
+            <input
+              type="text"
               required
-              value={form.category}
-              onChange={(e) => setForm({ ...form, category: e.target.value })}
-              className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white text-sm focus:outline-none focus:border-[#CB983A] transition-colors appearance-none"
-              style={{ colorScheme: 'dark' }}
-            >
-              <option value="" disabled>Select your industry...</option>
-              <option value="hospitality">Hospitality / Restaurant</option>
-              <option value="wellness">Health & Wellness</option>
-              <option value="entertainment">Entertainment / Events</option>
-              <option value="education">Education / Training</option>
-              <option value="technology">Technology / Software</option>
-              <option value="retail">Retail / E-commerce</option>
-              <option value="other">Other</option>
-            </select>
-          </div>
-
-          {/* Message */}
-          <div>
-            <label className="block text-white/60 text-xs tracking-[2px] uppercase font-medium mb-2">
-              Anything else? (optional)
-            </label>
-            <textarea
-              rows={3}
-              placeholder="Tell us a bit about your current web presence and goals..."
-              value={form.message}
-              onChange={(e) => setForm({ ...form, message: e.target.value })}
-              className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-white/20 text-sm focus:outline-none focus:border-[#CB983A] transition-colors resize-none"
+              placeholder="Business name"
+              value={form.business}
+              onChange={(e) => setForm({ ...form, business: e.target.value })}
+              className="w-full h-full bg-transparent px-4 text-white text-[14px] placeholder-white/30 focus:outline-none"
             />
           </div>
 
+          {/* Email */}
+          <label className="block text-white/45 text-[10px] font-bold tracking-[1.5px] mb-2">
+            EMAIL ADDRESS
+          </label>
+          <div className="bg-white/[0.06] border border-[rgba(203,152,58,0.3)] rounded-[8px] h-[48px] mb-5 overflow-hidden">
+            <input
+              type="email"
+              required
+              placeholder="Email address"
+              value={form.email}
+              onChange={(e) => setForm({ ...form, email: e.target.value })}
+              className="w-full h-full bg-transparent px-4 text-white text-[14px] placeholder-white/30 focus:outline-none"
+            />
+          </div>
+
+          {/* Package selection */}
+          <label className="block text-white/45 text-[10px] font-bold tracking-[1.5px] mb-3">
+            CHOOSE YOUR PACKAGE
+          </label>
+          <div className="grid grid-cols-2 gap-3 mb-8">
+            <button
+              type="button"
+              onClick={() => setSelectedPlan(0)}
+              className={`rounded-[8px] h-[72px] text-left px-3 transition-all ${
+                selectedPlan === 0
+                  ? 'bg-[rgba(203,152,58,0.1)] border-[1.5px] border-[rgba(203,152,58,0.5)]'
+                  : 'bg-white/[0.04] border border-white/12 hover:border-white/20'
+              }`}
+            >
+              <p className={`font-semibold text-[14px] ${selectedPlan === 0 ? 'text-[#f0c060]' : 'text-white'}`}>
+                World Cup Ready
+              </p>
+              <p className={`text-[12px] mt-1 ${selectedPlan === 0 ? 'text-[rgba(203,152,58,0.8)]' : 'text-white/45'}`}>
+                $149/mo — Landing page
+              </p>
+            </button>
+
+            <button
+              type="button"
+              onClick={() => setSelectedPlan(1)}
+              className={`rounded-[8px] h-[72px] text-left px-3 transition-all ${
+                selectedPlan === 1
+                  ? 'bg-[rgba(203,152,58,0.1)] border-[1.5px] border-[rgba(203,152,58,0.5)]'
+                  : 'bg-white/[0.04] border border-white/12 hover:border-white/20'
+              }`}
+            >
+              <p className={`font-semibold text-[14px] ${selectedPlan === 1 ? 'text-[#f0c060]' : 'text-white'}`}>
+                Full Digital Refresh
+              </p>
+              <p className={`text-[12px] mt-1 ${selectedPlan === 1 ? 'text-[rgba(203,152,58,0.8)]' : 'text-white/45'}`}>
+                $249/mo — Brand + page
+              </p>
+            </button>
+          </div>
+
+          {/* Submit */}
           <button
             type="submit"
-            className="w-full bg-[#CB983A] text-[#080603] font-bold py-4 rounded-lg hover:bg-[#F0C060] transition-colors text-sm tracking-wide"
+            className="w-full bg-[#cb983a] text-[#080603] font-semibold text-[15px] h-[56px] rounded-[8px] hover:bg-[#f0c060] transition-colors"
           >
-            Reserve My Spot — Limited Availability
+            Reserve my spot — limited availability
           </button>
-
-          <p className="text-white/30 text-xs text-center">
-            No payment required now. We'll send an invoice after your site is approved.
-          </p>
         </form>
       </div>
     </section>

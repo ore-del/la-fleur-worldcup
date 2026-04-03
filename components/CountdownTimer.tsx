@@ -2,8 +2,8 @@
 
 import { useEffect, useState } from 'react'
 
-// World Cup 2026 Toronto opening match - June 11, 2026
-const TARGET_DATE = new Date('2026-06-11T00:00:00')
+// World Cup 2026 Toronto opening match - June 12, 2026
+const TARGET_DATE = new Date('2026-06-12T00:00:00')
 
 interface TimeLeft {
   days: number
@@ -15,11 +15,7 @@ interface TimeLeft {
 function getTimeLeft(): TimeLeft {
   const now = new Date()
   const diff = TARGET_DATE.getTime() - now.getTime()
-
-  if (diff <= 0) {
-    return { days: 0, hours: 0, minutes: 0, seconds: 0 }
-  }
-
+  if (diff <= 0) return { days: 0, hours: 0, minutes: 0, seconds: 0 }
   return {
     days: Math.floor(diff / (1000 * 60 * 60 * 24)),
     hours: Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
@@ -32,9 +28,7 @@ export default function CountdownTimer() {
   const [timeLeft, setTimeLeft] = useState<TimeLeft>(getTimeLeft())
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setTimeLeft(getTimeLeft())
-    }, 1000)
+    const interval = setInterval(() => setTimeLeft(getTimeLeft()), 1000)
     return () => clearInterval(interval)
   }, [])
 
@@ -42,34 +36,24 @@ export default function CountdownTimer() {
 
   return (
     <div className="flex items-center gap-3">
-      <TimeUnit value={pad(timeLeft.days)} label="DAYS" />
-      <Separator />
-      <TimeUnit value={pad(timeLeft.hours)} label="HRS" />
-      <Separator />
-      <TimeUnit value={pad(timeLeft.minutes)} label="MIN" />
-      <Separator />
-      <TimeUnit value={pad(timeLeft.seconds)} label="SEC" />
+      <Unit value={pad(timeLeft.days)} label="days" />
+      <Sep />
+      <Unit value={pad(timeLeft.hours)} label="hrs" />
+      <Sep />
+      <Unit value={pad(timeLeft.minutes)} label="min" />
     </div>
   )
 }
 
-function TimeUnit({ value, label }: { value: string; label: string }) {
+function Unit({ value, label }: { value: string; label: string }) {
   return (
-    <div className="flex flex-col items-center">
-      <span className="text-5xl md:text-6xl font-bold text-[#F0C060] leading-none tabular-nums">
-        {value}
-      </span>
-      <span className="text-[10px] text-white/50 tracking-[2px] mt-1 uppercase">
-        {label}
-      </span>
+    <div className="flex flex-col items-center gap-[3px]">
+      <span className="text-[#f0c060] text-[42px] font-bold leading-none tabular-nums">{value}</span>
+      <span className="text-white/40 text-[15px] font-normal">{label}</span>
     </div>
   )
 }
 
-function Separator() {
-  return (
-    <span className="text-4xl md:text-5xl font-bold text-[#F0C060]/60 leading-none mb-3">
-      :
-    </span>
-  )
+function Sep() {
+  return <span className="text-white/30 text-[36px] font-bold leading-none mb-4">:</span>
 }
