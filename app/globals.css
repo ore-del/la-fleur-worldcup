@@ -17,12 +17,17 @@ html {
 
 html, body {
   max-width: 100vw;
-  overflow-x: hidden;
   background-color: #080603;
   color: white;
   font-family: 'Inter', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* overflow-x clamp lives on the wrapper div, not html/body,
+   so position:fixed on the header works correctly */
+.overflow-x-clip {
+  overflow-x: hidden;
 }
 
 /* ─── Scrollbar ──────────────────────────────────────────── */

@@ -11,7 +11,7 @@ export default function Hero() {
   const h = tx.hero
 
   return (
-    <section className="relative h-[680px] overflow-hidden bg-[#080603]">
+    <section className="relative h-[680px] overflow-hidden bg-[#080603] pt-[88px]">
       {/* Background cityscape */}
       <div className="absolute inset-0">
         <img
