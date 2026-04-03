@@ -3,15 +3,10 @@
 import { useEffect, useState } from 'react'
 import { useLanguage } from '@/lib/LanguageContext'
 
-// Static flower icon (shown at rest)
-const imgFlower = 'https://www.figma.com/api/mcp/asset/9778c332-91e4-4246-9dda-c2a7d7bc5e2c'
-// Animated GIF (shown on hover) — place your GIF at public/logo.gif
-const imgFlowerGif = '/logo.gif'
-
 export default function Header() {
   const { lang, setLang, tx } = useLanguage()
   const [scrolled, setScrolled] = useState(false)
-  const [logoSrc, setLogoSrc] = useState(imgFlower)
+  const [logoHovered, setLogoHovered] = useState(false)
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40)
@@ -34,12 +29,13 @@ export default function Header() {
           }
         `}
       >
-        {/* Logo — GIF on hover */}
+        {/* Logo — video plays on hover, pauses on leave */}
+        {/* Place your video at public/logo.mp4 (or .webm) */}
         <a
           href="#"
           className="flex items-center gap-2 shrink-0"
-          onMouseEnter={() => setLogoSrc(imgFlowerGif)}
-          onMouseLeave={() => setLogoSrc(imgFlower)}
+          onMouseEnter={() => setLogoHovered(true)}
+          onMouseLeave={() => setLogoHovered(false)}
         >
           <span
             className="text-white font-bold text-[22px] leading-none select-none"
@@ -47,12 +43,19 @@ export default function Header() {
           >
             La Fleur
           </span>
-          <img
-            src={logoSrc}
-            alt="La Fleur logo"
+          <video
+            src="/logo.mp4"
             width={28}
             height={28}
+            muted
+            playsInline
+            loop
+            ref={(el) => {
+              if (!el) return
+              logoHovered ? el.play() : (el.pause(), (el.currentTime = 0))
+            }}
             className="w-7 h-7 object-contain select-none"
+            aria-label="La Fleur logo"
           />
         </a>
 
@@ -61,11 +64,11 @@ export default function Header() {
           <a href="#pricing" className="text-white/75 hover:text-white text-[13px] font-medium transition-colors duration-200">
             {tx.nav.pricing}
           </a>
+          <a href="#how-it-works" className="text-white/75 hover:text-white text-[13px] font-medium transition-colors duration-200">
+            {tx.nav.aiWorkflow}
+          </a>
           <a href="#work" className="text-white/75 hover:text-white text-[13px] font-medium transition-colors duration-200">
             {tx.nav.work}
-          </a>
-          <a href="#ai-workflow" className="text-white/75 hover:text-white text-[13px] font-medium transition-colors duration-200">
-            {tx.nav.aiWorkflow}
           </a>
         </nav>
 

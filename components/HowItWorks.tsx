@@ -11,7 +11,7 @@ export default function HowItWorks() {
   const h = tx.howItWorks
 
   return (
-    <section ref={ref as React.RefObject<HTMLElement>} className="relative bg-[#0a0804] py-20 px-16">
+    <section id="how-it-works" ref={ref as React.RefObject<HTMLElement>} className="relative bg-[#0a0804] py-20 px-16">
       <div className="reveal flex items-center gap-3 mb-4">
         <div className="w-[3px] h-[14px] bg-[rgba(203,152,58,0.7)] rounded-[2px]" />
         <p className="text-[rgba(203,152,58,0.7)] text-[11px] font-bold tracking-[2px]">{h.label}</p>
