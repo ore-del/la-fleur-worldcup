@@ -35,14 +35,17 @@ export default function Header() {
         `}
       >
         {/* Logo — custom image; falls back to text + flower if not uploaded yet */}
-        <a href="#" className="flex items-center gap-2 shrink-0">
+        <a href="#" className="flex items-end gap-[6px] shrink-0">
           {logoFailed ? (
             <>
               <span className="text-white font-bold text-[22px] leading-none select-none"
                 style={{ fontFamily: "'Satoshi','Inter',sans-serif", letterSpacing: '-0.3px' }}>
                 La Fleur
               </span>
-              <img src={imgFlowerFallback} alt="" aria-hidden className="w-7 h-7 object-contain" />
+              {/* Flower sized to match logo: same height as text, bottom-aligned so it rises above cap line */}
+              <img src={imgFlowerFallback} alt="" aria-hidden
+                className="object-contain select-none"
+                style={{ height: '26px', width: 'auto', marginBottom: '-2px' }} />
             </>
           ) : (
             <img
