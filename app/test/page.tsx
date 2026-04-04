@@ -123,8 +123,8 @@ function TestHero() {
         <h1 className="text-white font-bold text-[56px] leading-[1.08] tracking-[-1.5px] max-w-[660px] mx-auto mt-32">
           {h.headline}
         </h1>
-        <button className="mt-8 bg-black text-white font-semibold text-[15px] rounded-full px-8 h-[52px] hover:bg-black/80 transition-colors duration-200 btn-spring btn-primary-glow">
-          {cta.primary}
+        <button className="btn-trace rounded-full px-8 h-[52px] text-[15px] font-semibold mt-8">
+          <span>{cta.primary}</span>
         </button>
       </div>
     </section>
