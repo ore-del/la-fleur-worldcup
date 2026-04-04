@@ -17,9 +17,9 @@ const GOAL_Y    = 0.68
 const LAG       = 0.13   // ball follows cursor with this lerp factor (lower = more lag)
 
 const CONFETTI_COLORS = [
-  '#f44336','#e91e63','#9c27b0','#3f51b5','#2196f3','#00bcd4',
-  '#4CAF50','#CDDC39','#FFEB3B','#FFC107','#FF9800','#FF5722',
-  '#f0c060','#CB983A','#ffffff',
+  '#CB983A','#f0c060','#e8a82e','#daa520','#ffd700',
+  '#b8860b','#c8952a','#f5c518','#ffe066','#e6b830',
+  '#fffde7','#fff3cc','#ffffff','#2d1f00','#1a1200',
 ]
 
 // ─── Confetti canvas (fires once on goal) ─────────────────────
@@ -114,15 +114,15 @@ function GlassPill({ children }: { children: React.ReactNode }) {
 
 // ─── Draggable ball with lag + physics + intro roll ───────────
 function DraggableBall({ sectionRef }: { sectionRef: React.RefObject<HTMLElement | null> }) {
-  const [renderPos, setRenderPos] = useState({ x: 0.5, y: 0.86 })
+  const [renderPos, setRenderPos] = useState({ x: -0.12, y: 0.86 })
   const [spin, setSpin]           = useState(0)
   const [dragging, setDragging]   = useState(false)
   const [confetti, setConfetti]   = useState(false)
   const [hasScored, setHasScored] = useState(false)
 
   const s = useRef({
-    // ball physics position
-    bx: 0.5, by: 0.86,
+    // ball physics position — starts off left edge
+    bx: -0.12, by: 0.86,
     // cursor target (ball lags toward this)
     cx: 0.5, cy: 0.86,
     vx: 0, vy: 0,
@@ -154,8 +154,9 @@ function DraggableBall({ sectionRef }: { sectionRef: React.RefObject<HTMLElement
     let nx = p.bx + p.vx / rect.width
     let ny = p.by + p.vy / rect.height
 
-    if (nx < rw)     { nx = rw;     p.vx =  Math.abs(p.vx) * 0.42 }
-    if (nx > 1 - rw) { nx = 1 - rw; p.vx = -Math.abs(p.vx) * 0.42 }
+    // Only bounce off walls when the ball is moving toward them (allows off-screen entry)
+    if (nx < rw     && p.vx < 0) { nx = rw;     p.vx =  Math.abs(p.vx) * 0.42 }
+    if (nx > 1 - rw && p.vx > 0) { nx = 1 - rw; p.vx = -Math.abs(p.vx) * 0.42 }
     if (ny < FIELD_TOP + rh) { ny = FIELD_TOP + rh; p.vy = Math.abs(p.vy) * 0.32 }
     if (ny > 1 - rh) { ny = 1 - rh; p.vy = -Math.abs(p.vy) * 0.22 }
 
@@ -204,13 +205,13 @@ function DraggableBall({ sectionRef }: { sectionRef: React.RefObject<HTMLElement
     p.rafId = requestAnimationFrame(() => dragLoopRef.current())
   }
 
-  // Intro roll — gentle bounce so user knows it's interactive
+  // Intro roll — ball enters from off-screen left, rolls to center
   useEffect(() => {
     const t = setTimeout(() => {
-      s.current.vx = 3
-      s.current.vy = -1.2
+      s.current.vx = 9   // strong rightward kick to cross the scene
+      s.current.vy = 0
       s.current.rafId = requestAnimationFrame(() => loopRef.current())
-    }, 600)
+    }, 200)
     return () => {
       clearTimeout(t)
       cancelAnimationFrame(s.current.rafId)
