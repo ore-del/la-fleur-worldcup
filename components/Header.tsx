@@ -3,8 +3,8 @@
 import { useEffect, useState } from 'react'
 import { useLanguage } from '@/lib/LanguageContext'
 
-// Static logo flower from Figma node 106:6085
-const imgFlower = 'https://www.figma.com/api/mcp/asset/5bc0d7fb-dedc-40f5-bb4d-69d4f85bf14f'
+// Logo image — save attached image to public/logo.png
+const imgLogo = '/logo.png'
 
 export default function Header() {
   const { lang, setLang, tx } = useLanguage()
@@ -31,26 +31,12 @@ export default function Header() {
           }
         `}
       >
-        {/* Logo — Figma node 106:6085: text + flower icon precisely positioned */}
-        <a href="#" className="relative flex items-center shrink-0 h-[38px] w-[158px]">
-          <span
-            className="absolute left-0 top-[7px] text-white font-bold text-[28px] leading-none select-none whitespace-nowrap"
-            style={{ fontFamily: "'Satoshi', 'Inter', sans-serif" }}
-          >
-            La Fleur
-          </span>
-          {/* Flower: inset-[14.99% 3.36% 23.44% 77.63%] of 158×38px container */}
+        {/* Logo — single image replacing text + flower */}
+        <a href="#" className="flex items-center shrink-0">
           <img
-            src={imgFlower}
-            alt=""
-            aria-hidden="true"
-            className="absolute object-contain select-none pointer-events-none"
-            style={{
-              top: '15%',
-              right: '3.4%',
-              bottom: '23.4%',
-              left: '77.6%',
-            }}
+            src={imgLogo}
+            alt="La Fleur"
+            className="h-9 w-auto object-contain select-none"
           />
         </a>
 
