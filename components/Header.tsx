@@ -31,20 +31,26 @@ export default function Header() {
           }
         `}
       >
-        {/* Logo — static flower icon from Figma */}
-        <a href="#" className="flex items-center gap-2 shrink-0">
+        {/* Logo — Figma node 106:6085: text + flower icon precisely positioned */}
+        <a href="#" className="relative flex items-center shrink-0 h-[38px] w-[158px]">
           <span
-            className="text-white font-bold text-[22px] leading-none select-none"
-            style={{ fontFamily: "'Satoshi', 'Inter', sans-serif", letterSpacing: '-0.3px' }}
+            className="absolute left-0 top-[7px] text-white font-bold text-[28px] leading-none select-none whitespace-nowrap"
+            style={{ fontFamily: "'Satoshi', 'Inter', sans-serif" }}
           >
             La Fleur
           </span>
+          {/* Flower: inset-[14.99% 3.36% 23.44% 77.63%] of 158×38px container */}
           <img
             src={imgFlower}
-            alt="La Fleur"
-            width={28}
-            height={28}
-            className="w-7 h-7 object-contain select-none"
+            alt=""
+            aria-hidden="true"
+            className="absolute object-contain select-none pointer-events-none"
+            style={{
+              top: '15%',
+              right: '3.4%',
+              bottom: '23.4%',
+              left: '77.6%',
+            }}
           />
         </a>
 
