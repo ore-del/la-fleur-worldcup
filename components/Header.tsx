@@ -3,10 +3,12 @@
 import { useEffect, useState } from 'react'
 import { useLanguage } from '@/lib/LanguageContext'
 
+// Static logo flower from Figma node 106:6085
+const imgFlower = 'https://www.figma.com/api/mcp/asset/5bc0d7fb-dedc-40f5-bb4d-69d4f85bf14f'
+
 export default function Header() {
   const { lang, setLang, tx } = useLanguage()
   const [scrolled, setScrolled] = useState(false)
-  const [logoHovered, setLogoHovered] = useState(false)
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40)
@@ -15,10 +17,10 @@ export default function Header() {
   }, [])
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 flex justify-center transition-all duration-500"
+    <header
+      className="fixed top-0 left-0 right-0 z-50 flex justify-center transition-all duration-500"
       style={{ paddingTop: scrolled ? '10px' : '14px' }}
     >
-      {/* Pill — expands to full-width strip at top, contracts to pill on scroll */}
       <div
         className={`
           flex items-center justify-between
@@ -29,33 +31,20 @@ export default function Header() {
           }
         `}
       >
-        {/* Logo — video plays on hover, pauses on leave */}
-        {/* Place your video at public/logo.mp4 (or .webm) */}
-        <a
-          href="#"
-          className="flex items-center gap-2 shrink-0"
-          onMouseEnter={() => setLogoHovered(true)}
-          onMouseLeave={() => setLogoHovered(false)}
-        >
+        {/* Logo — static flower icon from Figma */}
+        <a href="#" className="flex items-center gap-2 shrink-0">
           <span
             className="text-white font-bold text-[22px] leading-none select-none"
             style={{ fontFamily: "'Satoshi', 'Inter', sans-serif", letterSpacing: '-0.3px' }}
           >
             La Fleur
           </span>
-          <video
-            src="/logo.mp4"
+          <img
+            src={imgFlower}
+            alt="La Fleur"
             width={28}
             height={28}
-            muted
-            playsInline
-            loop
-            ref={(el) => {
-              if (!el) return
-              logoHovered ? el.play() : (el.pause(), (el.currentTime = 0))
-            }}
             className="w-7 h-7 object-contain select-none"
-            aria-label="La Fleur logo"
           />
         </a>
 
