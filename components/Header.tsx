@@ -3,12 +3,15 @@
 import { useEffect, useState } from 'react'
 import { useLanguage } from '@/lib/LanguageContext'
 
-// Logo image — save attached image to public/logo.png
+// Logo — replace /logo.png with your uploaded logo file
 const imgLogo = '/logo.png'
+// Figma flower fallback while logo.png isn't uploaded
+const imgFlowerFallback = 'https://www.figma.com/api/mcp/asset/5bc0d7fb-dedc-40f5-bb4d-69d4f85bf14f'
 
 export default function Header() {
   const { lang, setLang, tx } = useLanguage()
   const [scrolled, setScrolled] = useState(false)
+  const [logoFailed, setLogoFailed] = useState(false)
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40)
@@ -31,13 +34,24 @@ export default function Header() {
           }
         `}
       >
-        {/* Logo — single image replacing text + flower */}
-        <a href="#" className="flex items-center shrink-0">
-          <img
-            src={imgLogo}
-            alt="La Fleur"
-            className="h-9 w-auto object-contain select-none"
-          />
+        {/* Logo — custom image; falls back to text + flower if not uploaded yet */}
+        <a href="#" className="flex items-center gap-2 shrink-0">
+          {logoFailed ? (
+            <>
+              <span className="text-white font-bold text-[22px] leading-none select-none"
+                style={{ fontFamily: "'Satoshi','Inter',sans-serif", letterSpacing: '-0.3px' }}>
+                La Fleur
+              </span>
+              <img src={imgFlowerFallback} alt="" aria-hidden className="w-7 h-7 object-contain" />
+            </>
+          ) : (
+            <img
+              src={imgLogo}
+              alt="La Fleur"
+              className="h-9 w-auto object-contain select-none"
+              onError={() => setLogoFailed(true)}
+            />
+          )}
         </a>
 
         {/* Nav links */}

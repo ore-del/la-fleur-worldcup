@@ -91,7 +91,7 @@ function TestHero() {
       {/* Deadline bar — liquid glass pill */}
       <div className="absolute left-1/2 -translate-x-1/2 top-[88px] z-10 pt-6 w-max">
         <GlassPill>
-          <p className="text-white text-[14px] font-bold leading-snug text-center" style={{ textShadow: '0 1px 2px rgba(0,0,0,0.4)' }}>
+          <p className="text-white text-[14px] font-bold leading-snug text-center whitespace-pre-line" style={{ textShadow: '0 1px 2px rgba(0,0,0,0.4)' }}>
             {h.deadlineBar}
           </p>
           <CountdownTimer />
