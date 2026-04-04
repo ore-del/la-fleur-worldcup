@@ -112,17 +112,18 @@ function GlassPill({ children }: { children: React.ReactNode }) {
   )
 }
 
-// ─── Draggable ball with lag + physics + intro roll ───────────
+// ─── Draggable ball with lag + physics + intro spin ───────────
 function DraggableBall({ sectionRef }: { sectionRef: React.RefObject<HTMLElement | null> }) {
-  const [renderPos, setRenderPos] = useState({ x: -0.12, y: 0.86 })
+  const [renderPos, setRenderPos] = useState({ x: 0.5, y: 0.86 })
   const [spin, setSpin]           = useState(0)
   const [dragging, setDragging]   = useState(false)
+  const [intro, setIntro]         = useState(true)   // true for first 3s
   const [confetti, setConfetti]   = useState(false)
   const [hasScored, setHasScored] = useState(false)
 
   const s = useRef({
-    // ball physics position — starts off left edge
-    bx: -0.12, by: 0.86,
+    // ball physics position — starts at center
+    bx: 0.5, by: 0.86,
     // cursor target (ball lags toward this)
     cx: 0.5, cy: 0.86,
     vx: 0, vy: 0,
@@ -154,9 +155,8 @@ function DraggableBall({ sectionRef }: { sectionRef: React.RefObject<HTMLElement
     let nx = p.bx + p.vx / rect.width
     let ny = p.by + p.vy / rect.height
 
-    // Only bounce off walls when the ball is moving toward them (allows off-screen entry)
-    if (nx < rw     && p.vx < 0) { nx = rw;     p.vx =  Math.abs(p.vx) * 0.42 }
-    if (nx > 1 - rw && p.vx > 0) { nx = 1 - rw; p.vx = -Math.abs(p.vx) * 0.42 }
+    if (nx < rw)     { nx = rw;     p.vx =  Math.abs(p.vx) * 0.42 }
+    if (nx > 1 - rw) { nx = 1 - rw; p.vx = -Math.abs(p.vx) * 0.42 }
     if (ny < FIELD_TOP + rh) { ny = FIELD_TOP + rh; p.vy = Math.abs(p.vy) * 0.32 }
     if (ny > 1 - rh) { ny = 1 - rh; p.vy = -Math.abs(p.vy) * 0.22 }
 
@@ -205,20 +205,14 @@ function DraggableBall({ sectionRef }: { sectionRef: React.RefObject<HTMLElement
     p.rafId = requestAnimationFrame(() => dragLoopRef.current())
   }
 
-  // Intro roll — ball enters from off-screen left, rolls to center
+  // Intro: CSS spin for 3s, then become interactive
   useEffect(() => {
-    const t = setTimeout(() => {
-      s.current.vx = 9   // strong rightward kick to cross the scene
-      s.current.vy = 0
-      s.current.rafId = requestAnimationFrame(() => loopRef.current())
-    }, 200)
-    return () => {
-      clearTimeout(t)
-      cancelAnimationFrame(s.current.rafId)
-    }
+    const t = setTimeout(() => setIntro(false), 3000)
+    return () => clearTimeout(t)
   }, [])
 
   const onPointerDown = (e: React.PointerEvent) => {
+    if (intro) return          // ignore during intro animation
     e.preventDefault()
     ;(e.currentTarget as HTMLElement).setPointerCapture(e.pointerId)
     cancelAnimationFrame(s.current.rafId)
@@ -287,13 +281,13 @@ function DraggableBall({ sectionRef }: { sectionRef: React.RefObject<HTMLElement
     <>
       <ConfettiCanvas active={confetti} onDone={handleConfettiDone} />
 
-      {/* Drag hint */}
+      {/* Drag hint — fades in after intro */}
       <div className="absolute z-20 pointer-events-none select-none"
         style={{
           left: `calc(${renderPos.x * 100}% - 55px)`,
           top:  `calc(${renderPos.y * 100}% - 90px)`,
-          opacity: dragging || hasScored ? 0 : 0.75,
-          transition: 'opacity 300ms ease',
+          opacity: intro || dragging || hasScored ? 0 : 0.75,
+          transition: 'opacity 500ms ease',
         }}>
         <p className="text-white text-[11px] font-medium text-center whitespace-nowrap tracking-wide"
           style={{ textShadow: '0 1px 4px rgba(0,0,0,0.8)' }}>
@@ -308,7 +302,7 @@ function DraggableBall({ sectionRef }: { sectionRef: React.RefObject<HTMLElement
           left:   `calc(${renderPos.x * 100}% - 55px)`,
           top:    `calc(${renderPos.y * 100}% - 55px)`,
           width:  110, height: 110,
-          cursor: dragging ? 'grabbing' : 'grab',
+          cursor: intro ? 'default' : dragging ? 'grabbing' : 'grab',
           filter: `drop-shadow(5px 9px 9px rgba(188,135,46,${dragging ? 0.85 : 0.55}))`,
           willChange: 'left, top',
         }}
@@ -322,10 +316,10 @@ function DraggableBall({ sectionRef }: { sectionRef: React.RefObject<HTMLElement
           alt="Soccer ball — drag to score"
           draggable={false}
           className="w-full h-full object-contain pointer-events-none"
-          style={{
-            transform: `scale(${dragging ? 1.1 : 1}) rotate(${spin}deg)`,
-            transition: dragging ? 'transform 120ms ease' : 'transform 300ms ease',
-          }}
+          style={intro
+            ? { animation: 'ball-intro 3s cubic-bezier(0.34,1.56,0.64,1) forwards' }
+            : { transform: `scale(${dragging ? 1.1 : 1}) rotate(${spin}deg)`, transition: dragging ? 'transform 120ms ease' : 'transform 300ms ease' }
+          }
         />
       </div>
     </>
