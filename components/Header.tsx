@@ -3,8 +3,8 @@
 import { useEffect, useState } from 'react'
 import { useLanguage } from '@/lib/LanguageContext'
 
-// Logo — replace /logo.png with your uploaded logo file
-const imgLogo = '/logo.png'
+// Logo — La Fleur WC SVG from GitHub
+const imgLogo = 'https://raw.githubusercontent.com/ore-del/la-fleur-worldcup/main/La%20Fleur%20logo%20wc.svg'
 // Figma flower fallback while logo.png isn't uploaded
 const imgFlowerFallback = 'https://www.figma.com/api/mcp/asset/5bc0d7fb-dedc-40f5-bb4d-69d4f85bf14f'
 
