@@ -15,10 +15,14 @@ function HowItWorksContent() {
   const h = tx.howItWorks
 
   return (
-    <main className="relative min-h-screen pt-[88px] overflow-hidden bg-[#c8900a]">
-      <img src="https://raw.githubusercontent.com/ore-del/la-fleur-worldcup/claude/world-cup-generate-page-vuHuO/Hero%20image.png"
-        alt="" aria-hidden className="absolute inset-0 w-full h-full object-cover pointer-events-none" />
-      <div className="absolute inset-0 bg-[#080603]/40" />
+    <>
+      {/* Fixed bg — stays put on scroll and matches across pages */}
+      <div className="fixed inset-0 -z-10">
+        <img src="https://raw.githubusercontent.com/ore-del/la-fleur-worldcup/claude/world-cup-generate-page-vuHuO/Hero%20image.png"
+          alt="" aria-hidden className="w-full h-full object-cover" />
+        <div className="absolute inset-0 bg-[#080603]/40" />
+      </div>
+      <main className="min-h-screen pt-[88px]">
       <div className="relative z-10 max-w-[1184px] mx-auto px-6 py-20">
         <p className="text-[rgba(203,152,58,0.85)] text-[11px] font-bold tracking-[2px] uppercase mb-5">{h.label}</p>
         <h1 className="text-white font-bold text-[44px] tracking-[-1px] leading-tight mb-14">{h.headline}</h1>
@@ -37,7 +41,8 @@ function HowItWorksContent() {
           ))}
         </div>
       </div>
-    </main>
+      </main>
+    </>
 
   )
 }

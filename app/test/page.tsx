@@ -382,9 +382,10 @@ function TestHero({ onClaim }: { onClaim: () => void }) {
         </defs>
       </svg>
 
-      <img src={heroBgImage} alt="" aria-hidden
-        className="absolute inset-0 w-full h-full object-cover pointer-events-none" />
-      <div className="absolute inset-0 bg-[#080603]/40" />
+      <div className="fixed inset-0 -z-10">
+        <img src={heroBgImage} alt="" aria-hidden className="w-full h-full object-cover" />
+        <div className="absolute inset-0 bg-[#080603]/40" />
+      </div>
 
       <div className="absolute left-1/2 -translate-x-1/2 top-[88px] z-10 pt-6 w-max">
         <GlassPill>
