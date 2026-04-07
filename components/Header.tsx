@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import { usePathname } from 'next/navigation'
 import { useLanguage } from '@/lib/LanguageContext'
 
 // Logo — La Fleur WC SVG from GitHub
@@ -12,6 +13,10 @@ export default function Header() {
   const { lang, setLang, tx } = useLanguage()
   const [scrolled, setScrolled] = useState(false)
   const [logoFailed, setLogoFailed] = useState(false)
+  const pathname = usePathname()
+  const isTest = pathname?.startsWith('/test')
+  const pricingHref   = isTest ? '/test/pricing'     : '#pricing'
+  const workflowHref  = isTest ? '/test/how-it-works' : '#how-it-works'
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40)
@@ -59,10 +64,10 @@ export default function Header() {
 
         {/* Nav links */}
         <nav className="hidden md:flex items-center gap-10">
-          <a href="#pricing" className="text-white/75 hover:text-white text-[13px] font-medium transition-colors duration-200">
+          <a href={pricingHref} className="text-white/75 hover:text-white text-[13px] font-medium transition-colors duration-200">
             {tx.nav.pricing}
           </a>
-          <a href="#how-it-works" className="text-white/75 hover:text-white text-[13px] font-medium transition-colors duration-200">
+          <a href={workflowHref} className="text-white/75 hover:text-white text-[13px] font-medium transition-colors duration-200">
             {tx.nav.aiWorkflow}
           </a>
           <a href="https://la-fleur.digital/our-work/" className="text-white/75 hover:text-white text-[13px] font-medium transition-colors duration-200">
