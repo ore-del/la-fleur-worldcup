@@ -95,8 +95,7 @@ function PricingContent() {
               <div className="p-[30px] flex flex-col">
                 <p className="text-white font-bold text-[24px] mb-2">{p.standardName}</p>
                 <div className="flex items-baseline gap-3 mb-1">
-                  <span className="text-[#cb983a] font-bold text-[52px] tracking-[-2px] leading-none">$149</span>
-                  <span className="text-white/30 text-[20px] line-through">$299</span>
+                  <span className="text-[#cb983a] font-bold text-[52px] tracking-[-2px] leading-none">$249</span>
                 </div>
                 <p className="text-white/40 text-[13px] mb-5">{p.standardBilling}</p>
                 <div className="h-px bg-[rgba(203,152,58,0.12)] mb-5" />
@@ -123,9 +122,12 @@ function PricingContent() {
               </div>
               <div className="p-[30px] flex flex-col">
                 <p className="text-white font-bold text-[24px] mb-3">{p.premiumName}</p>
-                <div className="inline-flex items-baseline gap-2 bg-[rgba(203,152,58,0.15)] border border-[rgba(203,152,58,0.4)] rounded-[8px] px-3 py-1 mb-2 w-fit">
-                  <span className="text-[#f0c060] font-bold text-[48px] tracking-[-2px] leading-tight">$249</span>
-                  <span className="text-white/30 text-[18px] line-through">$499</span>
+                <div className="flex flex-col gap-1 mb-2">
+                  <div className="flex items-baseline gap-2">
+                    <span className="text-[#f0c060] font-bold text-[48px] tracking-[-2px] leading-none">$699</span>
+                    <span className="text-white/50 text-[14px]">one-time</span>
+                  </div>
+                  <p className="text-white/55 text-[13px]">+ $249/mo World Cup Ready subscription</p>
                 </div>
                 <p className="text-white/40 text-[13px] mb-5">{p.premiumBilling}</p>
                 <div className="h-px bg-[rgba(203,152,58,0.18)] mb-5" />

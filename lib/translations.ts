@@ -50,7 +50,7 @@ export const t = {
         'World Cup campaign copy',
         'Mobile-first, fast-loading',
         'SEO setup + Google Analytics',
-        'Free hosting for 6 months',
+        'Free hosting for 3 months',
         '1 round of revisions',
       ],
       premiumFeatures: [
@@ -58,8 +58,7 @@ export const t = {
         'World Cup brand identity (logo, colors, fonts)',
         'Campaign strategy + offer design',
         '3 social media post templates',
-        'Google Business profile update',
-        'Free hosting for 6 months',
+        'Free hosting for 3 months',
         '2 rounds of revisions',
       ],
       notes: [
@@ -162,7 +161,7 @@ export const t = {
         "Texte de campagne Coupe du Monde",
         "Priorité mobile, chargement rapide",
         "Configuration SEO + Google Analytics",
-        "Hébergement gratuit pendant 6 mois",
+        "Hébergement gratuit pendant 3 mois",
         "1 tour de révisions",
       ],
       premiumFeatures: [
@@ -170,8 +169,7 @@ export const t = {
         "Identité de marque (logo, couleurs, polices)",
         "Stratégie de campagne + conception d'offre",
         "3 modèles de publications sur les réseaux sociaux",
-        "Mise à jour du profil Google Business",
-        "Hébergement gratuit pendant 6 mois",
+        "Hébergement gratuit pendant 3 mois",
         "2 tours de révisions",
       ],
       notes: [
