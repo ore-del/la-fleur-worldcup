@@ -287,16 +287,17 @@ function DraggableBall({ sectionRef }: { sectionRef: React.RefObject<HTMLElement
     <>
       <ConfettiCanvas active={confetti} onDone={handleConfettiDone} />
 
-      {/* Drag hint */}
+      {/* Drag hint — centered on ball */}
       <div className="absolute z-20 pointer-events-none select-none"
         style={{
-          left: `calc(${renderPos.x * 100}% - 55px)`,
-          top:  `calc(${renderPos.y * 100}% - 90px)`,
-          opacity: dragging || hasScored ? 0 : 0.75,
+          left: `${renderPos.x * 100}%`,
+          top:  `${renderPos.y * 100}%`,
+          transform: 'translate(-50%, -50%)',
+          opacity: dragging || hasScored ? 0 : 0.9,
           transition: 'opacity 300ms ease',
         }}>
         <p className="text-white text-[11px] font-medium text-center whitespace-nowrap tracking-wide"
-          style={{ textShadow: '0 1px 4px rgba(0,0,0,0.8)' }}>
+          style={{ textShadow: '0 1px 4px rgba(0,0,0,0.9), 0 0 8px rgba(0,0,0,0.6)' }}>
           drag to shoot
         </p>
       </div>
