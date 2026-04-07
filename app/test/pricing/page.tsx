@@ -77,15 +77,18 @@ function PricingContent() {
 
   return (
     <>
-      <main className="min-h-screen bg-[#d49638] pt-[88px]">
-        <div className="max-w-[1184px] mx-auto px-6 py-20">
+      <main className="relative min-h-screen pt-[88px] overflow-hidden bg-[#c8900a]">
+        <img src="https://raw.githubusercontent.com/ore-del/la-fleur-worldcup/claude/world-cup-generate-page-vuHuO/Hero%20image.png"
+          alt="" aria-hidden className="absolute inset-0 w-full h-full object-cover pointer-events-none" />
+        <div className="absolute inset-0 bg-[#080603]/40" />
+        <div className="relative z-10 max-w-[1184px] mx-auto px-6 py-20">
           <h1 className="text-white font-bold text-[44px] leading-[1.1] tracking-[-1px] text-center mb-14 max-w-[860px] mx-auto">
             {p.headline}
           </h1>
-          <div className="flex gap-9 justify-center flex-wrap">
+          <div className="grid grid-cols-2 gap-9">
 
             {/* Standard */}
-            <div className="rounded-[16px] border border-[rgba(203,152,58,0.25)] w-full max-w-[560px] bg-[rgba(42,43,44,0.82)] backdrop-blur-[20px]">
+            <div className="rounded-[16px] border border-[rgba(203,152,58,0.25)] bg-[rgba(42,43,44,0.82)] backdrop-blur-[20px]">
               <div className="p-[30px] flex flex-col">
                 <p className="text-white font-bold text-[24px] mb-2">{p.standardName}</p>
                 <div className="flex items-baseline gap-3 mb-1">
@@ -111,7 +114,7 @@ function PricingContent() {
             </div>
 
             {/* Premium */}
-            <div className="rounded-[16px] border-2 border-[rgba(203,152,58,0.5)] w-full max-w-[560px] bg-[rgba(42,43,44,0.82)] backdrop-blur-[20px] overflow-hidden">
+            <div className="rounded-[16px] border-2 border-[rgba(203,152,58,0.5)] bg-[rgba(42,43,44,0.82)] backdrop-blur-[20px] overflow-hidden">
               <div className="h-[40px] bg-[#cb983a] flex items-center justify-center">
                 <span className="text-[#080603] font-semibold text-[13px]">{p.premiumBanner}</span>
               </div>

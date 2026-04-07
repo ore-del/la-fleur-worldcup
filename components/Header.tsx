@@ -40,7 +40,7 @@ export default function Header() {
         `}
       >
         {/* Logo — custom image; falls back to text + flower if not uploaded yet */}
-        <a href="#" className="flex items-center gap-[6px] shrink-0">
+        <a href="/" className="flex items-center gap-[6px] shrink-0">
           {logoFailed ? (
             <>
               <span className="text-white font-bold text-[22px] leading-none select-none"
