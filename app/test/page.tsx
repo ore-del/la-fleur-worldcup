@@ -290,8 +290,9 @@ function DraggableBall({ sectionRef }: { sectionRef: React.RefObject<HTMLElement
       {/* Drag hint */}
       <div className="absolute z-20 pointer-events-none select-none"
         style={{
-          left: `calc(${renderPos.x * 100}% - 55px)`,
+          left: `${renderPos.x * 100}%`,
           top:  `calc(${renderPos.y * 100}% - 90px)`,
+          transform: 'translateX(-50%)',
           opacity: dragging || hasScored ? 0 : 0.75,
           transition: 'opacity 300ms ease',
         }}>
