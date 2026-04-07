@@ -55,7 +55,7 @@ export const t = {
       ],
       premiumFeatures: [
         'Everything in World Cup Ready',
-        'World Cup brand identity (logo, colors, fonts)',
+        'Brand identity (logo, colors, fonts)',
         'Campaign strategy + offer design',
         '3 social media post templates',
         'Free hosting for 3 months',
