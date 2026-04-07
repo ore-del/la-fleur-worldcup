@@ -78,13 +78,13 @@ function PricingContent() {
   return (
     <>
       {/* Fixed bg — stays put on scroll and matches across pages */}
-      <div className="fixed inset-0 -z-10">
+      <div className="fixed inset-0 z-[1]">
         <img src="https://raw.githubusercontent.com/ore-del/la-fleur-worldcup/claude/world-cup-generate-page-vuHuO/Hero%20image.png"
           alt="" aria-hidden className="w-full h-full object-cover" />
         <div className="absolute inset-0 bg-[#080603]/40" />
       </div>
       <main className="min-h-screen pt-[88px]">
-        <div className="relative z-10 max-w-[1184px] mx-auto px-6 py-20">
+        <div className="relative z-[2] max-w-[1184px] mx-auto px-6 py-20">
           <h1 className="text-white font-bold text-[44px] leading-[1.1] tracking-[-1px] text-center mb-14 max-w-[860px] mx-auto">
             {p.headline}
           </h1>

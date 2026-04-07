@@ -362,7 +362,7 @@ function TestHero({ onClaim }: { onClaim: () => void }) {
   const sectionRef = useRef<HTMLElement>(null)
 
   return (
-    <section ref={sectionRef} className="relative min-h-screen overflow-hidden bg-[#080603]">
+    <section ref={sectionRef} className="relative min-h-screen overflow-hidden z-[2]">
       <svg style={{ display: 'none' }} aria-hidden="true">
         <defs>
           <filter id="glass-distortion" x="0%" y="0%" width="100%" height="100%" filterUnits="objectBoundingBox">
@@ -382,7 +382,7 @@ function TestHero({ onClaim }: { onClaim: () => void }) {
         </defs>
       </svg>
 
-      <div className="fixed inset-0 -z-10">
+      <div className="fixed inset-0 z-[1]">
         <img src={heroBgImage} alt="" aria-hidden className="w-full h-full object-cover" />
         <div className="absolute inset-0 bg-[#080603]/40" />
       </div>
