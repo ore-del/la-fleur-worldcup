@@ -5,7 +5,7 @@ import Header from '@/components/Header'
 import CountdownTimer from '@/components/CountdownTimer'
 import { LanguageProvider, useLanguage } from '@/lib/LanguageContext'
 
-const heroBgVideo = 'https://raw.githubusercontent.com/ore-del/la-fleur-worldcup/main/Hero%20bg%20video.mp4'
+const heroBgImage = 'https://raw.githubusercontent.com/ore-del/la-fleur-worldcup/claude/world-cup-generate-page-vuHuO/Hero%20image.png'
 const imgGoal = 'https://www.figma.com/api/mcp/asset/1f667b3e-a6c5-4674-bfb0-155ab746e0eb'
 const imgBall = 'https://www.figma.com/api/mcp/asset/60d9e2d7-d405-49bd-a0db-e1c7355d5af1'
 
@@ -360,7 +360,7 @@ function TestHero() {
         </defs>
       </svg>
 
-      <video src={heroBgVideo} autoPlay muted loop playsInline
+      <img src={heroBgImage} alt="" aria-hidden
         className="absolute inset-0 w-full h-full object-cover pointer-events-none" />
       <div className="absolute inset-0 bg-[#080603]/40" />
 

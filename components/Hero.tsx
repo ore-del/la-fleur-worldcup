@@ -3,8 +3,8 @@
 import CountdownTimer from './CountdownTimer'
 import { useLanguage } from '@/lib/LanguageContext'
 
-// Hero background video — from repo root (main branch)
-const heroBgVideo = 'https://raw.githubusercontent.com/ore-del/la-fleur-worldcup/main/Hero%20bg%20video.mp4'
+// Hero background image
+const heroBgImage = 'https://raw.githubusercontent.com/ore-del/la-fleur-worldcup/claude/world-cup-generate-page-vuHuO/Hero%20image.png'
 
 export default function Hero() {
   const { tx } = useLanguage()
@@ -12,17 +12,15 @@ export default function Hero() {
 
   return (
     <section className="relative h-[680px] overflow-hidden bg-[#080603] pt-[88px]">
-      {/* Background video */}
-      <video
-        src={heroBgVideo}
-        autoPlay
-        muted
-        loop
-        playsInline
+      {/* Background image */}
+      <img
+        src={heroBgImage}
+        alt=""
+        aria-hidden
         className="absolute inset-0 w-full h-full object-cover pointer-events-none"
       />
       {/* Overlay to keep text legible */}
-      <div className="absolute inset-0 bg-[#080603]/50" />
+      <div className="absolute inset-0 bg-[#080603]/40" />
 
       {/* Deadline Bar — glass pill, Figma layout: text above, countdown below */}
       <div className="absolute left-1/2 -translate-x-1/2 top-8 z-10 w-max">
