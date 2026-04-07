@@ -6,8 +6,8 @@ import CountdownTimer from '@/components/CountdownTimer'
 import { LanguageProvider, useLanguage } from '@/lib/LanguageContext'
 
 const heroBgImage = 'https://raw.githubusercontent.com/ore-del/la-fleur-worldcup/claude/world-cup-generate-page-vuHuO/Hero%20image.png'
-const imgGoal = 'https://www.figma.com/api/mcp/asset/34c6f0c3-47fd-4565-b416-bbde5387d721'
-const imgBall = 'https://www.figma.com/api/mcp/asset/60d9e2d7-d405-49bd-a0db-e1c7355d5af1'
+const imgGoal = 'https://raw.githubusercontent.com/ore-del/la-fleur-worldcup/claude/world-cup-generate-page-vuHuO/Post.png'
+const imgBall = 'https://raw.githubusercontent.com/ore-del/la-fleur-worldcup/claude/world-cup-generate-page-vuHuO/Ball.png'
 
 const BALL_R    = 55
 const FRICTION  = 0.87
