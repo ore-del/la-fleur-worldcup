@@ -362,12 +362,11 @@ function TestHero() {
 
       <img src={heroBgImage} alt="" aria-hidden
         className="absolute inset-0 w-full h-full object-cover pointer-events-none" />
-      <div className="absolute inset-0 bg-[#080603]/40" />
 
       <div className="absolute left-1/2 -translate-x-1/2 top-[88px] z-10 pt-6 w-max">
         <GlassPill>
           <p className="text-white text-[14px] font-bold leading-snug text-center whitespace-pre-line"
-            style={{ textShadow: '0 1px 2px rgba(0,0,0,0.4)' }}>{h.deadlineBar}</p>
+            style={{ textShadow: '0 1px 3px rgba(0,0,0,0.9), 0 2px 12px rgba(0,0,0,0.7), 0 4px 32px rgba(0,0,0,0.5)' }}>{h.deadlineBar}</p>
           <CountdownTimer />
         </GlassPill>
       </div>
@@ -381,7 +380,8 @@ function TestHero() {
       <DraggableBall sectionRef={sectionRef} />
 
       <div className="relative z-10 flex flex-col items-center justify-center min-h-screen text-center px-6 pb-32">
-        <h1 className="text-white font-bold text-[56px] leading-[1.08] tracking-[-1.5px] max-w-[660px] mx-auto mt-32">
+        <h1 className="text-white font-bold text-[56px] leading-[1.08] tracking-[-1.5px] max-w-[660px] mx-auto mt-32"
+          style={{ textShadow: '0 1px 3px rgba(0,0,0,0.9), 0 2px 12px rgba(0,0,0,0.7), 0 4px 32px rgba(0,0,0,0.5)' }}>
           {h.headline}
         </h1>
         <button className="mt-8 bg-black text-white font-semibold text-[15px] rounded-full px-8 h-[52px] hover:bg-black/80 transition-colors duration-200 btn-spring btn-primary-glow">
