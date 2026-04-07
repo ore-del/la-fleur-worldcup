@@ -12,7 +12,7 @@ export const t = {
       headline: 'Your business, ready for a billion eyes in Toronto',
       sub1: 'The World Cup kicks off June 12. Over a million visitors are coming to your city.',
       sub2: "We'll get your business online — fast, sharp, and built to convert — before the opening whistle.",
-      deadlineBar: 'Launch your website before kickoff',
+      deadlineBar: 'Launch your site before kickoff',
       countdownLabel: 'Kickoff Countdown',
     },
     cta: {

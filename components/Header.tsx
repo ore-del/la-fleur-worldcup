@@ -35,7 +35,7 @@ export default function Header() {
         `}
       >
         {/* Logo — custom image; falls back to text + flower if not uploaded yet */}
-        <a href="#" className="flex items-end gap-[6px] shrink-0">
+        <a href="#" className="flex items-center gap-[6px] shrink-0">
           {logoFailed ? (
             <>
               <span className="text-white font-bold text-[22px] leading-none select-none"
@@ -51,7 +51,7 @@ export default function Header() {
             <img
               src={imgLogo}
               alt="La Fleur"
-              className="h-9 w-auto object-contain select-none"
+              className="h-[42px] w-auto object-contain select-none"
               onError={() => setLogoFailed(true)}
             />
           )}
