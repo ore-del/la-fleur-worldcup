@@ -65,7 +65,7 @@ export default function Header() {
           <a href="#how-it-works" className="text-white/75 hover:text-white text-[13px] font-medium transition-colors duration-200">
             {tx.nav.aiWorkflow}
           </a>
-          <a href="#work" className="text-white/75 hover:text-white text-[13px] font-medium transition-colors duration-200">
+          <a href="https://la-fleur.digital/our-work/" className="text-white/75 hover:text-white text-[13px] font-medium transition-colors duration-200">
             {tx.nav.work}
           </a>
         </nav>
