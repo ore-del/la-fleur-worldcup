@@ -69,9 +69,9 @@ export const t = {
     },
     howItWorks: {
       label: 'HOW IT WORKS',
-      headline: 'From zero to live in 3–5 days',
+      headline: 'From zero to live in 3 to 5 days',
       steps: [
-        { num: '01', title: 'You fill out one short form', description: "Business name, industry, what you want visitors to do. That's it — no brief, no calls required upfront.", time: 'Your time: 5 minutes' },
+        { num: '01', title: 'You fill out one short form', description: "Business name, industry, what you want visitors to do. That's it. No brief, no calls required upfront.", time: 'Your time: 5 minutes' },
         { num: '02', title: 'We research and build', description: "We pull your public info, identify your World Cup opportunity, and build your site using our AI-accelerated process. You don't lift a finger.", time: 'Our time: 1–3 days' },
         { num: '03', title: 'You review and approve', description: 'We send a live staging link. Review it, request changes if needed, and give the green light.', time: 'Your time: 30 minutes' },
         { num: '04', title: 'You go live', description: 'We push your site live, set up analytics, and hand you a simple guide for basic updates. Ready for tournament day.', time: 'Live before May 15' },
@@ -182,7 +182,7 @@ export const t = {
       label: "COMMENT ÇA MARCHE",
       headline: "De zéro à en ligne en 3 à 5 jours",
       steps: [
-        { num: "01", title: "Vous remplissez un court formulaire", description: "Nom de l'entreprise, secteur, ce que vous voulez que les visiteurs fassent. C'est tout — pas de brief, pas d'appels requis.", time: "Votre temps : 5 minutes" },
+        { num: "01", title: "Vous remplissez un court formulaire", description: "Nom de l'entreprise, secteur, ce que vous voulez que les visiteurs fassent. C'est tout. Pas de brief, pas d'appels requis.", time: "Votre temps : 5 minutes" },
         { num: "02", title: "Nous recherchons et construisons", description: "Nous extrayons vos informations publiques, identifions votre opportunité Coupe du Monde et créons votre site. Vous n'avez rien à faire.", time: "Notre temps : 1–3 jours" },
         { num: "03", title: "Vous révisez et approuvez", description: "Nous envoyons un lien de prévisualisation. Révisez-le, demandez des modifications si nécessaire, et donnez le feu vert.", time: "Votre temps : 30 minutes" },
         { num: "04", title: "Vous êtes en ligne", description: "Nous mettons votre site en ligne, configurons les analyses et vous remettons un guide simple pour les mises à jour. Prêt pour le jour du tournoi.", time: "En ligne avant le 15 mai" },
