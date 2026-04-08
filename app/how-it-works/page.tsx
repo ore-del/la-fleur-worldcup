@@ -19,7 +19,7 @@ function HowItWorksContent() {
       {/* Fixed bg — stays put on scroll and matches across pages */}
       <div className="fixed inset-0 z-[1]">
         <img src="https://raw.githubusercontent.com/ore-del/la-fleur-worldcup/claude/world-cup-generate-page-vuHuO/Hero%20image.png"
-          alt="" aria-hidden className="w-full h-full object-cover" />
+          alt="" aria-hidden className="w-full h-full object-cover object-[30%_center]" />
         <div className="absolute inset-0 bg-[#080603]/40" />
       </div>
       <main className="min-h-screen pt-[88px]">

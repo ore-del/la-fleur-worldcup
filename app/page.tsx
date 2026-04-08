@@ -378,7 +378,7 @@ function Hero({ onClaim }: { onClaim: () => void }) {
       </svg>
 
       <div className="fixed inset-0 z-[1]">
-        <img src={heroBgImage} alt="" aria-hidden className="w-full h-full object-cover" />
+        <img src={heroBgImage} alt="" aria-hidden className="w-full h-full object-cover object-[30%_center]" />
         <div className="absolute inset-0 bg-[#080603]/40" />
       </div>
 
