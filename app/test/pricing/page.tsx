@@ -45,7 +45,7 @@ function FormModal({ onClose, defaultPkg }: { onClose: () => void; defaultPkg: 0
                   <input value={email} onChange={e => setEmail(e.target.value)} required type="email" placeholder={c.emailPlaceholder}
                     className="bg-white/[0.06] border border-[rgba(203,152,58,0.3)] rounded-[8px] h-[48px] px-4 text-[14px] text-white placeholder:text-white/30 outline-none focus:border-[rgba(203,152,58,0.65)] transition-colors mb-[22px] w-full" />
                   <label className="block text-[10px] font-bold text-white/45 tracking-[1.5px] mb-[10px]">{c.packageLabel}</label>
-                  <div className="flex gap-3 mb-[30px]">
+                  <div className="flex flex-col sm:flex-row gap-3 mb-[30px]">
                     {c.packages.map((p, i) => (
                       <button key={i} type="button" onClick={() => setPkg(i as 0 | 1)}
                         className={`flex-1 rounded-[8px] py-[12px] px-[12px] text-left transition-all border ${pkg === i ? 'bg-[rgba(203,152,58,0.1)] border-[rgba(203,152,58,0.5)]' : 'bg-white/[0.04] border-white/[0.12]'}`}>
