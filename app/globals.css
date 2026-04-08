@@ -147,6 +147,73 @@ html, body {
   animation: shimmer-in 600ms var(--spring) both;
 }
 
+/* ─── CTA btn-6 style: glowing gold border-trace on hover ─── */
+.btn-trace {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: black;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background 300ms ease, color 300ms ease, box-shadow 300ms ease;
+}
+
+/* Vertical glow lines — right + left sides */
+.btn-trace::before,
+.btn-trace::after {
+  position: absolute;
+  content: "";
+  height: 0%;
+  width: 1px;
+  box-shadow:
+    -1px -1px 20px 0px rgba(240, 192, 96, 0.95),
+    -4px -4px 5px  0px rgba(240, 192, 96, 0.95),
+     7px  7px 20px 0px rgba(0, 0, 0, 0.4),
+     4px  4px  5px 0px rgba(0, 0, 0, 0.3);
+  transition: height 500ms ease;
+}
+.btn-trace::before { right: 0; top: 0; }
+.btn-trace::after  { left: 0;  bottom: 0; }
+
+.btn-trace:hover {
+  background: transparent;
+  color: var(--gold-light);
+  box-shadow: none;
+}
+.btn-trace:hover::before,
+.btn-trace:hover::after { height: 100%; }
+
+/* Horizontal glow lines — top-left + bottom-right via inner span */
+.btn-trace span {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.btn-trace span::before,
+.btn-trace span::after {
+  position: absolute;
+  content: "";
+  width: 0%;
+  height: 0.5px;
+  box-shadow:
+    -1px -1px 20px 0px rgba(240, 192, 96, 0.95),
+    -4px -4px  5px 0px rgba(240, 192, 96, 0.95),
+     7px  7px 20px 0px rgba(0, 0, 0, 0.4),
+     4px  4px  5px 0px rgba(0, 0, 0, 0.3);
+  transition: width 500ms ease;
+}
+.btn-trace span::before { left: 0;  top: 0; }
+.btn-trace span::after  { right: 0; bottom: 0; }
+
+.btn-trace:hover span::before,
+.btn-trace:hover span::after { width: 100%; }
+
 /* ─── Reduce motion respect (ui-ux-pro-max) ─────────────── */
 @media (prefers-reduced-motion: reduce) {
   .reveal,
@@ -160,5 +227,54 @@ html, body {
     transition: none !important;
     opacity: 1 !important;
     transform: none !important;
+  }
+}
+
+/* ─── Step card reveal animation ────────────────────────── */
+.step-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.step-card-content {
+  position: relative;
+  padding: 19px;
+}
+
+.step-card-reveal {
+  opacity: 1;
+  transform: none;
+}
+
+@media (hover: hover) {
+  .step-card {
+    height: 340px;
+  }
+
+  .step-card-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    transform: translateY(calc(100% - 5rem));
+    transition: transform 700ms cubic-bezier(0.19, 1, 0.22, 1);
+  }
+
+  .step-card-reveal {
+    opacity: 0;
+    transform: translateY(1rem);
+    transition:
+      opacity 700ms cubic-bezier(0.19, 1, 0.22, 1),
+      transform 700ms cubic-bezier(0.19, 1, 0.22, 1);
+    transition-delay: 87ms;
+  }
+
+  .step-card:hover .step-card-content {
+    transform: translateY(0);
+  }
+
+  .step-card:hover .step-card-reveal {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

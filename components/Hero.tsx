@@ -3,52 +3,58 @@
 import CountdownTimer from './CountdownTimer'
 import { useLanguage } from '@/lib/LanguageContext'
 
-const imgHeroBg = 'https://www.figma.com/api/mcp/asset/34549b6d-c89f-4bc3-b364-7fb7ec7f2eab'
-const imgSparkle = 'https://www.figma.com/api/mcp/asset/81c5e386-14d9-4350-a295-685388f04967'
+// Hero background image
+const heroBgImage = 'https://raw.githubusercontent.com/ore-del/la-fleur-worldcup/claude/world-cup-generate-page-vuHuO/Hero%20image.png'
+const imgGoal = 'https://raw.githubusercontent.com/ore-del/la-fleur-worldcup/claude/world-cup-generate-page-vuHuO/Post.png'
+
+// Strong multi-layer shadow for legibility against the yellow bg
+const textShadow = '0 1px 3px rgba(0,0,0,0.9), 0 2px 12px rgba(0,0,0,0.7), 0 4px 32px rgba(0,0,0,0.5)'
 
 export default function Hero() {
   const { tx } = useLanguage()
   const h = tx.hero
 
   return (
-    <section className="relative h-[680px] overflow-hidden bg-[#080603] pt-[88px]">
-      {/* Background cityscape */}
-      <div className="absolute inset-0">
-        <img
-          alt=""
-          src={imgHeroBg}
-          className="absolute w-full object-cover object-bottom opacity-60 pointer-events-none"
-          style={{ height: '2210px', top: '-1328px' }}
-        />
-      </div>
-      <div className="absolute inset-0 bg-[#080603]/40" />
+    <section className="relative h-[680px] overflow-hidden bg-[#c8960c] pt-[88px]">
+      {/* Background image */}
+      <img
+        src={heroBgImage}
+        alt=""
+        aria-hidden
+        className="absolute inset-0 w-full h-full object-cover pointer-events-none"
+      />
 
-      {/* Deadline Bar — top center */}
-      <div className="absolute left-1/2 -translate-x-1/2 top-8 z-10">
-        <div className="flex items-center gap-10 bg-black/40 border border-white/15 backdrop-blur-sm rounded-full px-6 py-4">
-          <p className="text-white text-[14px] font-bold leading-snug whitespace-pre-line">
+      {/* Goal posts */}
+      <img alt="" src={imgGoal}
+        className="absolute left-[3%] bottom-[8%] w-[28vw] max-w-[380px] pointer-events-none"
+        style={{ filter: 'drop-shadow(4px 8px 12px rgba(188,135,46,0.7)) drop-shadow(0px 6px 6px rgba(0,0,0,0.2)) drop-shadow(0px 0px 20px rgba(0,0,0,0.1))' }} />
+      <img alt="" src={imgGoal}
+        className="absolute right-[3%] bottom-[8%] w-[28vw] max-w-[380px] pointer-events-none"
+        style={{ transform: 'scaleX(-1)', filter: 'drop-shadow(4px 8px 12px rgba(188,135,46,0.7)) drop-shadow(0px 6px 6px rgba(0,0,0,0.2)) drop-shadow(0px 0px 20px rgba(0,0,0,0.1))' }} />
+
+      {/* Deadline Bar — glass pill, Figma layout: text above, countdown below */}
+      <div className="absolute left-1/2 -translate-x-1/2 top-8 z-10 w-max">
+        <div className="flex flex-col items-center gap-2 bg-white/10 backdrop-blur-md border border-white/[0.15] rounded-[65px] px-6 py-4">
+          <p className="text-white text-[14px] font-bold leading-snug text-center whitespace-pre-line"
+            style={{ textShadow }}>
             {h.deadlineBar}
           </p>
           <CountdownTimer />
         </div>
       </div>
 
-      {/* Sparkle */}
-      <img
-        alt=""
-        src={imgSparkle}
-        className="absolute right-[285px] top-[295px] w-[85px] h-[90px] pointer-events-none z-10"
-      />
-
       {/* Main content */}
       <div className="absolute inset-0 flex flex-col items-center justify-center z-10 text-center px-6" style={{ marginTop: '60px' }}>
-        <p className="text-[#cb983a] text-xs tracking-[3px] uppercase font-medium mb-5">
+        <p className="text-white text-xs tracking-[3px] uppercase font-medium mb-5"
+          style={{ textShadow }}>
           {h.label}
         </p>
-        <h1 className="text-white font-bold text-[56px] leading-[1.08] tracking-[-1.5px] max-w-[900px] mx-auto">
+        <h1 className="text-white font-bold text-[56px] leading-[1.08] tracking-[-1.5px] max-w-[900px] mx-auto"
+          style={{ textShadow }}>
           {h.headline}
         </h1>
-        <div className="text-white/60 text-[17px] leading-[1.6] max-w-[760px] mx-auto mt-6">
+        <div className="text-white text-[17px] leading-[1.6] max-w-[760px] mx-auto mt-6"
+          style={{ textShadow }}>
           <p>{h.sub1}</p>
           <p>{h.sub2}</p>
         </div>
