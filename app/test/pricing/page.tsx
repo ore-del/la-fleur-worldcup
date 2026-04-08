@@ -109,7 +109,7 @@ function PricingContent() {
                   ))}
                 </div>
                 <button onClick={() => openModal(0)}
-                  className="h-[52px] w-full rounded-[8px] border border-[rgba(203,152,58,0.6)] text-[#cb983a] font-semibold text-[15px] hover:bg-[rgba(203,152,58,0.1)] transition-colors">
+                  className="h-[52px] w-full rounded-full bg-black text-white font-semibold text-[15px] hover:bg-black/80 transition-colors duration-200">
                   {p.standardCta}
                 </button>
               </div>
@@ -141,7 +141,7 @@ function PricingContent() {
                   ))}
                 </div>
                 <button onClick={() => openModal(1)}
-                  className="h-[52px] w-full rounded-[8px] bg-[#cb983a] hover:bg-[#d4a84a] text-[#080603] font-semibold text-[15px] transition-colors">
+                  className="h-[52px] w-full rounded-full bg-black text-white font-semibold text-[15px] hover:bg-black/80 transition-colors duration-200">
                   {p.premiumCta}
                 </button>
               </div>
