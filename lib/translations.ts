@@ -69,7 +69,7 @@ export const t = {
     },
     howItWorks: {
       label: 'HOW IT WORKS',
-      headline: 'From zero to live in 3 to 5 days',
+      headline: 'From zero to live in 5 days',
       steps: [
         { num: '01', title: 'You fill out one short form', description: "Business name, industry, what you want visitors to do. That's it. No brief, no calls required upfront.", time: 'Your time: 5 minutes' },
         { num: '02', title: 'We research and build', description: "We pull your public info, identify your World Cup opportunity, and build your site using our AI-accelerated process. You don't lift a finger.", time: 'Our time: 1–3 days' },
@@ -180,7 +180,7 @@ export const t = {
     },
     howItWorks: {
       label: "COMMENT ÇA MARCHE",
-      headline: "De zéro à en ligne en 3 à 5 jours",
+      headline: "De zéro à en ligne en 5 jours",
       steps: [
         { num: "01", title: "Vous remplissez un court formulaire", description: "Nom de l'entreprise, secteur, ce que vous voulez que les visiteurs fassent. C'est tout. Pas de brief, pas d'appels requis.", time: "Votre temps : 5 minutes" },
         { num: "02", title: "Nous recherchons et construisons", description: "Nous extrayons vos informations publiques, identifions votre opportunité Coupe du Monde et créons votre site. Vous n'avez rien à faire.", time: "Notre temps : 1–3 jours" },
