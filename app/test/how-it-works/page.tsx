@@ -28,7 +28,7 @@ function HowItWorksContent() {
         <h1 className="text-white font-bold text-[44px] tracking-[-1px] leading-tight mb-14">{h.headline}</h1>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {h.steps.map((step, i) => (
-            <div key={i} className="step-card rounded-[16px] border border-[rgba(203,152,58,0.2)] bg-[rgba(42,43,44,0.82)] backdrop-blur-[20px] h-[340px]">
+            <div key={i} className="step-card rounded-[16px] border border-[rgba(203,152,58,0.2)] bg-[rgba(42,43,44,0.82)] backdrop-blur-[20px]">
               <div className="step-card-content">
                 <p className="text-[#f0c060] font-bold text-[56px] leading-none tracking-[-2px] mb-4">{step.num}</p>
                 <p className="step-card-reveal text-white font-bold text-[16px] leading-snug mb-3">{step.title}</p>
