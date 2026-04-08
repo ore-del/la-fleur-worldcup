@@ -395,9 +395,9 @@ function TestHero({ onClaim }: { onClaim: () => void }) {
       </div>
 
       <img alt="" src={imgGoal}
-        className="absolute left-[3%] bottom-[8%] w-[28vw] max-w-[380px] pointer-events-none drop-shadow-[4px_8px_12px_rgba(188,135,46,0.5)]" />
+        className="absolute left-[3%] bottom-[8%] w-[28vw] max-w-[380px] pointer-events-none drop-shadow-[4px_8px_12px_rgba(188,135,46,0.5)] z-[5]" />
       <img alt="" src={imgGoal}
-        className="absolute right-[3%] bottom-[8%] w-[28vw] max-w-[380px] pointer-events-none drop-shadow-[4px_8px_12px_rgba(188,135,46,0.5)]"
+        className="absolute right-[3%] bottom-[8%] w-[28vw] max-w-[380px] pointer-events-none drop-shadow-[4px_8px_12px_rgba(188,135,46,0.5)] z-[5]"
         style={{ transform: 'scaleX(-1)' }} />
 
       <DraggableBall sectionRef={sectionRef} />
