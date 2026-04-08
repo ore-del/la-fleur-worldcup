@@ -5,7 +5,8 @@ import Header from '@/components/Header'
 import CountdownTimer from '@/components/CountdownTimer'
 import { LanguageProvider, useLanguage } from '@/lib/LanguageContext'
 
-const heroBgImage = 'https://raw.githubusercontent.com/ore-del/la-fleur-worldcup/claude/world-cup-generate-page-vuHuO/Hero%20image.png'
+const heroBgImage  = 'https://raw.githubusercontent.com/ore-del/la-fleur-worldcup/claude/world-cup-generate-page-vuHuO/Hero%20image.png'
+const heroBgMobile = 'https://raw.githubusercontent.com/ore-del/la-fleur-worldcup/claude/world-cup-generate-page-vuHuO/Hero%20phone%20img.png'
 const imgGoal = 'https://raw.githubusercontent.com/ore-del/la-fleur-worldcup/claude/world-cup-generate-page-vuHuO/Post.png'
 const imgBall = 'https://raw.githubusercontent.com/ore-del/la-fleur-worldcup/claude/world-cup-generate-page-vuHuO/Ball.png'
 
@@ -378,7 +379,10 @@ function Hero({ onClaim }: { onClaim: () => void }) {
       </svg>
 
       <div className="fixed inset-0 z-[1]">
-        <img src={heroBgImage} alt="" aria-hidden className="w-full h-full object-cover object-[30%_center]" />
+        <picture className="w-full h-full">
+          <source media="(max-width: 767px)" srcSet={heroBgMobile} />
+          <img src={heroBgImage} alt="" aria-hidden className="w-full h-full object-cover object-[30%_center]" />
+        </picture>
         <div className="absolute inset-0 bg-[#080603]/40" />
       </div>
 
