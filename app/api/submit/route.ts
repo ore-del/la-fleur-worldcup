@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server'
 
-const ADMIN_EMAIL = 'ore@la-fleur.ca'
+const ADMIN_EMAIL = 'admin@la-fleur.ca'
+const CONTACT_EMAIL = 'hello@la-fleur.ca'
 const FROM = 'La Fleur <noreply@la-fleur.digital>'
 
 export async function POST(req: Request) {
@@ -50,7 +51,7 @@ export async function POST(req: Request) {
         <h2 style="color:#cb983a;margin:0 0 8px">Spot Claimed.</h2>
         <p style="color:#999;margin:0 0 24px;font-size:16px">Hi ${bizName}, you're on the list.</p>
         <p style="line-height:1.7;color:#ccc">You've reserved your <strong style="color:#f0c060">${pkg}</strong> spot. We'll reach out within 24 hours to get things moving before the World Cup kicks off.</p>
-        <p style="line-height:1.7;color:#ccc">If you have any questions in the meantime, reply to this email or reach us at <a href="mailto:${ADMIN_EMAIL}" style="color:#cb983a">${ADMIN_EMAIL}</a>.</p>
+        <p style="line-height:1.7;color:#ccc">If you have any questions in the meantime, reply to this email or reach us at <a href="mailto:${CONTACT_EMAIL}" style="color:#cb983a">${CONTACT_EMAIL}</a>.</p>
         <p style="margin:32px 0 0;color:#555;font-size:12px">La Fleur · Toronto · worldcup.la-fleur.digital</p>
       </div>
     `,
