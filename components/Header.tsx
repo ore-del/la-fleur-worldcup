@@ -1,7 +1,6 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { usePathname } from 'next/navigation'
 import { useLanguage } from '@/lib/LanguageContext'
 
 const imgLogo = 'https://raw.githubusercontent.com/ore-del/la-fleur-worldcup/main/La%20Fleur%20logo%20wc.svg'
@@ -12,10 +11,6 @@ export default function Header() {
   const [scrolled, setScrolled]   = useState(false)
   const [logoFailed, setLogoFailed] = useState(false)
   const [menuOpen, setMenuOpen]   = useState(false)
-  const pathname = usePathname()
-  const isTest = pathname?.startsWith('/test')
-  const pricingHref  = isTest ? '/test/pricing'      : '#pricing'
-  const workflowHref = isTest ? '/test/how-it-works' : '#how-it-works'
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40)
@@ -48,7 +43,7 @@ export default function Header() {
           `}
         >
           {/* Logo */}
-          <a href={isTest ? '/test' : '/'} className="flex items-center gap-[6px] shrink-0" onClick={close}>
+          <a href="/" className="flex items-center gap-[6px] shrink-0" onClick={close}>
             {logoFailed ? (
               <>
                 <span className="text-white font-bold text-[22px] leading-none select-none"
@@ -72,10 +67,10 @@ export default function Header() {
 
           {/* Desktop nav */}
           <nav className="hidden md:flex items-center gap-10">
-            <a href={pricingHref} className="text-white/75 hover:text-white text-[13px] font-medium transition-colors duration-200">
+            <a href="/pricing" className="text-white/75 hover:text-white text-[13px] font-medium transition-colors duration-200">
               {tx.nav.pricing}
             </a>
-            <a href={workflowHref} className="text-white/75 hover:text-white text-[13px] font-medium transition-colors duration-200">
+            <a href="/how-it-works" className="text-white/75 hover:text-white text-[13px] font-medium transition-colors duration-200">
               {tx.nav.aiWorkflow}
             </a>
             <a href="https://la-fleur.digital/our-work/" className="text-white/75 hover:text-white text-[13px] font-medium transition-colors duration-200">
@@ -134,11 +129,11 @@ export default function Header() {
 
         {/* Menu content */}
         <nav className="absolute inset-0 flex flex-col items-center justify-center gap-10">
-          <a href={pricingHref} onClick={close}
+          <a href="/pricing" onClick={close}
             className="text-white font-bold text-[32px] tracking-[-0.5px] hover:text-[#f0c060] transition-colors duration-200">
             {tx.nav.pricing}
           </a>
-          <a href={workflowHref} onClick={close}
+          <a href="/how-it-works" onClick={close}
             className="text-white font-bold text-[32px] tracking-[-0.5px] hover:text-[#f0c060] transition-colors duration-200">
             {tx.nav.aiWorkflow}
           </a>
