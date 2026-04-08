@@ -25,7 +25,7 @@ function HowItWorksContent() {
       <main className="min-h-screen pt-[88px]">
       <div className="relative z-[2] max-w-[1184px] mx-auto px-6 py-20">
         <p className="text-[rgba(203,152,58,0.85)] text-[11px] font-bold tracking-[2px] uppercase mb-5">{h.label}</p>
-        <h1 className="text-white font-bold text-[44px] tracking-[-1px] leading-tight mb-14">{h.headline}</h1>
+        <h1 className="text-white font-bold text-[28px] md:text-[44px] tracking-[-1px] leading-tight mb-14">{h.headline}</h1>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {h.steps.map((step, i) => (
             <div key={i} className="step-card rounded-[16px] border border-[rgba(203,152,58,0.2)] bg-[rgba(42,43,44,0.82)] backdrop-blur-[20px]">

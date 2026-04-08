@@ -404,7 +404,7 @@ function TestHero({ onClaim }: { onClaim: () => void }) {
       <DraggableBall sectionRef={sectionRef} />
 
       <div className="relative z-10 flex flex-col items-center justify-center min-h-screen text-center px-6 pb-32">
-        <h1 className="text-white font-bold text-[56px] leading-[1.08] tracking-[-1.5px] max-w-[660px] mx-auto mt-32">
+        <h1 className="text-white font-bold text-[36px] md:text-[56px] leading-[1.08] tracking-[-1.5px] max-w-[660px] mx-auto mt-32">
           {h.headline}
         </h1>
         <button onClick={onClaim}

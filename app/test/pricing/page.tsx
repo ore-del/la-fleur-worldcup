@@ -85,7 +85,7 @@ function PricingContent() {
       </div>
       <main className="min-h-screen pt-[88px]">
         <div className="relative z-[2] max-w-[1184px] mx-auto px-6 py-20">
-          <h1 className="text-white font-bold text-[44px] leading-[1.1] tracking-[-1px] text-center mb-14 max-w-[860px] mx-auto">
+          <h1 className="text-white font-bold text-[28px] md:text-[44px] leading-[1.1] tracking-[-1px] text-center mb-14 max-w-[860px] mx-auto">
             {p.headline}
           </h1>
           <div className="grid grid-cols-2 gap-9">
