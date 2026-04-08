@@ -272,7 +272,7 @@ function DraggableBall({ sectionRef }: { sectionRef: React.RefObject<HTMLElement
           top:    `calc(${renderPos.y * 100}% - 55px)`,
           width: 110, height: 110,
           cursor: dragging ? 'grabbing' : 'grab',
-          filter: `drop-shadow(4px 8px 12px rgba(188,135,46,${dragging ? 0.85 : 0.55}))`,
+          filter: `drop-shadow(4px 8px 12px rgba(188,135,46,${dragging ? 0.85 : 0.55})) drop-shadow(0px 6px 6px rgba(0,0,0,0.2)) drop-shadow(0px 0px 20px rgba(0,0,0,0.1))`,
           willChange: 'left, top',
         }}
         onPointerDown={onPointerDown}
@@ -395,10 +395,11 @@ function TestHero({ onClaim }: { onClaim: () => void }) {
       </div>
 
       <img alt="" src={imgGoal}
-        className="absolute left-[3%] bottom-[8%] w-[28vw] max-w-[380px] pointer-events-none drop-shadow-[4px_8px_12px_rgba(188,135,46,0.7)] z-[5]" />
+        className="absolute left-[3%] bottom-[8%] w-[28vw] max-w-[380px] pointer-events-none z-[5]"
+        style={{ filter: 'drop-shadow(4px 8px 12px rgba(188,135,46,0.7)) drop-shadow(0px 6px 6px rgba(0,0,0,0.2)) drop-shadow(0px 0px 20px rgba(0,0,0,0.1))' }} />
       <img alt="" src={imgGoal}
-        className="absolute right-[3%] bottom-[8%] w-[28vw] max-w-[380px] pointer-events-none drop-shadow-[4px_8px_12px_rgba(188,135,46,0.7)] z-[5]"
-        style={{ transform: 'scaleX(-1)' }} />
+        className="absolute right-[3%] bottom-[8%] w-[28vw] max-w-[380px] pointer-events-none z-[5]"
+        style={{ transform: 'scaleX(-1)', filter: 'drop-shadow(4px 8px 12px rgba(188,135,46,0.7)) drop-shadow(0px 6px 6px rgba(0,0,0,0.2)) drop-shadow(0px 0px 20px rgba(0,0,0,0.1))' }} />
 
       <DraggableBall sectionRef={sectionRef} />
 

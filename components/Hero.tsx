@@ -26,10 +26,11 @@ export default function Hero() {
 
       {/* Goal posts */}
       <img alt="" src={imgGoal}
-        className="absolute left-[3%] bottom-[8%] w-[28vw] max-w-[380px] pointer-events-none drop-shadow-[4px_8px_12px_rgba(188,135,46,0.7)]" />
+        className="absolute left-[3%] bottom-[8%] w-[28vw] max-w-[380px] pointer-events-none"
+        style={{ filter: 'drop-shadow(4px 8px 12px rgba(188,135,46,0.7)) drop-shadow(0px 6px 6px rgba(0,0,0,0.2)) drop-shadow(0px 0px 20px rgba(0,0,0,0.1))' }} />
       <img alt="" src={imgGoal}
-        className="absolute right-[3%] bottom-[8%] w-[28vw] max-w-[380px] pointer-events-none drop-shadow-[4px_8px_12px_rgba(188,135,46,0.7)]"
-        style={{ transform: 'scaleX(-1)' }} />
+        className="absolute right-[3%] bottom-[8%] w-[28vw] max-w-[380px] pointer-events-none"
+        style={{ transform: 'scaleX(-1)', filter: 'drop-shadow(4px 8px 12px rgba(188,135,46,0.7)) drop-shadow(0px 6px 6px rgba(0,0,0,0.2)) drop-shadow(0px 0px 20px rgba(0,0,0,0.1))' }} />
 
       {/* Deadline Bar — glass pill, Figma layout: text above, countdown below */}
       <div className="absolute left-1/2 -translate-x-1/2 top-8 z-10 w-max">
