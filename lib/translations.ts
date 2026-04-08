@@ -104,7 +104,7 @@ export const t = {
       ],
       submit: 'Reserve my spot. Limited availability.',
       successTitle: 'Spot Claimed!',
-      successSub: "We'll reach out within 24 hours to get started. Get ready — your business is about to be World Cup ready.",
+      successSub: "We'll reach out within 24 hours to get started. Get ready. Your business is about to be World Cup ready.",
     },
     footer: {
       location: 'toronto · la-fleur.digital',
@@ -215,7 +215,7 @@ export const t = {
       ],
       submit: "Réserver ma place. Disponibilité limitée.",
       successTitle: "Place réservée !",
-      successSub: "Nous vous contacterons dans les 24 heures pour commencer. Préparez-vous — votre entreprise sera bientôt prête pour la Coupe du Monde.",
+      successSub: "Nous vous contacterons dans les 24 heures pour commencer. Préparez-vous. Votre entreprise sera bientôt prête pour la Coupe du Monde.",
     },
     footer: {
       location: "toronto · la-fleur.digital",
