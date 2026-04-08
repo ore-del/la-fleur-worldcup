@@ -3,7 +3,28 @@ import './globals.css'
 
 export const metadata: Metadata = {
   title: "La Fleur — World Cup 2026 | Get Your Business Online for Toronto's Biggest Moment",
-  description: 'A once-in-a-lifetime economic surge is coming to Toronto. Get your business World Cup ready in 3–5 days. Limited spots available.',
+  description: 'A once-in-a-lifetime economic surge is coming to Toronto. Get your business World Cup ready in 5 days. Limited spots available.',
+  openGraph: {
+    title: "La Fleur — World Cup 2026",
+    description: 'A once-in-a-lifetime economic surge is coming to Toronto. Get your business World Cup ready in 5 days. Limited spots available.',
+    url: 'https://worldcup.la-fleur.digital',
+    siteName: 'La Fleur',
+    images: [
+      {
+        url: 'https://raw.githubusercontent.com/ore-del/la-fleur-worldcup/claude/world-cup-generate-page-vuHuO/Hero%20image.png',
+        width: 1200,
+        height: 630,
+        alt: 'La Fleur — World Cup 2026 Toronto',
+      },
+    ],
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "La Fleur — World Cup 2026",
+    description: 'Get your business World Cup ready in 5 days. Limited spots available.',
+    images: ['https://raw.githubusercontent.com/ore-del/la-fleur-worldcup/claude/world-cup-generate-page-vuHuO/Hero%20image.png'],
+  },
 }
 
 export default function RootLayout({
