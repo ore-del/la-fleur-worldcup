@@ -99,7 +99,7 @@ export const t = {
       emailPlaceholder: 'Email address',
       packageLabel: 'CHOOSE YOUR PACKAGE',
       packages: [
-        { label: 'World Cup Ready', sub: '$249/mo — Landing page' },
+        { label: 'World Cup Ready', sub: '$249/mo. Landing page' },
         { label: 'Full Digital Refresh', sub: '$699 one-time + $249/mo' },
       ],
       submit: 'Reserve my spot. Limited availability.',
@@ -210,7 +210,7 @@ export const t = {
       emailPlaceholder: "Adresse courriel",
       packageLabel: "CHOISISSEZ VOTRE FORFAIT",
       packages: [
-        { label: "Prêt pour la Coupe du Monde", sub: "249 $/mois — Page de destination" },
+        { label: "Prêt pour la Coupe du Monde", sub: "249 $/mois. Page de destination" },
         { label: "Refonte Numérique Complète", sub: "699 $ unique + 249 $/mois" },
       ],
       submit: "Réserver ma place. Disponibilité limitée.",
