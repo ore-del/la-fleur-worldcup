@@ -88,7 +88,7 @@ function PricingContent() {
           <h1 className="text-white font-bold text-[28px] md:text-[44px] leading-[1.1] tracking-[-1px] text-center mb-14 max-w-[860px] mx-auto">
             {p.headline}
           </h1>
-          <div className="grid grid-cols-2 gap-9">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-9">
 
             {/* Standard */}
             <div className="rounded-[16px] border border-[rgba(203,152,58,0.25)] bg-[rgba(42,43,44,0.82)] backdrop-blur-[20px]">
