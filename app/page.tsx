@@ -296,12 +296,28 @@ function FormModal({ onClose, defaultPkg }: { onClose: () => void; defaultPkg: 0
   const [bizName, setBizName] = useState('')
   const [email, setEmail]     = useState('')
   const [submitted, setSubmitted] = useState(false)
+  const [loading, setLoading] = useState(false)
 
   useEffect(() => {
     const handler = (e: KeyboardEvent) => { if (e.key === 'Escape') onClose() }
     window.addEventListener('keydown', handler)
     return () => window.removeEventListener('keydown', handler)
   }, [onClose])
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setLoading(true)
+    try {
+      await fetch('/api/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ bizName, email, pkg: c.packages[pkg].label }),
+      })
+    } finally {
+      setLoading(false)
+      setSubmitted(true)
+    }
+  }
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
@@ -320,7 +336,7 @@ function FormModal({ onClose, defaultPkg }: { onClose: () => void; defaultPkg: 0
             <>
               <h2 className="text-white font-bold text-[44px] tracking-[-1.5px] leading-none text-center mb-2">{c.headline}</h2>
               <p className="text-white/55 text-[16px] text-center mb-8">{c.sub}</p>
-              <form onSubmit={e => { e.preventDefault(); setSubmitted(true) }}>
+              <form onSubmit={handleSubmit}>
                 <div className="bg-white/[0.04] border border-[rgba(203,152,58,0.2)] rounded-[16px] p-[38px] flex flex-col">
                   <label className="block text-[10px] font-bold text-white/45 tracking-[1.5px] mb-[10px]">{c.bizLabel}</label>
                   <input value={bizName} onChange={e => setBizName(e.target.value)} required placeholder={c.bizPlaceholder}
@@ -338,8 +354,9 @@ function FormModal({ onClose, defaultPkg }: { onClose: () => void; defaultPkg: 0
                       </button>
                     ))}
                   </div>
-                  <button type="submit" className="bg-[#cb983a] hover:bg-[#d4a84a] transition-colors h-[56px] rounded-[8px] text-[#080603] font-semibold text-[15px] w-full">
-                    {c.submit}
+                  <button type="submit" disabled={loading}
+                    className="bg-[#cb983a] hover:bg-[#d4a84a] disabled:opacity-60 transition-colors h-[56px] rounded-[8px] text-[#080603] font-semibold text-[15px] w-full">
+                    {loading ? 'Sending…' : c.submit}
                   </button>
                 </div>
               </form>
