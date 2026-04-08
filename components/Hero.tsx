@@ -5,6 +5,7 @@ import { useLanguage } from '@/lib/LanguageContext'
 
 // Hero background image
 const heroBgImage = 'https://raw.githubusercontent.com/ore-del/la-fleur-worldcup/claude/world-cup-generate-page-vuHuO/Hero%20image.png'
+const imgGoal = 'https://raw.githubusercontent.com/ore-del/la-fleur-worldcup/claude/world-cup-generate-page-vuHuO/Post.png'
 
 // Strong multi-layer shadow for legibility against the yellow bg
 const textShadow = '0 1px 3px rgba(0,0,0,0.9), 0 2px 12px rgba(0,0,0,0.7), 0 4px 32px rgba(0,0,0,0.5)'
@@ -22,6 +23,13 @@ export default function Hero() {
         aria-hidden
         className="absolute inset-0 w-full h-full object-cover pointer-events-none"
       />
+
+      {/* Goal posts */}
+      <img alt="" src={imgGoal}
+        className="absolute left-[3%] bottom-[8%] w-[28vw] max-w-[380px] pointer-events-none drop-shadow-[4px_8px_12px_rgba(188,135,46,0.5)]" />
+      <img alt="" src={imgGoal}
+        className="absolute right-[3%] bottom-[8%] w-[28vw] max-w-[380px] pointer-events-none drop-shadow-[4px_8px_12px_rgba(188,135,46,0.5)]"
+        style={{ transform: 'scaleX(-1)' }} />
 
       {/* Deadline Bar — glass pill, Figma layout: text above, countdown below */}
       <div className="absolute left-1/2 -translate-x-1/2 top-8 z-10 w-max">
