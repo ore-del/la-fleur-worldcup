@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server'
 
-const ADMIN_EMAIL = 'admin@la-fleur.ca'
+const ADMIN_EMAIL = 'ore@la-fleur.ca'
 const FROM = 'La Fleur <noreply@la-fleur.digital>'
 
 export async function POST(req: Request) {
