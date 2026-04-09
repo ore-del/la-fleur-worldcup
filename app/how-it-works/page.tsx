@@ -20,7 +20,7 @@ function HowItWorksContent() {
       <div className="fixed inset-0 z-[1]">
         <picture className="w-full h-full">
           <source media="(max-width: 767px)" srcSet="https://raw.githubusercontent.com/ore-del/la-fleur-worldcup/claude/world-cup-generate-page-vuHuO/Hero%20phone%20img.png" />
-          <img src="https://raw.githubusercontent.com/ore-del/la-fleur-worldcup/claude/world-cup-generate-page-vuHuO/Hero%20image.png"
+          <img src="https://raw.githubusercontent.com/ore-del/la-fleur-worldcup/claude/world-cup-generate-page-vuHuO/Feature%20image%20-%20Home.png"
             alt="" aria-hidden className="w-full h-full object-cover object-[30%_center]" />
         </picture>
         <div className="absolute inset-0 bg-[#080603]/40" />
