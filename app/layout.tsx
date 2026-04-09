@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     siteName: 'La Fleur',
     images: [
       {
-        url: 'https://raw.githubusercontent.com/ore-del/la-fleur-worldcup/claude/world-cup-generate-page-vuHuO/Feature%20image%20-%20Home.png',
+        url: 'https://raw.githubusercontent.com/ore-del/la-fleur-worldcup/claude/world-cup-generate-page-vuHuO/Feature%20img%20-%20Home.png',
         width: 1200,
         height: 630,
         alt: 'La Fleur — World Cup 2026 Toronto',
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: "La Fleur | World Cup 2026",
     description: 'Get your business World Cup ready in 5 days. Limited spots available.',
-    images: ['https://raw.githubusercontent.com/ore-del/la-fleur-worldcup/claude/world-cup-generate-page-vuHuO/Feature%20image%20-%20Home.png'],
+    images: ['https://raw.githubusercontent.com/ore-del/la-fleur-worldcup/claude/world-cup-generate-page-vuHuO/Feature%20img%20-%20Home.png'],
   },
 }
 
