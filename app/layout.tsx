@@ -2,10 +2,10 @@ import type { Metadata } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: "La Fleur | World Cup 2026 | Get Your Business Online for Toronto's Biggest Moment",
+  title: "World Cup 2026 | Get Your Business Online for Toronto's Biggest Moment",
   description: 'A once-in-a-lifetime economic surge is coming to Toronto. Get your business World Cup ready in 5 days. Limited spots available.',
   openGraph: {
-    title: "La Fleur | World Cup 2026",
+    title: "World Cup 2026 | Get Your Business Online for Toronto's Biggest Moment",
     description: 'A once-in-a-lifetime economic surge is coming to Toronto. Get your business World Cup ready in 5 days. Limited spots available.',
     url: 'https://worldcup.la-fleur.digital',
     siteName: 'La Fleur',
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: "La Fleur | World Cup 2026",
+    title: "World Cup 2026 | Get Your Business Online for Toronto's Biggest Moment",
     description: 'Get your business World Cup ready in 5 days. Limited spots available.',
     images: ['https://raw.githubusercontent.com/ore-del/la-fleur-worldcup/claude/world-cup-generate-page-vuHuO/Feature%20img%20-%20Home.png'],
   },
