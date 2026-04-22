@@ -179,86 +179,73 @@ function TimelineContent() {
                   : 'border-[rgba(203,152,58,0.15)] bg-[rgba(42,43,44,0.55)]'
               }`}
             >
-              <div className="flex flex-col lg:flex-row">
-
-                {/* Left: content */}
-                <div className="flex-1 p-7 lg:p-8 min-w-0">
-                  <div className="flex items-start gap-5 mb-4">
-                    <p className={`font-bold text-[48px] leading-none tracking-[-2px] shrink-0 ${m.highlight ? 'text-[#f0c060]' : 'text-[#cb983a]'}`}>
-                      {m.num}
-                    </p>
-                    <div className="pt-1">
-                      <div className="flex flex-wrap items-baseline gap-x-2 gap-y-1 mb-2">
-                        <p className="text-white font-bold text-[18px] leading-snug">{m.name}</p>
-                        <p className="text-white/35 text-[13px]">{m.dates}</p>
-                      </div>
-                      <div className={`inline-flex items-center gap-2 rounded-[6px] px-3 py-[5px] ${
-                        m.highlight
-                          ? 'bg-[rgba(240,192,96,0.1)] border border-[rgba(240,192,96,0.28)]'
-                          : 'bg-[rgba(203,152,58,0.07)] border border-[rgba(203,152,58,0.18)]'
-                      }`}>
-                        <span className={`text-[9px] font-bold tracking-[1.5px] uppercase ${m.highlight ? 'text-[#f0c060]' : 'text-[#cb983a]'}`}>
-                          Milestone
-                        </span>
-                        <span className="text-white/65 text-[12px]">{m.milestone}</span>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="mb-5">
-                    <p className="text-white/35 text-[10px] font-bold tracking-[1.5px] uppercase mb-3">Deliverables</p>
-                    <div className="flex flex-col gap-[9px]">
-                      {m.deliverables.map((d, j) => (
-                        <div key={j} className="flex items-start gap-3">
-                          <span className={`font-bold text-[12px] leading-[1.7] shrink-0 ${m.highlight ? 'text-[#f0c060]' : 'text-[#cb983a]'}`}>✓</span>
-                          <span className="text-white/70 text-[13px] leading-[1.65]">{d}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div className="flex flex-col gap-[9px] pt-5 border-t border-white/[0.06]">
-                    <div className="flex items-start gap-3">
-                      <span className="text-[12px] shrink-0 mt-[2px]">💬</span>
-                      <p className="text-white/40 text-[12px] leading-[1.6]">
-                        <span className="text-white/55 font-semibold">Client: </span>
-                        {m.clientFeedback}
-                      </p>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <span className="text-[12px] shrink-0 mt-[2px]">📋</span>
-                      <p className="text-white/40 text-[12px] leading-[1.6]">
-                        <span className="text-white/55 font-semibold">Users: </span>
-                        {m.userFeedback}{' '}
-                        <a href={GOOGLE_FORM} target="_blank" rel="noopener noreferrer"
-                          className="text-[rgba(203,152,58,0.6)] hover:text-[#cb983a] underline transition-colors">
-                          Open form ↗
-                        </a>
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Right: design progress image */}
-                <div className="lg:w-[340px] shrink-0 border-t border-[rgba(203,152,58,0.1)] lg:border-t-0 lg:border-l lg:border-[rgba(203,152,58,0.1)] overflow-hidden">
-                  <div className="relative w-full h-[220px] lg:h-full min-h-[220px] bg-[rgba(20,18,16,0.7)]">
-                    <img
-                      src={m.img}
-                      alt={`Design progress — ${m.name}`}
-                      className="w-full h-full object-cover object-top"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#080603]/60 via-transparent to-transparent lg:bg-gradient-to-r lg:from-transparent lg:to-transparent" />
-                    <div className="absolute bottom-3 left-3 lg:hidden">
-                      <span className={`text-[10px] font-bold tracking-[1.5px] uppercase px-2 py-1 rounded-[4px] ${
-                        m.highlight ? 'bg-[rgba(240,192,96,0.15)] text-[#f0c060]' : 'bg-[rgba(203,152,58,0.12)] text-[#cb983a]'
-                      }`}>
-                        Design preview
-                      </span>
-                    </div>
-                  </div>
-                </div>
-
+              {/* Design progress image — full width, uncropped */}
+              <div className="border-b border-[rgba(203,152,58,0.1)] bg-[rgba(12,10,8,0.6)]">
+                <img
+                  src={m.img}
+                  alt={`Design progress — ${m.name}`}
+                  className="w-full h-auto block"
+                />
               </div>
+
+              {/* Content */}
+              <div className="p-7">
+                <div className="flex items-start gap-5 mb-4">
+                  <p className={`font-bold text-[48px] leading-none tracking-[-2px] shrink-0 ${m.highlight ? 'text-[#f0c060]' : 'text-[#cb983a]'}`}>
+                    {m.num}
+                  </p>
+                  <div className="pt-1">
+                    <div className="flex flex-wrap items-baseline gap-x-2 gap-y-1 mb-2">
+                      <p className="text-white font-bold text-[18px] leading-snug">{m.name}</p>
+                      <p className="text-white/35 text-[13px]">{m.dates}</p>
+                    </div>
+                    <div className={`inline-flex items-center gap-2 rounded-[6px] px-3 py-[5px] ${
+                      m.highlight
+                        ? 'bg-[rgba(240,192,96,0.1)] border border-[rgba(240,192,96,0.28)]'
+                        : 'bg-[rgba(203,152,58,0.07)] border border-[rgba(203,152,58,0.18)]'
+                    }`}>
+                      <span className={`text-[9px] font-bold tracking-[1.5px] uppercase ${m.highlight ? 'text-[#f0c060]' : 'text-[#cb983a]'}`}>
+                        Milestone
+                      </span>
+                      <span className="text-white/65 text-[12px]">{m.milestone}</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="mb-5">
+                  <p className="text-white/35 text-[10px] font-bold tracking-[1.5px] uppercase mb-3">Deliverables</p>
+                  <div className="flex flex-col gap-[9px]">
+                    {m.deliverables.map((d, j) => (
+                      <div key={j} className="flex items-start gap-3">
+                        <span className={`font-bold text-[12px] leading-[1.7] shrink-0 ${m.highlight ? 'text-[#f0c060]' : 'text-[#cb983a]'}`}>✓</span>
+                        <span className="text-white/70 text-[13px] leading-[1.65]">{d}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="flex flex-col gap-[9px] pt-5 border-t border-white/[0.06]">
+                  <div className="flex items-start gap-3">
+                    <span className="text-[12px] shrink-0 mt-[2px]">💬</span>
+                    <p className="text-white/40 text-[12px] leading-[1.6]">
+                      <span className="text-white/55 font-semibold">Client: </span>
+                      {m.clientFeedback}
+                    </p>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <span className="text-[12px] shrink-0 mt-[2px]">📋</span>
+                    <p className="text-white/40 text-[12px] leading-[1.6]">
+                      <span className="text-white/55 font-semibold">Users: </span>
+                      {m.userFeedback}{' '}
+                      <a href={GOOGLE_FORM} target="_blank" rel="noopener noreferrer"
+                        className="text-[rgba(203,152,58,0.6)] hover:text-[#cb983a] underline transition-colors">
+                        Open form ↗
+                      </a>
+                    </p>
+                  </div>
+                </div>
+              </div>
+
             </div>
           ))}
         </div>
