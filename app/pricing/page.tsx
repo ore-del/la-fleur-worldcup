@@ -168,6 +168,18 @@ function PricingContent() {
             </div>
 
           </div>
+
+          {/* Timeline teaser */}
+          <div className="mt-10 flex flex-col sm:flex-row items-center justify-between gap-4 rounded-[16px] border border-[rgba(203,152,58,0.15)] bg-[rgba(42,43,44,0.6)] backdrop-blur-[20px] px-7 py-5">
+            <div>
+              <p className="text-white font-semibold text-[15px]">Wondering what happens after you sign up?</p>
+              <p className="text-white/40 text-[13px] mt-1">See every deliverable and milestone across your 6-month campaign.</p>
+            </div>
+            <a href="/timeline" className="shrink-0 text-[rgba(203,152,58,0.8)] hover:text-[#cb983a] font-semibold text-[13px] transition-colors whitespace-nowrap">
+              View roadmap →
+            </a>
+          </div>
+
         </div>
       </main>
       {modal.open && <FormModal onClose={closeModal} defaultPkg={modal.pkg} />}
