@@ -118,7 +118,7 @@ export const t = {
       feedbackSteps: [
         { title: 'Client feedback via Vercel', description: 'Review your site on the Vercel preview link and leave comments directly on the page. We collect them at month end.' },
         { title: 'User feedback via Google Form', descriptionBefore: 'Share ', formLinkText: 'this form', descriptionAfter: ' with your customers so they can leave feedback on your site.' },
-        { title: '1 revision round applied', description: 'Both feedback streams are consolidated into one revision round per month, applied within 3 business days.' },
+        { title: '1 revision round applied', description: 'Both feedback streams are consolidated into one revision round per month, applied within 5 business days.' },
       ],
       milestoneLabel: 'Milestone',
       deliverablesLabel: 'Deliverables',
@@ -127,7 +127,7 @@ export const t = {
       openFormLink: 'Open form ↗',
       revisionTitle: 'Revision Policy',
       revisionNotes: [
-        { icon: '✓', text: 'One consolidated revision round per month, applied within 3 business days.', pos: true },
+        { icon: '✓', text: 'One consolidated revision round per month, applied within 5 business days.', pos: true },
         { icon: '✓', text: 'Revisions cover text, images, layout adjustments, and offer copy.', pos: true },
         { icon: '✕', text: 'Multiple separate requests per month are not included — consolidate all feedback into one submission.', pos: false },
         { icon: '✕', text: 'Vercel comments or Google Form responses not submitted within the month do not roll over.', pos: false },
@@ -261,7 +261,7 @@ export const t = {
       feedbackSteps: [
         { title: "Retours client via Vercel", description: "Révisez votre site sur le lien de prévisualisation Vercel et laissez des commentaires directement sur la page. Nous les collectons en fin de mois." },
         { title: "Retours utilisateurs via Google Form", descriptionBefore: "Partagez ", formLinkText: "ce formulaire", descriptionAfter: " avec vos clients pour qu'ils puissent laisser leurs retours sur votre site." },
-        { title: "1 tour de révisions appliqué", description: "Les deux flux de retours sont consolidés en un seul tour de révisions par mois, appliqué dans les 3 jours ouvrables." },
+        { title: "1 tour de révisions appliqué", description: "Les deux flux de retours sont consolidés en un seul tour de révisions par mois, appliqué dans les 5 jours ouvrables." },
       ],
       milestoneLabel: "Jalon",
       deliverablesLabel: "Livrables",
@@ -270,7 +270,7 @@ export const t = {
       openFormLink: "Ouvrir le formulaire ↗",
       revisionTitle: "Politique de révision",
       revisionNotes: [
-        { icon: "✓", text: "Un tour de révisions consolidé par mois, appliqué dans les 3 jours ouvrables.", pos: true },
+        { icon: "✓", text: "Un tour de révisions consolidé par mois, appliqué dans les 5 jours ouvrables.", pos: true },
         { icon: "✓", text: "Les révisions couvrent le texte, les images, les ajustements de mise en page et le texte des offres.", pos: true },
         { icon: "✕", text: "Les demandes séparées multiples par mois ne sont pas incluses — consolidez tous les retours en une seule soumission.", pos: false },
         { icon: "✕", text: "Les commentaires Vercel ou les réponses Google Form non soumis dans le mois ne sont pas reportés.", pos: false },
