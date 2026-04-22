@@ -2,9 +2,9 @@
 
 import Header from '@/components/Header'
 import { LanguageProvider } from '@/lib/LanguageContext'
-import Link from 'next/link'
 
 const GOOGLE_FORM = 'https://forms.gle/4sAUKRjNfY79YP89A'
+const IMG_BASE = 'https://raw.githubusercontent.com/ore-del/fugarmedia/claude/general-session-8bX7g/Project%20progress'
 
 const MONTHS = [
   {
@@ -12,6 +12,7 @@ const MONTHS = [
     name: 'Onboard & Build',
     dates: 'Week 1–4',
     milestone: 'Staging site delivered',
+    img: `${IMG_BASE}/1.png`,
     deliverables: [
       'Intake form completed',
       'Business & competitor research',
@@ -28,6 +29,7 @@ const MONTHS = [
     name: 'Launch',
     dates: 'Week 5–8',
     milestone: 'Site live on your domain',
+    img: `${IMG_BASE}/2.png`,
     deliverables: [
       'Domain connected & DNS configured',
       'SEO foundations set up',
@@ -44,6 +46,7 @@ const MONTHS = [
     name: 'Tournament Begins',
     dates: 'Week 9–12',
     milestone: 'World Cup kicks off — 1.5M+ visitors in Toronto',
+    img: `${IMG_BASE}/3.png`,
     deliverables: [
       'Live site performance check',
       'Copy & CTA refresh',
@@ -60,13 +63,14 @@ const MONTHS = [
     name: 'Peak Traffic',
     dates: 'Week 13–16',
     milestone: 'Maximum visitor volume',
+    img: `${IMG_BASE}/4.png`,
     deliverables: [
       'Analytics report: traffic, conversions, top pages',
       'CTA and offer review',
-      'Content refresh based on what\'s working',
+      "Content refresh based on what's working",
       'Revision round applied from Week 9–12 feedback',
     ],
-    clientFeedback: 'Add Vercel comments on content or offer changes based on what you\'re seeing.',
+    clientFeedback: "Add Vercel comments on content or offer changes based on what you're seeing.",
     userFeedback: 'Review Google Form responses and include key patterns in your consolidated feedback.',
     highlight: false,
   },
@@ -75,6 +79,7 @@ const MONTHS = [
     name: 'Final Push',
     dates: 'Week 17–20',
     milestone: 'Last window of peak tourist traffic',
+    img: `${IMG_BASE}/5.png`,
     deliverables: [
       'Final campaign content update',
       'Performance summary to date',
@@ -90,6 +95,7 @@ const MONTHS = [
     name: 'Wind Down & Handoff',
     dates: 'Week 21–24',
     milestone: 'Campaign complete — full handoff',
+    img: `${IMG_BASE}/6.png`,
     deliverables: [
       'Full 6-month analytics report',
       'Campaign performance summary',
@@ -106,7 +112,7 @@ const MONTHS = [
 function TimelineContent() {
   return (
     <main className="min-h-screen pt-[88px] bg-[#080603]">
-      <div className="max-w-[860px] mx-auto px-6 pt-14 pb-20">
+      <div className="max-w-[960px] mx-auto px-6 pt-14 pb-20">
 
         {/* Hero */}
         <div className="mb-12">
@@ -147,7 +153,7 @@ function TimelineContent() {
                   className="text-[rgba(203,152,58,0.8)] hover:text-[#cb983a] underline transition-colors">
                   this form
                 </a>
-                {' '}with your customers so they can leave feedback on your site. Submit responses alongside your Vercel comments.
+                {' '}with your customers so they can leave feedback on your site.
               </p>
             </div>
             <div className="flex flex-col gap-2">
@@ -167,41 +173,41 @@ function TimelineContent() {
           {MONTHS.map((m, i) => (
             <div
               key={i}
-              className={`rounded-[20px] border p-8 ${
+              className={`rounded-[20px] border overflow-hidden ${
                 m.highlight
                   ? 'border-[rgba(240,192,96,0.35)] bg-[rgba(240,192,96,0.04)]'
                   : 'border-[rgba(203,152,58,0.15)] bg-[rgba(42,43,44,0.55)]'
               }`}
             >
-              <div className="flex flex-col sm:flex-row sm:items-start gap-6">
+              <div className="flex flex-col lg:flex-row">
 
-                <div className="shrink-0 w-[72px]">
-                  <p className={`font-bold text-[52px] leading-none tracking-[-2px] ${m.highlight ? 'text-[#f0c060]' : 'text-[#cb983a]'}`}>
-                    {m.num}
-                  </p>
-                </div>
-
-                <div className="flex-1 min-w-0">
-
-                  <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1 mb-3">
-                    <p className="text-white font-bold text-[18px] leading-snug">{m.name}</p>
-                    <p className="text-white/35 text-[13px]">{m.dates}</p>
+                {/* Left: content */}
+                <div className="flex-1 p-7 lg:p-8 min-w-0">
+                  <div className="flex items-start gap-5 mb-4">
+                    <p className={`font-bold text-[48px] leading-none tracking-[-2px] shrink-0 ${m.highlight ? 'text-[#f0c060]' : 'text-[#cb983a]'}`}>
+                      {m.num}
+                    </p>
+                    <div className="pt-1">
+                      <div className="flex flex-wrap items-baseline gap-x-2 gap-y-1 mb-2">
+                        <p className="text-white font-bold text-[18px] leading-snug">{m.name}</p>
+                        <p className="text-white/35 text-[13px]">{m.dates}</p>
+                      </div>
+                      <div className={`inline-flex items-center gap-2 rounded-[6px] px-3 py-[5px] ${
+                        m.highlight
+                          ? 'bg-[rgba(240,192,96,0.1)] border border-[rgba(240,192,96,0.28)]'
+                          : 'bg-[rgba(203,152,58,0.07)] border border-[rgba(203,152,58,0.18)]'
+                      }`}>
+                        <span className={`text-[9px] font-bold tracking-[1.5px] uppercase ${m.highlight ? 'text-[#f0c060]' : 'text-[#cb983a]'}`}>
+                          Milestone
+                        </span>
+                        <span className="text-white/65 text-[12px]">{m.milestone}</span>
+                      </div>
+                    </div>
                   </div>
 
-                  <div className={`inline-flex items-center gap-2 rounded-[6px] px-3 py-[6px] mb-6 ${
-                    m.highlight
-                      ? 'bg-[rgba(240,192,96,0.1)] border border-[rgba(240,192,96,0.28)]'
-                      : 'bg-[rgba(203,152,58,0.07)] border border-[rgba(203,152,58,0.18)]'
-                  }`}>
-                    <span className={`text-[9px] font-bold tracking-[1.5px] uppercase ${m.highlight ? 'text-[#f0c060]' : 'text-[#cb983a]'}`}>
-                      Milestone
-                    </span>
-                    <span className="text-white/65 text-[12px]">{m.milestone}</span>
-                  </div>
-
-                  <div className="mb-6">
+                  <div className="mb-5">
                     <p className="text-white/35 text-[10px] font-bold tracking-[1.5px] uppercase mb-3">Deliverables</p>
-                    <div className="flex flex-col gap-[10px]">
+                    <div className="flex flex-col gap-[9px]">
                       {m.deliverables.map((d, j) => (
                         <div key={j} className="flex items-start gap-3">
                           <span className={`font-bold text-[12px] leading-[1.7] shrink-0 ${m.highlight ? 'text-[#f0c060]' : 'text-[#cb983a]'}`}>✓</span>
@@ -211,7 +217,7 @@ function TimelineContent() {
                     </div>
                   </div>
 
-                  <div className="flex flex-col gap-[10px] pt-5 border-t border-white/[0.06]">
+                  <div className="flex flex-col gap-[9px] pt-5 border-t border-white/[0.06]">
                     <div className="flex items-start gap-3">
                       <span className="text-[12px] shrink-0 mt-[2px]">💬</span>
                       <p className="text-white/40 text-[12px] leading-[1.6]">
@@ -231,8 +237,27 @@ function TimelineContent() {
                       </p>
                     </div>
                   </div>
-
                 </div>
+
+                {/* Right: design progress image */}
+                <div className="lg:w-[340px] shrink-0 border-t border-[rgba(203,152,58,0.1)] lg:border-t-0 lg:border-l lg:border-[rgba(203,152,58,0.1)] overflow-hidden">
+                  <div className="relative w-full h-[220px] lg:h-full min-h-[220px] bg-[rgba(20,18,16,0.7)]">
+                    <img
+                      src={m.img}
+                      alt={`Design progress — ${m.name}`}
+                      className="w-full h-full object-cover object-top"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#080603]/60 via-transparent to-transparent lg:bg-gradient-to-r lg:from-transparent lg:to-transparent" />
+                    <div className="absolute bottom-3 left-3 lg:hidden">
+                      <span className={`text-[10px] font-bold tracking-[1.5px] uppercase px-2 py-1 rounded-[4px] ${
+                        m.highlight ? 'bg-[rgba(240,192,96,0.15)] text-[#f0c060]' : 'bg-[rgba(203,152,58,0.12)] text-[#cb983a]'
+                      }`}>
+                        Design preview
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
               </div>
             </div>
           ))}
