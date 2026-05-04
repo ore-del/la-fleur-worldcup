@@ -10,9 +10,9 @@ const config: Config = {
     extend: {
       colors: {
         'brand-bg': '#080603',
-        'brand-gold': '#CB983A',
-        'brand-gold-light': '#F0C060',
-        'brand-gold-banner': '#D2A822',
+        'brand-gold': '#3B7046',
+        'brand-gold-light': '#6DB87E',
+        'brand-gold-banner': '#3B7046',
         'brand-red': '#C41E1E',
       },
       fontFamily: {

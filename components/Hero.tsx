@@ -4,7 +4,7 @@ import CountdownTimer from './CountdownTimer'
 import { useLanguage } from '@/lib/LanguageContext'
 
 // Hero background image
-const heroBgImage = 'https://raw.githubusercontent.com/ore-del/la-fleur-worldcup/claude/world-cup-generate-page-vuHuO/Hero%20image.png'
+const heroBgImage = 'https://raw.githubusercontent.com/ore-del/la-fleur-worldcup/main/Hero%20bkg.png'
 const imgGoal = 'https://raw.githubusercontent.com/ore-del/la-fleur-worldcup/claude/world-cup-generate-page-vuHuO/Post.png'
 
 // Strong multi-layer shadow for legibility against the yellow bg
@@ -15,7 +15,7 @@ export default function Hero() {
   const h = tx.hero
 
   return (
-    <section className="relative h-[680px] overflow-hidden bg-[#c8960c] pt-[88px]">
+    <section className="relative h-[680px] overflow-hidden bg-[#3d6e3a] pt-[88px]">
       {/* Background image */}
       <img
         src={heroBgImage}
@@ -27,7 +27,7 @@ export default function Hero() {
       {/* Goal posts */}
       <img alt="" src={imgGoal}
         className="absolute left-[3%] bottom-[8%] w-[28vw] max-w-[380px] pointer-events-none"
-        style={{ filter: 'drop-shadow(4px 8px 12px rgba(188,135,46,0.7)) drop-shadow(0px 6px 6px rgba(0,0,0,0.2)) drop-shadow(0px 0px 20px rgba(0,0,0,0.1))' }} />
+        style={{ filter: 'drop-shadow(4px 8px 12px rgba(59,112,70,0.5)) drop-shadow(0px 6px 6px rgba(0,0,0,0.2)) drop-shadow(0px 0px 20px rgba(0,0,0,0.1))' }} />
       <img alt="" src={imgGoal}
         className="absolute right-[3%] bottom-[8%] w-[28vw] max-w-[380px] pointer-events-none"
         style={{ transform: 'scaleX(-1)', filter: 'drop-shadow(4px 8px 12px rgba(188,135,46,0.7)) drop-shadow(0px 6px 6px rgba(0,0,0,0.2)) drop-shadow(0px 0px 20px rgba(0,0,0,0.1))' }} />

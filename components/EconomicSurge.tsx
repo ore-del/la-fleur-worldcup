@@ -3,8 +3,8 @@
 import { useReveal } from './useReveal'
 import { useLanguage } from '@/lib/LanguageContext'
 
-const accentColors = ['#f0c060', '#c41e1e', '#cb983a']
-const borderColors = ['rgba(240,192,96,0.25)', 'rgba(196,30,30,0.25)', 'rgba(203,152,58,0.25)']
+const accentColors = ['#6db87e', '#c41e1e', '#3b7046']
+const borderColors = ['rgba(109,184,126,0.25)', 'rgba(196,30,30,0.25)', 'rgba(59,112,70,0.25)']
 
 export default function EconomicSurge() {
   const ref = useReveal()
@@ -14,7 +14,7 @@ export default function EconomicSurge() {
   return (
     <section ref={ref as React.RefObject<HTMLElement>} className="relative overflow-hidden bg-[#0e0a04] py-20 px-16 min-h-[480px]">
       <div className="reveal flex items-start gap-4 mb-10">
-        <div className="w-1 rounded-[2px] bg-[rgba(203,152,58,0.8)] shrink-0 mt-2" style={{ height: '120px' }} />
+        <div className="w-1 rounded-[2px] bg-[rgba(59,112,70,0.8)] shrink-0 mt-2" style={{ height: '120px' }} />
         <h2 className="text-white font-bold text-[52px] leading-[1.1] tracking-[-1px] whitespace-pre-line">
           {s.headline}
         </h2>
