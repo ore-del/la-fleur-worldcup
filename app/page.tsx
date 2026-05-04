@@ -1,6 +1,6 @@
 'use client'
 
-import { useRef, useState, useEffect, useLayoutEffect, useCallback } from 'react'
+import { useRef, useState, useEffect, useCallback } from 'react'
 import Header from '@/components/Header'
 import CountdownTimer from '@/components/CountdownTimer'
 import { LanguageProvider, useLanguage } from '@/lib/LanguageContext'
@@ -116,6 +116,8 @@ function DraggableBall({ sectionRef }: { sectionRef: React.RefObject<HTMLElement
   const [confetti, setConfetti]   = useState(false)
   const [hasScored, setHasScored] = useState(false)
 
+  const isMobile = useRef(false)
+
   const s = useRef({
     bx: -0.12, by: 0.86,
     cx: 0.5, cy: 0.86,
@@ -146,7 +148,7 @@ function DraggableBall({ sectionRef }: { sectionRef: React.RefObject<HTMLElement
     if (nx > 1 - rw && p.vx > 0) { nx = 1 - rw; p.vx = -Math.abs(p.vx) * 0.42 }
     if (ny < FIELD_TOP + rh) { ny = FIELD_TOP + rh; p.vy = Math.abs(p.vy) * 0.32 }
     if (ny > 1 - rh) { ny = 1 - rh; p.vy = -Math.abs(p.vy) * 0.22 }
-    if (ny > GOAL_Y && (nx < GOAL_X || nx > 1 - GOAL_X)) {
+    if (ny > GOAL_Y && ((!isMobile.current && nx < GOAL_X) || nx > 1 - GOAL_X)) {
       p.bx = nx; p.by = ny
       p.vx = 0; p.vy = 0
       setRenderPos({ x: nx, y: ny })
@@ -179,18 +181,11 @@ function DraggableBall({ sectionRef }: { sectionRef: React.RefObject<HTMLElement
     p.rafId = requestAnimationFrame(() => dragLoopRef.current())
   }
 
-  useLayoutEffect(() => {
-    if (window.innerWidth < 768) {
-      s.current.bx = 0.1
-      s.current.by = 0.86
-      setRenderPos({ x: 0.1, y: 0.86 })
-    }
-  }, [])
-
   useEffect(() => {
     const mobile = window.innerWidth < 768
+    isMobile.current = mobile
     const t = setTimeout(() => {
-      s.current.vx = mobile ? 1.5 : 9
+      s.current.vx = mobile ? 12 : 9
       s.current.vy = 0
       s.current.rafId = requestAnimationFrame(() => loopRef.current())
     }, 200)
