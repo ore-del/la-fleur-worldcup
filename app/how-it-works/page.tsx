@@ -103,7 +103,7 @@ function HowItWorksContent() {
       {/* Fixed bg — stays put on scroll and matches across pages */}
       <div className="fixed inset-0 z-[1]">
         <picture className="w-full h-full">
-          <source media="(max-width: 767px)" srcSet="https://raw.githubusercontent.com/ore-del/la-fleur-worldcup/claude/world-cup-generate-page-vuHuO/Hero%20phone%20img.png" />
+          <source media="(max-width: 767px)" srcSet="https://raw.githubusercontent.com/ore-del/la-fleur-worldcup/claude/fix-styling-issues-a3SEM/Hero%20phone%20img.png" />
           <img src="https://raw.githubusercontent.com/ore-del/la-fleur-worldcup/claude/world-cup-generate-page-vuHuO/Hero%20image.png"
             alt="" aria-hidden className="w-full h-full object-cover object-[30%_center]" />
         </picture>

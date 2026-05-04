@@ -6,7 +6,7 @@ import CountdownTimer from '@/components/CountdownTimer'
 import { LanguageProvider, useLanguage } from '@/lib/LanguageContext'
 
 const heroBgImage  = 'https://raw.githubusercontent.com/ore-del/la-fleur-worldcup/claude/world-cup-generate-page-vuHuO/Hero%20image.png'
-const heroBgMobile = 'https://raw.githubusercontent.com/ore-del/la-fleur-worldcup/claude/world-cup-generate-page-vuHuO/Hero%20phone%20img.png'
+const heroBgMobile = 'https://raw.githubusercontent.com/ore-del/la-fleur-worldcup/claude/fix-styling-issues-a3SEM/Hero%20phone%20img.png'
 const imgGoal = 'https://raw.githubusercontent.com/ore-del/la-fleur-worldcup/claude/world-cup-generate-page-vuHuO/Post.png'
 const imgBall = 'https://raw.githubusercontent.com/ore-del/la-fleur-worldcup/claude/world-cup-generate-page-vuHuO/Ball.png'
 
@@ -270,7 +270,7 @@ function DraggableBall({ sectionRef }: { sectionRef: React.RefObject<HTMLElement
           top:    `calc(${renderPos.y * 100}% - 55px)`,
           width: 110, height: 110,
           cursor: dragging ? 'grabbing' : 'grab',
-          filter: `drop-shadow(4px 8px 12px rgba(188,135,46,${dragging ? 0.85 : 0.55})) drop-shadow(0px 6px 6px rgba(0,0,0,0.2)) drop-shadow(0px 0px 20px rgba(0,0,0,0.1))`,
+          filter: `drop-shadow(5px 9px 8.6px rgba(118,113,34,${dragging ? 0.65 : 0.42})) drop-shadow(0px 6px 6px rgba(0,0,0,0.2)) drop-shadow(0px 0px 20px rgba(0,0,0,0.1))`,
           willChange: 'left, top',
         }}
         onPointerDown={onPointerDown}
@@ -411,11 +411,11 @@ function Hero({ onClaim }: { onClaim: () => void }) {
       </div>
 
       <img alt="" src={imgGoal}
-        className="absolute left-[3%] bottom-[8%] w-[28vw] max-w-[380px] pointer-events-none z-[5]"
-        style={{ filter: 'drop-shadow(4px 8px 12px rgba(188,135,46,0.7)) drop-shadow(0px 6px 6px rgba(0,0,0,0.2)) drop-shadow(0px 0px 20px rgba(0,0,0,0.1))' }} />
+        className="absolute left-[3%] bottom-[8%] w-[56vw] max-w-[720px] pointer-events-none z-[5]"
+        style={{ filter: 'drop-shadow(5px 9px 8.6px rgba(118,113,34,0.42)) drop-shadow(0px 6px 6px rgba(0,0,0,0.2)) drop-shadow(0px 0px 20px rgba(0,0,0,0.1))' }} />
       <img alt="" src={imgGoal}
-        className="absolute right-[3%] bottom-[8%] w-[28vw] max-w-[380px] pointer-events-none z-[5]"
-        style={{ transform: 'scaleX(-1)', filter: 'drop-shadow(4px 8px 12px rgba(188,135,46,0.7)) drop-shadow(0px 6px 6px rgba(0,0,0,0.2)) drop-shadow(0px 0px 20px rgba(0,0,0,0.1))' }} />
+        className="absolute right-[3%] bottom-[8%] w-[56vw] max-w-[720px] pointer-events-none z-[5]"
+        style={{ transform: 'scaleX(-1)', filter: 'drop-shadow(5px 9px 8.6px rgba(118,113,34,0.42)) drop-shadow(0px 6px 6px rgba(0,0,0,0.2)) drop-shadow(0px 0px 20px rgba(0,0,0,0.1))' }} />
 
       <DraggableBall sectionRef={sectionRef} />
 

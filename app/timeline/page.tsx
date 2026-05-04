@@ -4,7 +4,7 @@ import Header from '@/components/Header'
 import { LanguageProvider } from '@/lib/LanguageContext'
 
 const GOOGLE_FORM = 'https://forms.gle/4sAUKRjNfY79YP89A'
-const IMG_BASE = 'https://raw.githubusercontent.com/ore-del/la-fleur-worldcup/claude/world-cup-generate-page-vuHuO/Project%20progress'
+const IMG_BASE = 'https://raw.githubusercontent.com/ore-del/la-fleur-worldcup/claude/fix-styling-issues-a3SEM/Project%20progress'
 
 const MONTHS = [
   {
