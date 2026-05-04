@@ -116,7 +116,7 @@ function TimelineContent() {
 
         {/* Hero */}
         <div className="mb-12">
-          <p className="text-[rgba(203,152,58,0.85)] text-[11px] font-bold tracking-[2px] uppercase mb-5">
+          <p className="text-[rgba(59,112,70,0.85)] text-[11px] font-bold tracking-[2px] uppercase mb-5">
             World Cup Campaign · Client Roadmap
           </p>
           <h1 className="text-white font-bold text-[32px] md:text-[48px] tracking-[-2px] leading-[1.05] mb-5">
@@ -128,14 +128,14 @@ function TimelineContent() {
         </div>
 
         {/* Feedback model */}
-        <div className="rounded-[20px] border border-[rgba(203,152,58,0.22)] bg-[rgba(203,152,58,0.05)] p-8 mb-12">
-          <p className="text-[rgba(203,152,58,0.85)] text-[10px] font-bold tracking-[2px] uppercase mb-7">
+        <div className="rounded-[20px] border border-[rgba(59,112,70,0.22)] bg-[rgba(59,112,70,0.05)] p-8 mb-12">
+          <p className="text-[rgba(59,112,70,0.85)] text-[10px] font-bold tracking-[2px] uppercase mb-7">
             How Feedback Is Collected Each Month
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-7">
             <div className="flex flex-col gap-2">
-              <div className="w-8 h-8 rounded-full bg-[rgba(203,152,58,0.12)] border border-[rgba(203,152,58,0.3)] flex items-center justify-center mb-1">
-                <span className="text-[#cb983a] font-bold text-[12px]">1</span>
+              <div className="w-8 h-8 rounded-full bg-[rgba(59,112,70,0.12)] border border-[rgba(59,112,70,0.3)] flex items-center justify-center mb-1">
+                <span className="text-[#3b7046] font-bold text-[12px]">1</span>
               </div>
               <p className="text-white font-semibold text-[14px]">Client feedback via Vercel</p>
               <p className="text-white/45 text-[13px] leading-[1.55]">
@@ -143,22 +143,22 @@ function TimelineContent() {
               </p>
             </div>
             <div className="flex flex-col gap-2">
-              <div className="w-8 h-8 rounded-full bg-[rgba(203,152,58,0.12)] border border-[rgba(203,152,58,0.3)] flex items-center justify-center mb-1">
-                <span className="text-[#cb983a] font-bold text-[12px]">2</span>
+              <div className="w-8 h-8 rounded-full bg-[rgba(59,112,70,0.12)] border border-[rgba(59,112,70,0.3)] flex items-center justify-center mb-1">
+                <span className="text-[#3b7046] font-bold text-[12px]">2</span>
               </div>
               <p className="text-white font-semibold text-[14px]">User feedback via Google Form</p>
               <p className="text-white/45 text-[13px] leading-[1.55]">
                 Share{' '}
                 <a href={GOOGLE_FORM} target="_blank" rel="noopener noreferrer"
-                  className="text-[rgba(203,152,58,0.8)] hover:text-[#cb983a] underline transition-colors">
+                  className="text-[rgba(59,112,70,0.8)] hover:text-[#6db87e] underline transition-colors">
                   this form
                 </a>
                 {' '}with your customers so they can leave feedback on your site.
               </p>
             </div>
             <div className="flex flex-col gap-2">
-              <div className="w-8 h-8 rounded-full bg-[rgba(203,152,58,0.12)] border border-[rgba(203,152,58,0.3)] flex items-center justify-center mb-1">
-                <span className="text-[#cb983a] font-bold text-[12px]">3</span>
+              <div className="w-8 h-8 rounded-full bg-[rgba(59,112,70,0.12)] border border-[rgba(59,112,70,0.3)] flex items-center justify-center mb-1">
+                <span className="text-[#3b7046] font-bold text-[12px]">3</span>
               </div>
               <p className="text-white font-semibold text-[14px]">1 revision round applied</p>
               <p className="text-white/45 text-[13px] leading-[1.55]">
@@ -175,12 +175,12 @@ function TimelineContent() {
               key={i}
               className={`rounded-[20px] border overflow-hidden ${
                 m.highlight
-                  ? 'border-[rgba(240,192,96,0.35)] bg-[rgba(240,192,96,0.04)]'
-                  : 'border-[rgba(203,152,58,0.15)] bg-[rgba(42,43,44,0.55)]'
+                  ? 'border-[rgba(109,184,126,0.35)] bg-[rgba(109,184,126,0.04)]'
+                  : 'border-[rgba(59,112,70,0.15)] bg-[rgba(42,43,44,0.55)]'
               }`}
             >
               {/* Design progress image — full width, uncropped */}
-              <div className="border-b border-[rgba(203,152,58,0.1)] bg-[rgba(12,10,8,0.6)]">
+              <div className="border-b border-[rgba(59,112,70,0.1)] bg-[rgba(12,10,8,0.6)]">
                 <img
                   src={m.img}
                   alt={`Design progress — ${m.name}`}
@@ -191,7 +191,7 @@ function TimelineContent() {
               {/* Content */}
               <div className="p-7">
                 <div className="flex items-start gap-5 mb-4">
-                  <p className={`font-bold text-[48px] leading-none tracking-[-2px] shrink-0 ${m.highlight ? 'text-[#f0c060]' : 'text-[#cb983a]'}`}>
+                  <p className={`font-bold text-[48px] leading-none tracking-[-2px] shrink-0 ${m.highlight ? 'text-[#6db87e]' : 'text-[#3b7046]'}`}>
                     {m.num}
                   </p>
                   <div className="pt-1">
@@ -201,10 +201,10 @@ function TimelineContent() {
                     </div>
                     <div className={`inline-flex items-center gap-2 rounded-[6px] px-3 py-[5px] ${
                       m.highlight
-                        ? 'bg-[rgba(240,192,96,0.1)] border border-[rgba(240,192,96,0.28)]'
-                        : 'bg-[rgba(203,152,58,0.07)] border border-[rgba(203,152,58,0.18)]'
+                        ? 'bg-[rgba(109,184,126,0.1)] border border-[rgba(109,184,126,0.28)]'
+                        : 'bg-[rgba(59,112,70,0.07)] border border-[rgba(59,112,70,0.18)]'
                     }`}>
-                      <span className={`text-[9px] font-bold tracking-[1.5px] uppercase ${m.highlight ? 'text-[#f0c060]' : 'text-[#cb983a]'}`}>
+                      <span className={`text-[9px] font-bold tracking-[1.5px] uppercase ${m.highlight ? 'text-[#6db87e]' : 'text-[#3b7046]'}`}>
                         Milestone
                       </span>
                       <span className="text-white/65 text-[12px]">{m.milestone}</span>
@@ -217,7 +217,7 @@ function TimelineContent() {
                   <div className="flex flex-col gap-[9px]">
                     {m.deliverables.map((d, j) => (
                       <div key={j} className="flex items-start gap-3">
-                        <span className={`font-bold text-[12px] leading-[1.7] shrink-0 ${m.highlight ? 'text-[#f0c060]' : 'text-[#cb983a]'}`}>✓</span>
+                        <span className={`font-bold text-[12px] leading-[1.7] shrink-0 ${m.highlight ? 'text-[#6db87e]' : 'text-[#3b7046]'}`}>✓</span>
                         <span className="text-white/70 text-[13px] leading-[1.65]">{d}</span>
                       </div>
                     ))}
@@ -238,7 +238,7 @@ function TimelineContent() {
                       <span className="text-white/55 font-semibold">Users: </span>
                       {m.userFeedback}{' '}
                       <a href={GOOGLE_FORM} target="_blank" rel="noopener noreferrer"
-                        className="text-[rgba(203,152,58,0.6)] hover:text-[#cb983a] underline transition-colors">
+                        className="text-[rgba(59,112,70,0.6)] hover:text-[#3b7046] underline transition-colors">
                         Open form ↗
                       </a>
                     </p>
@@ -261,7 +261,7 @@ function TimelineContent() {
               { icon: '✕', text: 'Vercel comments or Google Form responses not submitted within the month do not roll over.', pos: false },
             ].map((note, i) => (
               <div key={i} className="flex items-start gap-3">
-                <span className={`font-bold text-[12px] leading-[1.7] shrink-0 ${note.pos ? 'text-[#cb983a]' : 'text-white/30'}`}>{note.icon}</span>
+                <span className={`font-bold text-[12px] leading-[1.7] shrink-0 ${note.pos ? 'text-[#3b7046]' : 'text-white/30'}`}>{note.icon}</span>
                 <p className="text-white/50 text-[13px] leading-[1.65]">{note.text}</p>
               </div>
             ))}
@@ -272,7 +272,7 @@ function TimelineContent() {
         <div className="pt-10 text-center">
           <p className="text-white/20 text-[12px] leading-[1.8]">
             Questions? Reach us at{' '}
-            <a href="mailto:hello@la-fleur.ca" className="text-[rgba(203,152,58,0.55)] hover:text-[#cb983a] transition-colors">
+            <a href="mailto:hello@la-fleur.ca" className="text-[rgba(59,112,70,0.55)] hover:text-[#3b7046] transition-colors">
               hello@la-fleur.ca
             </a>
           </p>
