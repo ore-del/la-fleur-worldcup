@@ -1,6 +1,6 @@
 'use client'
 
-import { useRef, useState, useEffect, useCallback } from 'react'
+import { useRef, useState, useEffect, useLayoutEffect, useCallback } from 'react'
 import Header from '@/components/Header'
 import CountdownTimer from '@/components/CountdownTimer'
 import { LanguageProvider, useLanguage } from '@/lib/LanguageContext'
@@ -179,13 +179,16 @@ function DraggableBall({ sectionRef }: { sectionRef: React.RefObject<HTMLElement
     p.rafId = requestAnimationFrame(() => dragLoopRef.current())
   }
 
-  useEffect(() => {
-    const mobile = window.innerWidth < 768
-    if (mobile) {
+  useLayoutEffect(() => {
+    if (window.innerWidth < 768) {
       s.current.bx = 0.1
       s.current.by = 0.86
       setRenderPos({ x: 0.1, y: 0.86 })
     }
+  }, [])
+
+  useEffect(() => {
+    const mobile = window.innerWidth < 768
     const t = setTimeout(() => {
       s.current.vx = mobile ? 1.5 : 9
       s.current.vy = 0
