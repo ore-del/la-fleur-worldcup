@@ -21,7 +21,7 @@ export default function OurWork() {
     <section id="work" ref={ref as React.RefObject<HTMLElement>} className="relative bg-[#080603] py-20 px-16">
       <div className="reveal flex items-center gap-3 mb-4">
         <div className="w-[3px] h-[14px] bg-[rgba(59,112,70,0.7)] rounded-[2px]" />
-        <p className="text-[rgba(59,112,70,0.7)] text-[11px] font-bold tracking-[2px]">{w.label}</p>
+        <p className="text-[#6db87e] text-[11px] font-bold tracking-[2px]">{w.label}</p>
       </div>
 
       <h2 className="reveal text-[#6db87e] font-bold text-[40px] leading-none tracking-[-1px] mb-4">{w.headline}</h2>
@@ -37,7 +37,7 @@ export default function OurWork() {
               <img alt={p.name} src={imgAssets[i]} className="w-full h-full object-cover" loading="lazy" />
             </div>
             <div className="absolute top-[151px] left-[15px] bg-[rgba(59,112,70,0.12)] border border-[rgba(59,112,70,0.3)] rounded-full px-[7px] h-[22px] leading-[22px]">
-              <span className="text-[#3b7046] font-semibold text-[11px]">{p.category}</span>
+              <span className="text-[#6db87e] font-semibold text-[11px]">{p.category}</span>
             </div>
             <div className="absolute top-[183px] left-[15px] right-[15px]">
               <p className="text-white font-bold text-[16px] mb-1">{p.name}</p>

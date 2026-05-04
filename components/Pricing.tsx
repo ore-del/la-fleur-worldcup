@@ -10,7 +10,7 @@ export default function Pricing() {
 
   return (
     <section id="pricing" ref={ref as React.RefObject<HTMLElement>} className="relative bg-[#080603] py-20 px-16 overflow-hidden">
-      <p className="reveal text-[#3b7046] text-[11px] font-bold tracking-[2px] mb-4">{p.label}</p>
+      <p className="reveal text-[#6db87e] text-[11px] font-bold tracking-[2px] mb-4">{p.label}</p>
 
       <h2 className="reveal text-white font-bold text-[44px] leading-[1.1] tracking-[-1px] text-center max-w-[860px] mx-auto mb-4">
         {p.headline}
@@ -26,7 +26,7 @@ export default function Pricing() {
         <div className="card-spring bg-white/[0.03] border-[1.5px] border-[rgba(59,112,70,0.25)] rounded-[16px] overflow-hidden p-[30.5px] relative min-h-[540px] hover:border-[rgba(59,112,70,0.45)]">
           <p className="text-white font-bold text-[24px]">{p.standardName}</p>
           <div className="flex items-baseline gap-2 mt-2">
-            <span className="text-[#3b7046] font-bold text-[52px] tracking-[-2px]">$149</span>
+            <span className="text-[#6db87e] font-bold text-[52px] tracking-[-2px]">$149</span>
             <span className="text-white/30 text-[20px] line-through">$299</span>
           </div>
           <p className="text-white/40 text-[13px] mt-1">{p.standardBilling}</p>
@@ -34,11 +34,11 @@ export default function Pricing() {
           <p className="text-white/65 text-[14px] leading-[1.55] mb-5">{p.standardDesc}</p>
           {p.standardFeatures.map((f) => (
             <div key={f} className="flex items-center gap-4 mb-[14px]">
-              <span className="text-[#3b7046] font-bold text-[13px] shrink-0">✓</span>
+              <span className="text-[#6db87e] font-bold text-[13px] shrink-0">✓</span>
               <span className="text-white/80 text-[14px]">{f}</span>
             </div>
           ))}
-          <a href="#claim" className="btn-spring absolute bottom-[30.5px] left-[30.5px] right-[30.5px] h-[52px] leading-[52px] text-center border-[1.5px] border-[rgba(59,112,70,0.6)] text-[#3b7046] font-semibold text-[15px] rounded-[8px] hover:bg-[#3b7046]/10 block">
+          <a href="#claim" className="btn-spring absolute bottom-[30.5px] left-[30.5px] right-[30.5px] h-[52px] leading-[52px] text-center border-[1.5px] border-[rgba(59,112,70,0.6)] text-[#6db87e] font-semibold text-[15px] rounded-[8px] hover:bg-[#3b7046]/10 block">
             {p.standardCta}
           </a>
         </div>
@@ -75,7 +75,7 @@ export default function Pricing() {
         {p.notes.map((note, i) => (
           <div key={note.title} className={`reveal reveal-delay-${i + 1} card-spring bg-white/[0.03] border border-[rgba(59,112,70,0.12)] rounded-[12px] p-5 hover:border-[rgba(59,112,70,0.25)]`}>
             <div className="flex items-center gap-[14px] mb-2">
-              <span className="text-[rgba(59,112,70,0.7)] font-bold text-[16px]">{note.icon}</span>
+              <span className="text-[#6db87e] font-bold text-[16px]">{note.icon}</span>
               <span className="text-white font-semibold text-[14px]">{note.title}</span>
             </div>
             <p className="text-white/55 text-[12px] leading-[1.5]">{note.description}</p>

@@ -14,7 +14,7 @@ export default function HowItWorks() {
     <section id="how-it-works" ref={ref as React.RefObject<HTMLElement>} className="relative bg-[#0a0804] py-20 px-16">
       <div className="reveal flex items-center gap-3 mb-4">
         <div className="w-[3px] h-[14px] bg-[rgba(59,112,70,0.7)] rounded-[2px]" />
-        <p className="text-[rgba(59,112,70,0.7)] text-[11px] font-bold tracking-[2px]">{h.label}</p>
+        <p className="text-[#6db87e] text-[11px] font-bold tracking-[2px]">{h.label}</p>
       </div>
 
       <h2 className="reveal text-white font-bold text-[44px] leading-none tracking-[-1px] mb-12">{h.headline}</h2>
@@ -29,7 +29,7 @@ export default function HowItWorks() {
             <p className="absolute left-[19px] top-[23px] text-[#6db87e] font-bold text-[56px] leading-none tracking-[-2px]">{step.num}</p>
             <p className="absolute left-[19px] top-[109px] text-white font-bold text-[17px] leading-[1.3] w-[269px]">{step.title}</p>
             <p className="absolute left-[19px] top-[173px] text-white/[0.62] text-[13px] leading-[1.55] w-[269px]">{step.description}</p>
-            <p className="absolute left-[19px] bottom-[19px] text-[rgba(59,112,70,0.85)] font-semibold text-[12px]">{step.time}</p>
+            <p className="absolute left-[19px] bottom-[19px] text-[#6db87e] font-semibold text-[12px]">{step.time}</p>
           </div>
         ))}
       </div>

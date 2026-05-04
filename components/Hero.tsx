@@ -4,7 +4,7 @@ import CountdownTimer from './CountdownTimer'
 import { useLanguage } from '@/lib/LanguageContext'
 
 // Hero background image
-const heroBgImage = 'https://raw.githubusercontent.com/ore-del/la-fleur-worldcup/main/Hero%20bkg.png'
+const heroBgImage = '/hero-bkg.png'
 const imgGoal = 'https://raw.githubusercontent.com/ore-del/la-fleur-worldcup/claude/world-cup-generate-page-vuHuO/Post.png'
 
 // Strong multi-layer shadow for legibility against the yellow bg

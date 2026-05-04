@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react'
 import { useLanguage } from '@/lib/LanguageContext'
 
-const imgLogo = 'https://raw.githubusercontent.com/ore-del/la-fleur-worldcup/main/Logo%20main.svg'
+const imgLogo = '/logo-main.svg'
 const imgFlowerFallback = 'https://www.figma.com/api/mcp/asset/5bc0d7fb-dedc-40f5-bb4d-69d4f85bf14f'
 
 export default function Header() {

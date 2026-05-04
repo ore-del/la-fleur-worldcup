@@ -19,7 +19,7 @@ export default function ClaimSpot() {
     return (
       <section id="claim" className="relative bg-[#0a0804] py-32 px-16 flex flex-col items-center justify-center">
         <div className="w-16 h-16 rounded-full bg-[#3b7046]/20 flex items-center justify-center mx-auto mb-6">
-          <svg className="w-8 h-8 text-[#3b7046]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+          <svg className="w-8 h-8 text-[#6db87e]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
           </svg>
         </div>
@@ -68,7 +68,7 @@ export default function ClaimSpot() {
               }`}
             >
               <p className={`font-semibold text-[14px] ${selectedPlan === i ? 'text-[#6db87e]' : 'text-white'}`}>{plan.label}</p>
-              <p className={`text-[12px] mt-1 ${selectedPlan === i ? 'text-[rgba(59,112,70,0.8)]' : 'text-white/45'}`}>{plan.sub}</p>
+              <p className={`text-[12px] mt-1 ${selectedPlan === i ? 'text-[#6db87e]/70' : 'text-white/45'}`}>{plan.sub}</p>
             </button>
           ))}
         </div>

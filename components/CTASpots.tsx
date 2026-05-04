@@ -23,7 +23,7 @@ export default function CTASpots() {
         </a>
         <a
           href="#pricing"
-          className="btn-spring inline-block border-[1.5px] border-[rgba(59,112,70,0.6)] text-[#3b7046] font-normal text-[15px] h-[52px] leading-[52px] px-10 rounded-[8px] hover:bg-[#3b7046]/10 whitespace-nowrap focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#3b7046]"
+          className="btn-spring inline-block border-[1.5px] border-[rgba(59,112,70,0.6)] text-[#6db87e] font-normal text-[15px] h-[52px] leading-[52px] px-10 rounded-[8px] hover:bg-[#3b7046]/10 whitespace-nowrap focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#3b7046]"
         >
           {c.secondary}
         </a>
@@ -33,7 +33,7 @@ export default function CTASpots() {
       <div className="mb-4">
         <div className="flex items-center justify-between mb-2">
           <span className="text-white/85 text-[14px] font-semibold">{c.spotsClaimed}</span>
-          <span className="text-[#3b7046] text-[14px] font-semibold">{c.spotsOf}</span>
+          <span className="text-[#6db87e] text-[14px] font-semibold">{c.spotsOf}</span>
         </div>
         <div className="relative h-[6px] bg-white/10 rounded-[3px] w-full overflow-hidden">
           <div className="progress-bar absolute left-0 top-0 h-full bg-[#3b7046] rounded-[3px]" style={{ width: '35%' }} />
@@ -50,7 +50,7 @@ export default function CTASpots() {
             {name}
           </span>
         ))}
-        <span className="bg-[rgba(59,112,70,0.12)] border border-[rgba(59,112,70,0.35)] rounded-full px-[7px] h-[28px] leading-[28px] text-[#3b7046] text-[12px] whitespace-nowrap">
+        <span className="bg-[rgba(59,112,70,0.12)] border border-[rgba(59,112,70,0.35)] rounded-full px-[7px] h-[28px] leading-[28px] text-[#6db87e] text-[12px] whitespace-nowrap">
           {c.spotsLeft}
         </span>
       </div>

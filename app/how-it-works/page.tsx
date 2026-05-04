@@ -72,7 +72,7 @@ function FormModal({ onClose, defaultPkg }: { onClose: () => void; defaultPkg: 0
                       <button key={i} type="button" onClick={() => setPkg(i as 0 | 1)}
                         className={`flex-1 rounded-[8px] py-[12px] px-[12px] text-left transition-all border ${pkg === i ? 'bg-[rgba(59,112,70,0.1)] border-[rgba(59,112,70,0.5)]' : 'bg-white/[0.04] border-white/[0.12]'}`}>
                         <p className={`font-semibold text-[14px] mb-1 ${pkg === i ? 'text-[#6db87e]' : 'text-white'}`}>{p.label}</p>
-                        <p className={`text-[12px] ${pkg === i ? 'text-[rgba(59,112,70,0.8)]' : 'text-white/45'}`}>{p.sub}</p>
+                        <p className={`text-[12px] ${pkg === i ? 'text-[#6db87e]' : 'text-white/45'}`}>{p.sub}</p>
                       </button>
                     ))}
                   </div>
@@ -104,14 +104,14 @@ function HowItWorksContent() {
       <div className="fixed inset-0 z-[1]">
         <picture className="w-full h-full">
           <source media="(max-width: 767px)" srcSet="https://raw.githubusercontent.com/ore-del/la-fleur-worldcup/main/Hero%20phone%20img.png" />
-          <img src="https://raw.githubusercontent.com/ore-del/la-fleur-worldcup/main/Hero%20bkg.png"
+          <img src="/hero-bkg.png"
             alt="" aria-hidden className="w-full h-full object-cover object-[30%_center]" />
         </picture>
         <div className="absolute inset-0 bg-[#080603]/40" />
       </div>
       <main className="min-h-screen pt-[88px]">
         <div className="relative z-[2] max-w-[1184px] mx-auto px-6 py-20">
-          <p className="text-[rgba(59,112,70,0.85)] text-[11px] font-bold tracking-[2px] uppercase mb-5">{h.label}</p>
+          <p className="text-[#6db87e] text-[11px] font-bold tracking-[2px] uppercase mb-5">{h.label}</p>
           <h1 className="text-white font-bold text-[28px] md:text-[44px] tracking-[-1px] leading-tight mb-14">{h.headline}</h1>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {h.steps.map((step, i) => (
@@ -138,7 +138,7 @@ function HowItWorksContent() {
               <p className="text-white font-semibold text-[15px]">Already a client? See what's ahead.</p>
               <p className="text-white/40 text-[13px] mt-1">Your month-by-month deliverables, milestones, and feedback process.</p>
             </div>
-            <a href="/timeline" className="shrink-0 text-[rgba(59,112,70,0.8)] hover:text-[#6db87e] font-semibold text-[13px] transition-colors whitespace-nowrap">
+            <a href="/timeline" className="shrink-0 text-[#6db87e] hover:text-[#6db87e] font-semibold text-[13px] transition-colors whitespace-nowrap">
               View roadmap →
             </a>
           </div>
