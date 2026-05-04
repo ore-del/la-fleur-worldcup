@@ -184,6 +184,7 @@ function DraggableBall({ sectionRef }: { sectionRef: React.RefObject<HTMLElement
   useEffect(() => {
     const mobile = window.innerWidth < 768
     isMobile.current = mobile
+    if (mobile) s.current.bx = -0.12 + 10 / window.innerWidth
     const t = setTimeout(() => {
       s.current.vx = mobile ? 12 : 9
       s.current.vy = 0
@@ -239,7 +240,7 @@ function DraggableBall({ sectionRef }: { sectionRef: React.RefObject<HTMLElement
   const handleConfettiDone = useCallback(() => {
     setConfetti(false)
     setHasScored(false)
-    const startX = isMobile.current ? -0.12 : 0.5
+    const startX = isMobile.current ? -0.12 + 10 / window.innerWidth : 0.5
     s.current.bx = startX; s.current.by = 0.86
     s.current.vx = 0;      s.current.vy  = 0
     s.current.spin = 0
