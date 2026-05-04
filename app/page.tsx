@@ -7,8 +7,8 @@ import { LanguageProvider, useLanguage } from '@/lib/LanguageContext'
 
 const heroBgImage  = '/hero-bkg.png'
 const heroBgMobile = '/hero-phone.png'
-const imgGoal = 'https://raw.githubusercontent.com/ore-del/la-fleur-worldcup/claude/world-cup-generate-page-vuHuO/Post.png'
-const imgBall = 'https://raw.githubusercontent.com/ore-del/la-fleur-worldcup/claude/world-cup-generate-page-vuHuO/Ball.png'
+const imgGoal = '/post.png'
+const imgBall = '/ball.png'
 
 const BALL_R    = 55
 const FRICTION  = 0.87

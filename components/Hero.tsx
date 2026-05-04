@@ -5,7 +5,7 @@ import { useLanguage } from '@/lib/LanguageContext'
 
 // Hero background image
 const heroBgImage = '/hero-bkg.png'
-const imgGoal = 'https://raw.githubusercontent.com/ore-del/la-fleur-worldcup/claude/world-cup-generate-page-vuHuO/Post.png'
+const imgGoal = '/post.png'
 
 // Strong multi-layer shadow for legibility against the yellow bg
 const textShadow = '0 1px 3px rgba(0,0,0,0.9), 0 2px 12px rgba(0,0,0,0.7), 0 4px 32px rgba(0,0,0,0.5)'
