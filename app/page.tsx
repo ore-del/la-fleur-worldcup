@@ -5,10 +5,10 @@ import Header from '@/components/Header'
 import CountdownTimer from '@/components/CountdownTimer'
 import { LanguageProvider, useLanguage } from '@/lib/LanguageContext'
 
-const heroBgImage  = 'https://raw.githubusercontent.com/ore-del/la-fleur-worldcup/claude/world-cup-generate-page-vuHuO/Hero%20image.png'
-const heroBgMobile = 'https://raw.githubusercontent.com/ore-del/la-fleur-worldcup/claude/world-cup-generate-page-vuHuO/Hero%20phone%20img.png'
-const imgGoal = 'https://raw.githubusercontent.com/ore-del/la-fleur-worldcup/claude/world-cup-generate-page-vuHuO/Post.png'
-const imgBall = 'https://raw.githubusercontent.com/ore-del/la-fleur-worldcup/claude/world-cup-generate-page-vuHuO/Ball.png'
+const heroBgImage  = '/hero-bkg.png'
+const heroBgMobile = '/hero-phone.png'
+const imgGoal = '/post.png'
+const imgBall = '/ball.png'
 
 const BALL_R    = 55
 const FRICTION  = 0.87
@@ -116,6 +116,8 @@ function DraggableBall({ sectionRef }: { sectionRef: React.RefObject<HTMLElement
   const [confetti, setConfetti]   = useState(false)
   const [hasScored, setHasScored] = useState(false)
 
+  const isMobile = useRef(false)
+
   const s = useRef({
     bx: -0.12, by: 0.86,
     cx: 0.5, cy: 0.86,
@@ -146,7 +148,7 @@ function DraggableBall({ sectionRef }: { sectionRef: React.RefObject<HTMLElement
     if (nx > 1 - rw && p.vx > 0) { nx = 1 - rw; p.vx = -Math.abs(p.vx) * 0.42 }
     if (ny < FIELD_TOP + rh) { ny = FIELD_TOP + rh; p.vy = Math.abs(p.vy) * 0.32 }
     if (ny > 1 - rh) { ny = 1 - rh; p.vy = -Math.abs(p.vy) * 0.22 }
-    if (ny > GOAL_Y && (nx < GOAL_X || nx > 1 - GOAL_X)) {
+    if (ny > GOAL_Y && ((!isMobile.current && nx < GOAL_X) || nx > 1 - GOAL_X)) {
       p.bx = nx; p.by = ny
       p.vx = 0; p.vy = 0
       setRenderPos({ x: nx, y: ny })
@@ -180,8 +182,11 @@ function DraggableBall({ sectionRef }: { sectionRef: React.RefObject<HTMLElement
   }
 
   useEffect(() => {
+    const mobile = window.innerWidth < 768
+    isMobile.current = mobile
+    if (mobile) s.current.bx = -0.12 + 30 / window.innerWidth
     const t = setTimeout(() => {
-      s.current.vx = 9
+      s.current.vx = mobile ? 12 : 9
       s.current.vy = 0
       s.current.rafId = requestAnimationFrame(() => loopRef.current())
     }, 200)
@@ -235,13 +240,14 @@ function DraggableBall({ sectionRef }: { sectionRef: React.RefObject<HTMLElement
   const handleConfettiDone = useCallback(() => {
     setConfetti(false)
     setHasScored(false)
-    s.current.bx = 0.5; s.current.by = 0.86
-    s.current.vx = 0;   s.current.vy  = 0
+    const startX = isMobile.current ? -0.12 + 30 / window.innerWidth : 0.5
+    s.current.bx = startX; s.current.by = 0.86
+    s.current.vx = 0;      s.current.vy  = 0
     s.current.spin = 0
     setSpin(0)
-    setRenderPos({ x: 0.5, y: 0.86 })
+    setRenderPos({ x: startX, y: 0.86 })
     setTimeout(() => {
-      s.current.vx = -2.5
+      s.current.vx = isMobile.current ? 12 : -2.5
       s.current.rafId = requestAnimationFrame(() => loopRef.current())
     }, 120)
   }, [])
@@ -270,7 +276,7 @@ function DraggableBall({ sectionRef }: { sectionRef: React.RefObject<HTMLElement
           top:    `calc(${renderPos.y * 100}% - 55px)`,
           width: 110, height: 110,
           cursor: dragging ? 'grabbing' : 'grab',
-          filter: `drop-shadow(4px 8px 12px rgba(188,135,46,${dragging ? 0.85 : 0.55})) drop-shadow(0px 6px 6px rgba(0,0,0,0.2)) drop-shadow(0px 0px 20px rgba(0,0,0,0.1))`,
+          filter: `drop-shadow(5px 9px 8.6px rgba(118,113,34,${dragging ? 0.85 : 0.42}))`,
           willChange: 'left, top',
         }}
         onPointerDown={onPointerDown}
@@ -323,7 +329,7 @@ function FormModal({ onClose, defaultPkg }: { onClose: () => void; defaultPkg: 0
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
       <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={onClose} />
       <div className="relative z-10 w-full max-w-[640px] rounded-[24px] overflow-hidden shadow-[0_32px_80px_rgba(0,0,0,0.6)]">
-        <div className="absolute inset-0 bg-[rgba(30,28,26,0.96)] backdrop-blur-[30px] rounded-[24px] border border-[rgba(203,152,58,0.2)]" />
+        <div className="absolute inset-0 bg-[rgba(30,28,26,0.96)] backdrop-blur-[30px] rounded-[24px] border border-[rgba(59,112,70,0.2)]" />
         <div className="relative z-10 p-10">
           <button onClick={onClose} className="absolute top-5 right-6 text-white/40 hover:text-white/80 transition-colors text-[28px] leading-none font-light" aria-label="Close">×</button>
           {submitted ? (
@@ -337,25 +343,25 @@ function FormModal({ onClose, defaultPkg }: { onClose: () => void; defaultPkg: 0
               <h2 className="text-white font-bold text-[44px] tracking-[-1.5px] leading-none text-center mb-2">{c.headline}</h2>
               <p className="text-white/55 text-[16px] text-center mb-8">{c.sub}</p>
               <form onSubmit={handleSubmit}>
-                <div className="bg-white/[0.04] border border-[rgba(203,152,58,0.2)] rounded-[16px] p-[38px] flex flex-col">
+                <div className="bg-white/[0.04] border border-[rgba(59,112,70,0.2)] rounded-[16px] p-[38px] flex flex-col">
                   <label className="block text-[10px] font-bold text-white/45 tracking-[1.5px] mb-[10px]">{c.bizLabel}</label>
                   <input value={bizName} onChange={e => setBizName(e.target.value)} required placeholder={c.bizPlaceholder}
-                    className="bg-white/[0.06] border border-[rgba(203,152,58,0.3)] rounded-[8px] h-[48px] px-4 text-[14px] text-white placeholder:text-white/30 outline-none focus:border-[rgba(203,152,58,0.65)] transition-colors mb-[22px] w-full" />
+                    className="bg-white/[0.06] border border-[rgba(59,112,70,0.3)] rounded-[8px] h-[48px] px-4 text-[14px] text-white placeholder:text-white/30 outline-none focus:border-[rgba(59,112,70,0.65)] transition-colors mb-[22px] w-full" />
                   <label className="block text-[10px] font-bold text-white/45 tracking-[1.5px] mb-[10px]">{c.emailLabel}</label>
                   <input value={email} onChange={e => setEmail(e.target.value)} required type="email" placeholder={c.emailPlaceholder}
-                    className="bg-white/[0.06] border border-[rgba(203,152,58,0.3)] rounded-[8px] h-[48px] px-4 text-[14px] text-white placeholder:text-white/30 outline-none focus:border-[rgba(203,152,58,0.65)] transition-colors mb-[22px] w-full" />
+                    className="bg-white/[0.06] border border-[rgba(59,112,70,0.3)] rounded-[8px] h-[48px] px-4 text-[14px] text-white placeholder:text-white/30 outline-none focus:border-[rgba(59,112,70,0.65)] transition-colors mb-[22px] w-full" />
                   <label className="block text-[10px] font-bold text-white/45 tracking-[1.5px] mb-[10px]">{c.packageLabel}</label>
                   <div className="flex gap-3 mb-[30px]">
                     {c.packages.map((p, i) => (
                       <button key={i} type="button" onClick={() => setPkg(i as 0 | 1)}
-                        className={`flex-1 rounded-[8px] py-[12px] px-[12px] text-left transition-all border ${pkg === i ? 'bg-[rgba(203,152,58,0.1)] border-[rgba(203,152,58,0.5)]' : 'bg-white/[0.04] border-white/[0.12]'}`}>
-                        <p className={`font-semibold text-[14px] mb-1 ${pkg === i ? 'text-[#f0c060]' : 'text-white'}`}>{p.label}</p>
-                        <p className={`text-[12px] ${pkg === i ? 'text-[rgba(203,152,58,0.8)]' : 'text-white/45'}`}>{p.sub}</p>
+                        className={`flex-1 rounded-[8px] py-[12px] px-[12px] text-left transition-all border ${pkg === i ? 'bg-[rgba(59,112,70,0.1)] border-[rgba(59,112,70,0.5)]' : 'bg-white/[0.04] border-white/[0.12]'}`}>
+                        <p className={`font-semibold text-[14px] mb-1 ${pkg === i ? 'text-[#6db87e]' : 'text-white'}`}>{p.label}</p>
+                        <p className={`text-[12px] ${pkg === i ? 'text-[#6db87e]/70' : 'text-white/45'}`}>{p.sub}</p>
                       </button>
                     ))}
                   </div>
                   <button type="submit" disabled={loading}
-                    className="bg-[#cb983a] hover:bg-[#d4a84a] disabled:opacity-60 transition-colors h-[56px] rounded-[8px] text-[#080603] font-semibold text-[15px] w-full">
+                    className="bg-[#3b7046] hover:bg-[#6db87e] disabled:opacity-60 transition-colors h-[56px] rounded-[8px] text-white font-semibold text-[15px] w-full">
                     {loading ? 'Sending…' : c.submit}
                   </button>
                 </div>
@@ -411,11 +417,11 @@ function Hero({ onClaim }: { onClaim: () => void }) {
       </div>
 
       <img alt="" src={imgGoal}
-        className="absolute left-[3%] bottom-[8%] w-[28vw] max-w-[380px] pointer-events-none z-[5]"
-        style={{ filter: 'drop-shadow(4px 8px 12px rgba(188,135,46,0.7)) drop-shadow(0px 6px 6px rgba(0,0,0,0.2)) drop-shadow(0px 0px 20px rgba(0,0,0,0.1))' }} />
+        className="absolute left-[3%] bottom-[8%] w-[28vw] max-w-[380px] pointer-events-none z-[5] hidden md:block"
+        style={{ filter: 'drop-shadow(5px 9px 8.6px rgba(118,113,34,0.42))' }} />
       <img alt="" src={imgGoal}
-        className="absolute right-[3%] bottom-[8%] w-[28vw] max-w-[380px] pointer-events-none z-[5]"
-        style={{ transform: 'scaleX(-1)', filter: 'drop-shadow(4px 8px 12px rgba(188,135,46,0.7)) drop-shadow(0px 6px 6px rgba(0,0,0,0.2)) drop-shadow(0px 0px 20px rgba(0,0,0,0.1))' }} />
+        className="absolute right-[-4%] md:right-[3%] bottom-[8%] w-[60vw] md:w-[28vw] md:max-w-[380px] pointer-events-none z-[5]"
+        style={{ transform: 'scaleX(-1)', filter: 'drop-shadow(-5px 9px 8.6px rgba(118,113,34,0.42))' }} />
 
       <DraggableBall sectionRef={sectionRef} />
 
@@ -424,7 +430,7 @@ function Hero({ onClaim }: { onClaim: () => void }) {
           {h.headline}
         </h1>
         <button onClick={onClaim}
-          className="mt-8 bg-black text-white font-semibold text-[15px] rounded-full px-8 h-[52px] hover:bg-black/80 transition-colors duration-200">
+          className="mt-8 bg-black text-white font-semibold text-[15px] rounded-full px-8 h-[52px] hover:bg-white hover:text-[#080603] transition-colors duration-200">
           {cta.primary}
         </button>
       </div>

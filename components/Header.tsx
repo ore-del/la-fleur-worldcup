@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react'
 import { useLanguage } from '@/lib/LanguageContext'
 
-const imgLogo = 'https://raw.githubusercontent.com/ore-del/la-fleur-worldcup/main/La%20Fleur%20logo%20wc.svg'
+const imgLogo = '/logo-main.svg'
 const imgFlowerFallback = 'https://www.figma.com/api/mcp/asset/5bc0d7fb-dedc-40f5-bb4d-69d4f85bf14f'
 
 export default function Header() {
@@ -59,7 +59,7 @@ export default function Header() {
                 src={imgLogo}
                 alt="La Fleur"
                 className="h-[42px] w-auto object-contain select-none"
-                style={{ marginTop: '-5px' }}
+                style={{ marginTop: '-1px' }}
                 onError={() => setLogoFailed(true)}
               />
             )}
@@ -85,7 +85,7 @@ export default function Header() {
               <button
                 onClick={() => setLang('EN')}
                 className={`h-[28px] w-[42px] rounded-full text-[14px] font-medium transition-[background-color,color] duration-200 ${
-                  lang === 'EN' ? 'bg-[#515151] text-[#f0c060]' : 'text-white hover:text-[#f0c060]'
+                  lang === 'EN' ? 'bg-[#3b7046] text-white' : 'text-white hover:text-[#6db87e]'
                 }`}
                 aria-pressed={lang === 'EN'}
                 aria-label="Switch to English"
@@ -95,7 +95,7 @@ export default function Header() {
               <button
                 onClick={() => setLang('FR')}
                 className={`h-[28px] w-[40px] rounded-full text-[14px] font-medium transition-[background-color,color] duration-200 ${
-                  lang === 'FR' ? 'bg-[#515151] text-[#f0c060]' : 'text-white hover:text-[#f0c060]'
+                  lang === 'FR' ? 'bg-[#3b7046] text-white' : 'text-white hover:text-[#6db87e]'
                 }`}
                 aria-pressed={lang === 'FR'}
                 aria-label="Basculer en français"
@@ -130,15 +130,15 @@ export default function Header() {
         {/* Menu content */}
         <nav className="absolute inset-0 flex flex-col items-center justify-center gap-10">
           <a href="/pricing" onClick={close}
-            className="text-white font-bold text-[32px] tracking-[-0.5px] hover:text-[#f0c060] transition-colors duration-200">
+            className="text-white font-bold text-[32px] tracking-[-0.5px] hover:text-[#6db87e] transition-colors duration-200">
             {tx.nav.pricing}
           </a>
           <a href="/how-it-works" onClick={close}
-            className="text-white font-bold text-[32px] tracking-[-0.5px] hover:text-[#f0c060] transition-colors duration-200">
+            className="text-white font-bold text-[32px] tracking-[-0.5px] hover:text-[#6db87e] transition-colors duration-200">
             {tx.nav.aiWorkflow}
           </a>
           <a href="https://la-fleur.digital/our-work/" onClick={close}
-            className="text-white font-bold text-[32px] tracking-[-0.5px] hover:text-[#f0c060] transition-colors duration-200">
+            className="text-white font-bold text-[32px] tracking-[-0.5px] hover:text-[#6db87e] transition-colors duration-200">
             {tx.nav.work}
           </a>
         </nav>

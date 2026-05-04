@@ -48,7 +48,7 @@ export default function CountdownTimer() {
 function Unit({ value, label }: { value: string; label: string }) {
   return (
     <div className="flex flex-col items-center gap-[3px]">
-      <span className="text-[#f0c060] text-[42px] font-bold leading-none tabular-nums">{value}</span>
+      <span className="text-[#6db87e] text-[42px] font-bold leading-none tabular-nums">{value}</span>
       <span className="text-white/40 text-[15px] font-normal">{label}</span>
     </div>
   )

@@ -20,24 +20,24 @@ export default function OurWork() {
   return (
     <section id="work" ref={ref as React.RefObject<HTMLElement>} className="relative bg-[#080603] py-20 px-16">
       <div className="reveal flex items-center gap-3 mb-4">
-        <div className="w-[3px] h-[14px] bg-[rgba(203,152,58,0.7)] rounded-[2px]" />
-        <p className="text-[rgba(203,152,58,0.7)] text-[11px] font-bold tracking-[2px]">{w.label}</p>
+        <div className="w-[3px] h-[14px] bg-[rgba(59,112,70,0.7)] rounded-[2px]" />
+        <p className="text-[#6db87e] text-[11px] font-bold tracking-[2px]">{w.label}</p>
       </div>
 
-      <h2 className="reveal text-[#f0c060] font-bold text-[40px] leading-none tracking-[-1px] mb-4">{w.headline}</h2>
+      <h2 className="reveal text-[#6db87e] font-bold text-[40px] leading-none tracking-[-1px] mb-4">{w.headline}</h2>
       <p className="reveal text-white/60 text-[15px] leading-[1.55] mb-10 max-w-[980px]">{w.sub}</p>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
         {w.projects.map((p, i) => (
           <div
             key={p.name}
-            className={`reveal reveal-delay-${(i % 3) + 1} card-spring bg-white/[0.03] border border-[rgba(203,152,58,0.15)] rounded-[12px] overflow-hidden h-[260px] relative hover:border-[rgba(203,152,58,0.35)] hover:bg-white/[0.06]`}
+            className={`reveal reveal-delay-${(i % 3) + 1} card-spring bg-white/[0.03] border border-[rgba(59,112,70,0.15)] rounded-[12px] overflow-hidden h-[260px] relative hover:border-[rgba(59,112,70,0.35)] hover:bg-white/[0.06]`}
           >
             <div className="h-[139px] bg-[rgb(17,30,60)] overflow-hidden">
               <img alt={p.name} src={imgAssets[i]} className="w-full h-full object-cover" loading="lazy" />
             </div>
-            <div className="absolute top-[151px] left-[15px] bg-[rgba(203,152,58,0.12)] border border-[rgba(203,152,58,0.3)] rounded-full px-[7px] h-[22px] leading-[22px]">
-              <span className="text-[#cb983a] font-semibold text-[11px]">{p.category}</span>
+            <div className="absolute top-[151px] left-[15px] bg-[rgba(59,112,70,0.12)] border border-[rgba(59,112,70,0.3)] rounded-full px-[7px] h-[22px] leading-[22px]">
+              <span className="text-[#6db87e] font-semibold text-[11px]">{p.category}</span>
             </div>
             <div className="absolute top-[183px] left-[15px] right-[15px]">
               <p className="text-white font-bold text-[16px] mb-1">{p.name}</p>
