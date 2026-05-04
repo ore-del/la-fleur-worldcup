@@ -4,8 +4,7 @@ import Header from '@/components/Header'
 import { LanguageProvider, useLanguage } from '@/lib/LanguageContext'
 
 const GOOGLE_FORM = 'https://forms.gle/4sAUKRjNfY79YP89A'
-const IMG_BASE = 'https://raw.githubusercontent.com/ore-del/la-fleur-worldcup/claude/world-cup-generate-page-vuHuO/Project%20progress'
-const MONTH_IMGS = [1, 2, 3, 4, 5, 6].map(n => `${IMG_BASE}/${n}.png`)
+const MONTH_IMGS = [1, 2, 3, 4, 5, 6].map(n => `/progress-${n}.png`)
 
 function TimelineContent() {
   const { tx } = useLanguage()
