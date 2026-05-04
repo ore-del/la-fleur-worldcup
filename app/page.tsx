@@ -239,13 +239,14 @@ function DraggableBall({ sectionRef }: { sectionRef: React.RefObject<HTMLElement
   const handleConfettiDone = useCallback(() => {
     setConfetti(false)
     setHasScored(false)
-    s.current.bx = 0.5; s.current.by = 0.86
-    s.current.vx = 0;   s.current.vy  = 0
+    const startX = isMobile.current ? -0.12 : 0.5
+    s.current.bx = startX; s.current.by = 0.86
+    s.current.vx = 0;      s.current.vy  = 0
     s.current.spin = 0
     setSpin(0)
-    setRenderPos({ x: 0.5, y: 0.86 })
+    setRenderPos({ x: startX, y: 0.86 })
     setTimeout(() => {
-      s.current.vx = -2.5
+      s.current.vx = isMobile.current ? 12 : -2.5
       s.current.rafId = requestAnimationFrame(() => loopRef.current())
     }, 120)
   }, [])
