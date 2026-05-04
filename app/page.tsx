@@ -411,7 +411,7 @@ function Hero({ onClaim }: { onClaim: () => void }) {
       </div>
 
       <img alt="" src={imgGoal}
-        className="absolute left-[3%] bottom-[8%] w-[60vw] md:w-[28vw] md:max-w-[380px] pointer-events-none z-[5]"
+        className="absolute left-[3%] bottom-[8%] w-[28vw] max-w-[380px] pointer-events-none z-[5] hidden md:block"
         style={{ filter: 'drop-shadow(5px 9px 8.6px rgba(118,113,34,0.42))' }} />
       <img alt="" src={imgGoal}
         className="absolute right-[3%] bottom-[8%] w-[60vw] md:w-[28vw] md:max-w-[380px] pointer-events-none z-[5]"
