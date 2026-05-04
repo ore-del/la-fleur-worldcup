@@ -214,6 +214,15 @@ html, body {
 .btn-trace:hover span::before,
 .btn-trace:hover span::after { width: 100%; }
 
+/* ─── Browser autofill — keep text white ─────────────────── */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+  -webkit-text-fill-color: white;
+  -webkit-box-shadow: 0 0 0 1000px rgba(255, 255, 255, 0.06) inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
 /* ─── Reduce motion respect (ui-ux-pro-max) ─────────────── */
 @media (prefers-reduced-motion: reduce) {
   .reveal,

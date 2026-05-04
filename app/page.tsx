@@ -270,7 +270,7 @@ function DraggableBall({ sectionRef }: { sectionRef: React.RefObject<HTMLElement
           top:    `calc(${renderPos.y * 100}% - 55px)`,
           width: 110, height: 110,
           cursor: dragging ? 'grabbing' : 'grab',
-          filter: `drop-shadow(3.75px 6.75px 6.45px rgba(188,135,46,${dragging ? 0.85 : 0.49}))`,
+          filter: `drop-shadow(5px 9px 8.6px rgba(118,113,34,${dragging ? 0.85 : 0.42}))`,
           willChange: 'left, top',
         }}
         onPointerDown={onPointerDown}
@@ -411,11 +411,11 @@ function Hero({ onClaim }: { onClaim: () => void }) {
       </div>
 
       <img alt="" src={imgGoal}
-        className="absolute left-[3%] bottom-[8%] w-[28vw] max-w-[380px] pointer-events-none z-[5] hidden md:block"
-        style={{ filter: 'drop-shadow(3.75px 6.75px 6.83px rgba(118,113,34,0.42))' }} />
+        className="absolute left-[3%] bottom-[8%] w-[60vw] md:w-[28vw] md:max-w-[380px] pointer-events-none z-[5]"
+        style={{ filter: 'drop-shadow(5px 9px 8.6px rgba(118,113,34,0.42))' }} />
       <img alt="" src={imgGoal}
-        className="absolute right-[3%] bottom-[8%] w-[28vw] max-w-[380px] pointer-events-none z-[5]"
-        style={{ transform: 'scaleX(-1)', filter: 'drop-shadow(-3.75px 6.75px 6.83px rgba(118,113,34,0.42))' }} />
+        className="absolute right-[3%] bottom-[8%] w-[60vw] md:w-[28vw] md:max-w-[380px] pointer-events-none z-[5]"
+        style={{ transform: 'scaleX(-1)', filter: 'drop-shadow(-5px 9px 8.6px rgba(118,113,34,0.42))' }} />
 
       <DraggableBall sectionRef={sectionRef} />
 
@@ -432,20 +432,6 @@ function Hero({ onClaim }: { onClaim: () => void }) {
   )
 }
 
-function FeatureSection() {
-  return (
-    <section className="relative z-[2] bg-[#080603] px-6 py-16 flex justify-center">
-      <div className="w-full max-w-[960px]">
-        <img
-          src="/feature-home.png"
-          alt="La Fleur World Cup campaign feature"
-          className="w-full h-auto rounded-[20px] shadow-[0_24px_80px_rgba(0,0,0,0.6)]"
-        />
-      </div>
-    </section>
-  )
-}
-
 export default function HomePage() {
   const [modalOpen, setModalOpen] = useState(false)
   const openModal  = useCallback(() => setModalOpen(true), [])
@@ -456,7 +442,6 @@ export default function HomePage() {
       <div className="min-h-screen">
         <Header />
         <Hero onClaim={openModal} />
-        <FeatureSection />
         {modalOpen && <FormModal onClose={closeModal} defaultPkg={1} />}
       </div>
     </LanguageProvider>
