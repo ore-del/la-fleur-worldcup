@@ -180,8 +180,14 @@ function DraggableBall({ sectionRef }: { sectionRef: React.RefObject<HTMLElement
   }
 
   useEffect(() => {
+    const mobile = window.innerWidth < 768
+    if (mobile) {
+      s.current.bx = 0.1
+      s.current.by = 0.86
+      setRenderPos({ x: 0.1, y: 0.86 })
+    }
     const t = setTimeout(() => {
-      s.current.vx = 9
+      s.current.vx = mobile ? 1.5 : 9
       s.current.vy = 0
       s.current.rafId = requestAnimationFrame(() => loopRef.current())
     }, 200)
@@ -414,7 +420,7 @@ function Hero({ onClaim }: { onClaim: () => void }) {
         className="absolute left-[3%] bottom-[8%] w-[28vw] max-w-[380px] pointer-events-none z-[5] hidden md:block"
         style={{ filter: 'drop-shadow(5px 9px 8.6px rgba(118,113,34,0.42))' }} />
       <img alt="" src={imgGoal}
-        className="absolute right-[3%] bottom-[8%] w-[60vw] md:w-[28vw] md:max-w-[380px] pointer-events-none z-[5]"
+        className="absolute right-[-4%] md:right-[3%] bottom-[8%] w-[60vw] md:w-[28vw] md:max-w-[380px] pointer-events-none z-[5]"
         style={{ transform: 'scaleX(-1)', filter: 'drop-shadow(-5px 9px 8.6px rgba(118,113,34,0.42))' }} />
 
       <DraggableBall sectionRef={sectionRef} />
