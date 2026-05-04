@@ -128,7 +128,7 @@ function PricingContent() {
                   ))}
                 </div>
                 <button onClick={() => openModal(0)}
-                  className="h-[52px] w-full rounded-full bg-black text-white font-semibold text-[15px] hover:bg-black/80 transition-colors duration-200">
+                  className="h-[52px] w-full rounded-full bg-black text-white font-semibold text-[15px] hover:bg-white hover:text-[#080603] transition-colors duration-200">
                   {p.standardCta}
                 </button>
               </div>

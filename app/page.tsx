@@ -5,8 +5,8 @@ import Header from '@/components/Header'
 import CountdownTimer from '@/components/CountdownTimer'
 import { LanguageProvider, useLanguage } from '@/lib/LanguageContext'
 
-const heroBgImage  = 'https://raw.githubusercontent.com/ore-del/la-fleur-worldcup/claude/world-cup-generate-page-vuHuO/Hero%20image.png'
-const heroBgMobile = 'https://raw.githubusercontent.com/ore-del/la-fleur-worldcup/claude/world-cup-generate-page-vuHuO/Hero%20phone%20img.png'
+const heroBgImage  = '/hero-bkg.png'
+const heroBgMobile = '/hero-phone.png'
 const imgGoal = 'https://raw.githubusercontent.com/ore-del/la-fleur-worldcup/claude/world-cup-generate-page-vuHuO/Post.png'
 const imgBall = 'https://raw.githubusercontent.com/ore-del/la-fleur-worldcup/claude/world-cup-generate-page-vuHuO/Ball.png'
 
@@ -18,9 +18,9 @@ const GOAL_Y    = 0.68
 const LAG       = 0.13
 
 const CONFETTI_COLORS = [
-  '#CB983A','#f0c060','#e8a82e','#daa520','#ffd700',
-  '#b8860b','#c8952a','#f5c518','#ffe066','#e6b830',
-  '#fffde7','#fff3cc','#ffffff','#2d1f00','#1a1200',
+  '#3b7046','#6db87e','#4a8a5a','#2d5c38','#5ea06e',
+  '#8ecf9e','#3d7a4e','#7abe8a','#a8d9b4','#245c30',
+  '#f0f8f2','#d4edd9','#ffffff','#1a3a20','#0d2015',
 ]
 
 function ConfettiCanvas({ active, onDone }: { active: boolean; onDone: () => void }) {
@@ -323,7 +323,7 @@ function FormModal({ onClose, defaultPkg }: { onClose: () => void; defaultPkg: 0
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
       <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={onClose} />
       <div className="relative z-10 w-full max-w-[640px] rounded-[24px] overflow-hidden shadow-[0_32px_80px_rgba(0,0,0,0.6)]">
-        <div className="absolute inset-0 bg-[rgba(30,28,26,0.96)] backdrop-blur-[30px] rounded-[24px] border border-[rgba(203,152,58,0.2)]" />
+        <div className="absolute inset-0 bg-[rgba(30,28,26,0.96)] backdrop-blur-[30px] rounded-[24px] border border-[rgba(59,112,70,0.2)]" />
         <div className="relative z-10 p-10">
           <button onClick={onClose} className="absolute top-5 right-6 text-white/40 hover:text-white/80 transition-colors text-[28px] leading-none font-light" aria-label="Close">×</button>
           {submitted ? (
@@ -337,25 +337,25 @@ function FormModal({ onClose, defaultPkg }: { onClose: () => void; defaultPkg: 0
               <h2 className="text-white font-bold text-[44px] tracking-[-1.5px] leading-none text-center mb-2">{c.headline}</h2>
               <p className="text-white/55 text-[16px] text-center mb-8">{c.sub}</p>
               <form onSubmit={handleSubmit}>
-                <div className="bg-white/[0.04] border border-[rgba(203,152,58,0.2)] rounded-[16px] p-[38px] flex flex-col">
+                <div className="bg-white/[0.04] border border-[rgba(59,112,70,0.2)] rounded-[16px] p-[38px] flex flex-col">
                   <label className="block text-[10px] font-bold text-white/45 tracking-[1.5px] mb-[10px]">{c.bizLabel}</label>
                   <input value={bizName} onChange={e => setBizName(e.target.value)} required placeholder={c.bizPlaceholder}
-                    className="bg-white/[0.06] border border-[rgba(203,152,58,0.3)] rounded-[8px] h-[48px] px-4 text-[14px] text-white placeholder:text-white/30 outline-none focus:border-[rgba(203,152,58,0.65)] transition-colors mb-[22px] w-full" />
+                    className="bg-white/[0.06] border border-[rgba(59,112,70,0.3)] rounded-[8px] h-[48px] px-4 text-[14px] text-white placeholder:text-white/30 outline-none focus:border-[rgba(59,112,70,0.65)] transition-colors mb-[22px] w-full" />
                   <label className="block text-[10px] font-bold text-white/45 tracking-[1.5px] mb-[10px]">{c.emailLabel}</label>
                   <input value={email} onChange={e => setEmail(e.target.value)} required type="email" placeholder={c.emailPlaceholder}
-                    className="bg-white/[0.06] border border-[rgba(203,152,58,0.3)] rounded-[8px] h-[48px] px-4 text-[14px] text-white placeholder:text-white/30 outline-none focus:border-[rgba(203,152,58,0.65)] transition-colors mb-[22px] w-full" />
+                    className="bg-white/[0.06] border border-[rgba(59,112,70,0.3)] rounded-[8px] h-[48px] px-4 text-[14px] text-white placeholder:text-white/30 outline-none focus:border-[rgba(59,112,70,0.65)] transition-colors mb-[22px] w-full" />
                   <label className="block text-[10px] font-bold text-white/45 tracking-[1.5px] mb-[10px]">{c.packageLabel}</label>
                   <div className="flex gap-3 mb-[30px]">
                     {c.packages.map((p, i) => (
                       <button key={i} type="button" onClick={() => setPkg(i as 0 | 1)}
-                        className={`flex-1 rounded-[8px] py-[12px] px-[12px] text-left transition-all border ${pkg === i ? 'bg-[rgba(203,152,58,0.1)] border-[rgba(203,152,58,0.5)]' : 'bg-white/[0.04] border-white/[0.12]'}`}>
-                        <p className={`font-semibold text-[14px] mb-1 ${pkg === i ? 'text-[#f0c060]' : 'text-white'}`}>{p.label}</p>
-                        <p className={`text-[12px] ${pkg === i ? 'text-[rgba(203,152,58,0.8)]' : 'text-white/45'}`}>{p.sub}</p>
+                        className={`flex-1 rounded-[8px] py-[12px] px-[12px] text-left transition-all border ${pkg === i ? 'bg-[rgba(59,112,70,0.1)] border-[rgba(59,112,70,0.5)]' : 'bg-white/[0.04] border-white/[0.12]'}`}>
+                        <p className={`font-semibold text-[14px] mb-1 ${pkg === i ? 'text-[#6db87e]' : 'text-white'}`}>{p.label}</p>
+                        <p className={`text-[12px] ${pkg === i ? 'text-[#6db87e]/70' : 'text-white/45'}`}>{p.sub}</p>
                       </button>
                     ))}
                   </div>
                   <button type="submit" disabled={loading}
-                    className="bg-[#cb983a] hover:bg-[#d4a84a] disabled:opacity-60 transition-colors h-[56px] rounded-[8px] text-[#080603] font-semibold text-[15px] w-full">
+                    className="bg-[#3b7046] hover:bg-[#6db87e] disabled:opacity-60 transition-colors h-[56px] rounded-[8px] text-white font-semibold text-[15px] w-full">
                     {loading ? 'Sending…' : c.submit}
                   </button>
                 </div>
@@ -412,7 +412,7 @@ function Hero({ onClaim }: { onClaim: () => void }) {
 
       <img alt="" src={imgGoal}
         className="absolute left-[3%] bottom-[8%] w-[28vw] max-w-[380px] pointer-events-none z-[5]"
-        style={{ filter: 'drop-shadow(4px 8px 12px rgba(188,135,46,0.7)) drop-shadow(0px 6px 6px rgba(0,0,0,0.2)) drop-shadow(0px 0px 20px rgba(0,0,0,0.1))' }} />
+        style={{ filter: 'drop-shadow(4px 8px 12px rgba(59,112,70,0.6)) drop-shadow(0px 6px 6px rgba(0,0,0,0.2)) drop-shadow(0px 0px 20px rgba(0,0,0,0.1))' }} />
       <img alt="" src={imgGoal}
         className="absolute right-[3%] bottom-[8%] w-[28vw] max-w-[380px] pointer-events-none z-[5]"
         style={{ transform: 'scaleX(-1)', filter: 'drop-shadow(4px 8px 12px rgba(188,135,46,0.7)) drop-shadow(0px 6px 6px rgba(0,0,0,0.2)) drop-shadow(0px 0px 20px rgba(0,0,0,0.1))' }} />
