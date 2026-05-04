@@ -18,9 +18,9 @@ const GOAL_Y    = 0.68
 const LAG       = 0.13
 
 const CONFETTI_COLORS = [
-  '#3b7046','#6db87e','#4a8a5a','#2d5c38','#5ea06e',
-  '#8ecf9e','#3d7a4e','#7abe8a','#a8d9b4','#245c30',
-  '#f0f8f2','#d4edd9','#ffffff','#1a3a20','#0d2015',
+  '#CB983A','#f0c060','#e8a82e','#daa520','#ffd700',
+  '#b8860b','#c8952a','#f5c518','#ffe066','#e6b830',
+  '#fffde7','#fff3cc','#ffffff','#2d1f00','#1a1200',
 ]
 
 function ConfettiCanvas({ active, onDone }: { active: boolean; onDone: () => void }) {
@@ -412,10 +412,10 @@ function Hero({ onClaim }: { onClaim: () => void }) {
 
       <img alt="" src={imgGoal}
         className="absolute left-[3%] bottom-[8%] w-[28vw] max-w-[380px] pointer-events-none z-[5]"
-        style={{ filter: 'drop-shadow(4px 8px 12px rgba(59,112,70,0.6)) drop-shadow(0px 6px 6px rgba(0,0,0,0.2)) drop-shadow(0px 0px 20px rgba(0,0,0,0.1))' }} />
+        style={{ filter: 'drop-shadow(3.75px 6.75px 6.83px rgba(118,113,34,0.42))' }} />
       <img alt="" src={imgGoal}
         className="absolute right-[3%] bottom-[8%] w-[28vw] max-w-[380px] pointer-events-none z-[5]"
-        style={{ transform: 'scaleX(-1)', filter: 'drop-shadow(4px 8px 12px rgba(188,135,46,0.7)) drop-shadow(0px 6px 6px rgba(0,0,0,0.2)) drop-shadow(0px 0px 20px rgba(0,0,0,0.1))' }} />
+        style={{ transform: 'scaleX(-1)' }} />
 
       <DraggableBall sectionRef={sectionRef} />
 
@@ -424,7 +424,7 @@ function Hero({ onClaim }: { onClaim: () => void }) {
           {h.headline}
         </h1>
         <button onClick={onClaim}
-          className="mt-8 bg-black text-white font-semibold text-[15px] rounded-full px-8 h-[52px] hover:bg-black/80 transition-colors duration-200">
+          className="mt-8 bg-black text-white font-semibold text-[15px] rounded-full px-8 h-[52px] hover:bg-white hover:text-[#080603] transition-colors duration-200">
           {cta.primary}
         </button>
       </div>

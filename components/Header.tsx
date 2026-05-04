@@ -59,7 +59,7 @@ export default function Header() {
                 src={imgLogo}
                 alt="La Fleur"
                 className="h-[42px] w-auto object-contain select-none"
-                style={{ marginTop: '-5px' }}
+                style={{ marginTop: '-1px' }}
                 onError={() => setLogoFailed(true)}
               />
             )}

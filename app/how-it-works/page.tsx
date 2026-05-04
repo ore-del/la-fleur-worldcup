@@ -138,7 +138,7 @@ function HowItWorksContent() {
               <p className="text-white font-semibold text-[15px]">Already a client? See what's ahead.</p>
               <p className="text-white/40 text-[13px] mt-1">Your month-by-month deliverables, milestones, and feedback process.</p>
             </div>
-            <a href="/timeline" className="shrink-0 text-[#6db87e] hover:text-[#6db87e] font-semibold text-[13px] transition-colors whitespace-nowrap">
+            <a href="/timeline" className="shrink-0 text-[#6db87e] hover:text-white font-semibold text-[13px] transition-colors whitespace-nowrap">
               View roadmap →
             </a>
           </div>
